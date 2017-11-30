@@ -25,7 +25,7 @@ namespace Vinbank
 
         public string Name
         {
-            get => default(int);
+            get => default(string);
             set
             {
             }
@@ -41,7 +41,7 @@ namespace Vinbank
 
         public bool IsConsumed
         {
-            get => default(int);
+            get => default(bool);
             set
             {
             }
