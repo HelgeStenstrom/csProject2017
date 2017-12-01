@@ -7,7 +7,7 @@ namespace Vinbank
 {
     public class Wine
     {
-        public WineTypes WineType
+        public WineType WineType
         {
             get => default(int);
             set
@@ -50,6 +50,22 @@ namespace Vinbank
         public int Vintage
         {
             get => default(int);
+            set
+            {
+            }
+        }
+
+        public CharacterTypes CharacterTypes
+        {
+            get => default(CharacterTypes);
+            set
+            {
+            }
+        }
+
+        public WineType WineType1
+        {
+            get => default(WineType);
             set
             {
             }

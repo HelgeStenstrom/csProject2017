@@ -1,7 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Comment CommentText="Pilarna som Visual Studio kan åstadkomma blir lite missvisande. De Properties och Fields som visas i klasserna är mer korrekta.">
+    <Position X="4.156" Y="5.01" Height="0.865" Width="2.367" />
+  </Comment>
   <Class Name="Vinbank.MainForm">
-    <Position X="3.5" Y="0.5" Width="2.5" />
+    <Position X="1.5" Y="0.5" Width="2.5" />
     <Members>
       <Field Name="components" Hidden="true" />
       <Method Name="Dispose" Hidden="true" />
@@ -11,26 +14,37 @@
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAAAAAACAAAACAAAAAAAAAAAAAAAAACA=</HashCode>
+      <HashCode>AAAAAAAAACAAAAAAAACAAAATAAAAAAAAAAAAAAAAACA=</HashCode>
       <FileName>MainForm.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="WineCellar" />
+      <Property Name="WineEntryForm" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="Vinbank.Wine">
-    <Position X="0.75" Y="3.25" Width="2.5" />
+    <Position X="1.25" Y="3" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAgIAAAAQAAAAAEACAQAAAAAAAAAAwAAAAAAAAA=</HashCode>
       <FileName>Wine.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="CharacterTypes" />
+      <Property Name="WineType1" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="Vinbank.WineCellar">
-    <Position X="4.25" Y="3.5" Width="2.75" />
+    <Position X="5.25" Y="2.25" Width="2.75" />
     <TypeIdentifier>
-      <HashCode>AEIAAAAIAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <HashCode>AEIAAAAIAAAAAAAAAAAABAAAAAAAAAAAAAAIAAAAAAE=</HashCode>
       <FileName>WineHandler.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Wine" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="Vinbank.WineEntryForm">
-    <Position X="0.75" Y="0.5" Width="2.5" />
+    <Position X="5.25" Y="0.5" Width="2.5" />
     <Members>
       <Method Name="Dispose" Hidden="true" />
       <Method Name="InitializeComponent" Hidden="true" />
@@ -39,19 +53,22 @@
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAAAAAACAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAACAAAAAAAACAAAACAAAAAAAAAAAIAAAAAAA=</HashCode>
       <FileName>WineEntryForm.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Wine" />
+    </ShowAsAssociation>
   </Class>
-  <Enum Name="Vinbank.CharacterTypes" Collapsed="true">
-    <Position X="6.25" Y="0.5" Width="1.5" />
+  <Enum Name="Vinbank.CharacterTypes">
+    <Position X="0.75" Y="6.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>CharacterTypes.cs</FileName>
     </TypeIdentifier>
   </Enum>
-  <Enum Name="Vinbank.WineTypes">
-    <Position X="7.75" Y="0.5" Width="1.5" />
+  <Enum Name="Vinbank.WineType">
+    <Position X="2.75" Y="6.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>WineTypes.cs</FileName>

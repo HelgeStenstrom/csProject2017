@@ -15,6 +15,14 @@ namespace Vinbank
             }
         }
 
+        public Wine Wine
+        {
+            get => default(Wine);
+            set
+            {
+            }
+        }
+
         /// <returns>A list of wines yet not consumed, in the wine cellar.</returns>
         public Wine GetNonConsumed()
         {

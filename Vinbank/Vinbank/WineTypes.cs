@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Vinbank
 {
-    public enum WineTypes
+    public enum WineType
     {
         Red
     }

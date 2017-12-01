@@ -18,5 +18,21 @@ namespace Vinbank
         {
             InitializeComponent();
         }
+
+        public WineCellar WineCellar
+        {
+            get => default(WineCellar);
+            set
+            {
+            }
+        }
+
+        public WineEntryForm WineEntryForm
+        {
+            get => default(WineEntryForm);
+            set
+            {
+            }
+        }
     }
 }

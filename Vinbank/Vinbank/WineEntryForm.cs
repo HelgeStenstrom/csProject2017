@@ -21,5 +21,13 @@ namespace Vinbank
         {
             throw new System.NotImplementedException();
         }
+
+        public Wine Wine
+        {
+            get => default(Wine);
+            set
+            {
+            }
+        }
     }
 }
