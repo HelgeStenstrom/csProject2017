@@ -49,5 +49,14 @@ namespace Vinbank
         {
             throw new System.NotImplementedException();
         }
+
+        /// <summary>
+        /// Change the details of an existing wine
+        /// </summary>
+        /// <param name="index">Points to the wine to edit</param>
+        public void Edit(int index)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

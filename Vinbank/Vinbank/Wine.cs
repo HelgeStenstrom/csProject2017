@@ -7,6 +7,12 @@ namespace Vinbank
 {
     public class Wine
     {
+        /// <param name="wine">Copy constructor</param>
+        public Wine(Wine wine)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public WineType WineType
         {
             get => default(int);

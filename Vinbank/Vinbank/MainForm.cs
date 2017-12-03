@@ -34,5 +34,13 @@ namespace Vinbank
             {
             }
         }
+
+        /// <summary>
+        /// Respond to clicks in the form.
+        /// </summary>
+        public void VariousClickMethods()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

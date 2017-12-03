@@ -12,6 +12,11 @@ namespace Vinbank
 {
     public partial class WineEntryForm : Form
     {
+        /// <summary>
+        /// The wine that corresponds to the GUI fields.
+        /// </summary>
+        private Wine workingWine;
+
         public WineEntryForm()
         {
             InitializeComponent();
@@ -28,6 +33,11 @@ namespace Vinbank
             set
             {
             }
+        }
+
+        public void VariousClickMethods()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
