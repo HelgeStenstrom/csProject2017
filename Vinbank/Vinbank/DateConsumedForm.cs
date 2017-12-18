@@ -9,7 +9,7 @@ namespace Vinbank
     {
         public Wine Wine
         {
-            get => default(int);
+            get => default(Wine);
             set
             {
             }
@@ -17,7 +17,7 @@ namespace Vinbank
 
         public DateTime DateConsumed
         {
-            get => default(int);
+            get => default(DateTime);
             set
             {
             }
