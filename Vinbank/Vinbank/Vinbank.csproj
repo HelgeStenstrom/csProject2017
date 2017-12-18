@@ -62,6 +62,12 @@
     <Compile Include="WineEntryForm.Designer.cs">
       <DependentUpon>WineEntryForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="WineForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WineForm.Designer.cs">
+      <DependentUpon>WineForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="WineHandler.cs" />
     <Compile Include="WineTypes.cs" />
     <EmbeddedResource Include="MainForm.resx">
@@ -76,6 +82,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="WineForm.resx">
+      <DependentUpon>WineForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

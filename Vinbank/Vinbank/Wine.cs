@@ -7,12 +7,23 @@ namespace Vinbank
 {
     public class Wine
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        public Wine()
+        {
+
+        }
+
         /// <param name="wine">Copy constructor</param>
         public Wine(Wine wine)
         {
-            throw new System.NotImplementedException();
+            this.Name = Name;
         }
 
+        /// <summary>
+        /// Property, read and write access
+        /// </summary>
         public WineType WineType
         {
             get => default(int);
@@ -21,6 +32,9 @@ namespace Vinbank
             }
         }
 
+        /// <summary>
+        /// Prperty, read and write access
+        /// </summary>
         public CharacterTypes CharacterType
         {
             get => default(CharacterTypes);
@@ -29,6 +43,9 @@ namespace Vinbank
             }
         }
 
+        /// <summary>
+        /// Property, read and write access
+        /// </summary>
         public string Name
         {
             get => default(string);
@@ -37,6 +54,9 @@ namespace Vinbank
             }
         }
 
+        /// <summary>
+        /// Property, read and write access
+        /// </summary>
         public DateTime DateAdded
         {
             get => default(DateTime);
@@ -45,6 +65,9 @@ namespace Vinbank
             }
         }
 
+        /// <summary>
+        /// Property, read and write access
+        /// </summary>
         public bool IsConsumed
         {
             get => default(bool);
@@ -53,6 +76,9 @@ namespace Vinbank
             }
         }
 
+        /// <summary>
+        /// Property, read and write access
+        /// </summary>
         public int Vintage
         {
             get => default(int);
@@ -61,6 +87,9 @@ namespace Vinbank
             }
         }
 
+        /// <summary>
+        /// Property, read and write access
+        /// </summary>
         public CharacterTypes CharacterTypes
         {
             get => default(CharacterTypes);
@@ -69,19 +98,27 @@ namespace Vinbank
             }
         }
 
-        public WineType WineType1
+
+
+
+        public bool Checkdata()
         {
-            get => default(WineType);
-            set
-            {
-            }
+            bool validName = !(string.IsNullOrWhiteSpace(Name));
+            return (validName);
         }
 
-        public void Consume()
+
+        /// <summary>
+        /// Method,   
+        /// </summary>
+            public void Consume()
         {
             throw new System.NotImplementedException();
         }
 
+        /// <summary>
+        /// Method,  
+        /// </summary>
         public void Unconsume()
         {
             throw new System.NotImplementedException();

@@ -30,7 +30,6 @@
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="CharacterTypes" />
-      <Property Name="WineType1" />
     </ShowAsAssociation>
   </Class>
   <Class Name="Vinbank.WineCellar">
@@ -75,7 +74,7 @@
   <Enum Name="Vinbank.WineType">
     <Position X="6" Y="6" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAgAAAAEAIAAAAAAAAAAAAAQA=</HashCode>
       <FileName>WineTypes.cs</FileName>
     </TypeIdentifier>
   </Enum>
