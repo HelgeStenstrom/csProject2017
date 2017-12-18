@@ -7,6 +7,6 @@ namespace Vinbank
 {
     public enum WineType
     {
-        Red
+        Rött, Vitt, Sött, Rosé
     }
 }
