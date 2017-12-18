@@ -8,39 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Vinbank
+namespace Winecellar
 {
     public partial class MainForm : Form
     {
-        private WineEntryForm entryForm;
+        private WineManager wineManagerObj = new WineManager();
 
         public MainForm()
         {
             InitializeComponent();
         }
 
-        public WineManager WineCellar
-        {
-            get => default(WineManager);
-            set
-            {
-            }
-        }
 
-        public WineEntryForm WineEntryForm
-        {
-            get => default(WineEntryForm);
-            set
-            {
-            }
-        }
-
-        /// <summary>
-        /// Respond to clicks in the form.
-        /// </summary>
-        public void VariousClickMethods()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

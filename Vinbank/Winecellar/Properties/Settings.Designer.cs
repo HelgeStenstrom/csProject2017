@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Vinbank.Properties
+namespace Winecellar.Properties
 {
 
 

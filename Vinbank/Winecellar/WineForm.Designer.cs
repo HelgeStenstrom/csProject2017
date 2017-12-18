@@ -1,4 +1,4 @@
-﻿namespace Vinbank
+﻿namespace Winecellar
 {
     partial class WineForm
     {

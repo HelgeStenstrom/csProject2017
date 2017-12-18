@@ -55,8 +55,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Vinbank\Winecellar.csproj">
-      <Project>{490F85D1-6533-4229-AD39-671DF3BA4917}</Project>
+    <ProjectReference Include="..\Winecellar\Winecellar.csproj">
+      <Project>{490f85d1-6533-4229-ad39-671df3ba4917}</Project>
       <Name>Winecellar</Name>
     </ProjectReference>
   </ItemGroup>

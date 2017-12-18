@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Vinbank;
+using Winecellar;
 
 namespace VinTest
 {
@@ -11,14 +11,15 @@ namespace VinTest
         public void TestMethod1()
         {
             // Setup
-            WineCellar wineCellar = new WineCellar();
+            WineManager wineCellar = new WineManager();
             Wine wine = new Wine();
 
             // Exercise
             wineCellar.Add(wine);
+            wineCellar.Add(wine);
 
             // Verify
-
+            Assert.AreEqual(2, wineCellar.WineCount);
 
         }
     }
