@@ -8,38 +8,51 @@ namespace Vinbank
     public class WineManager
     {
 
+        private List<Wine> wines; //declare list of wine
+
+        ///// <summary>
+        ///// Property
+        ///// </summary>
+        //public List<Wine> WineList
+        //{
+        //    get => default(List<Wine>);
+        //    set
+        //    {
+        //    }
+        //}
+
+        //public Wine Wine
+        //{
+        //    get => default(Wine);
+        //    set
+        //    {
+        //    }
+        //}
 
         /// <summary>
-        /// Property
+        /// Property returning number of wines
+        /// Only read access
         /// </summary>
-        public List<Wine> WineList
+        public int WineCount
         {
-            get => default(List<Wine>);
-            set
-            {
-            }
+            get => wines.Count;
         }
 
-        public Wine Wine
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        public WineManager()
         {
-            get => default(Wine);
-            set
-            {
-            }
-        }
-
-        /// <returns>A list of wines yet not consumed, in the wine cellar.</returns>
-        public Wine GetNonConsumed()
-        {
-            throw new System.NotImplementedException();
+            wines = new List<Wine>(); //create list of wines
         }
 
         /// <summary>
         /// Add a wine to the wine cellar
         /// </summary>
-        public void Add(Wine wine)
+        public void Add(Wine wineIn)
         {
-            throw new System.NotImplementedException();
+            Wine wineObj = new Wine(wineIn); //declare and create  wine object
+            wines.Add(wineObj);
         }
 
         /// <summary>
@@ -63,5 +76,12 @@ namespace Vinbank
         {
             throw new System.NotImplementedException();
         }
+
+        /// <returns>A list of wines yet not consumed, in the wine cellar.</returns>
+        public Wine GetNonConsumed()
+        {
+            throw new System.NotImplementedException();
+        }
+
     }
 }
