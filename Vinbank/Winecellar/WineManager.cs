@@ -55,6 +55,9 @@ namespace Vinbank
             wines.Add(wineObj);
         }
 
+
+
+
         /// <summary>
         /// Mark the wine pointed to by the index, as consumed.
         /// </summary>

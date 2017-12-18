@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Comment CommentText="Pilarna som Visual Studio kan åstadkomma blir lite missvisande. De Properties och Fields som visas i klasserna är mer korrekta.">
+    <Position X="2.802" Y="5.26" Height="1.688" Width="2.367" />
+  </Comment>
+  <Comment CommentText="En DateConsumedForm skapas vid behov, troligen av MainForm. Den används för att lagra och editera vilket datum man har kunsumerat ett vin.">
+    <Position X="0.635" Y="1.521" Height="1.125" Width="2.044" />
+  </Comment>
+  <Class Name="Vinbank.MainForm">
+    <Position X="3" Y="0.5" Width="2.5" />
+    <Members>
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAACAAAATAAAAAAAIAAAAAAAAACA=</HashCode>
+      <FileName>MainForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Vinbank.WineManager">
+    <Position X="6.75" Y="2.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AEIAAAAIAAAAAAAAAAAABAAAAAAAAAACAAAIAAAAAAE=</HashCode>
+      <FileName>WineManager.cs</FileName>
+      <NewMemberFileName>Wine.cs</NewMemberFileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Vinbank.DateConsumedForm">
+    <Position X="0.5" Y="3" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAEAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>DateConsumedForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Vinbank.CharacterTypes">
+    <Position X="8" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CharacterTypes.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Vinbank.WineType">
+    <Position X="6" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAgAAAAEAIAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>WineTypes.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
