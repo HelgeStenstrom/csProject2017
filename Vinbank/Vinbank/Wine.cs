@@ -100,7 +100,10 @@ namespace Vinbank
 
 
 
-
+        /// <summary>
+        /// Check if input is valid.
+        /// </summary>
+        /// <returns>True or false</returns>
         public bool Checkdata()
         {
             bool validName = !(string.IsNullOrWhiteSpace(Name));

@@ -5,8 +5,13 @@ using System.Text;
 
 namespace Vinbank
 {
-    public class WineCellar
+    public class WineManager
     {
+
+
+        /// <summary>
+        /// Property
+        /// </summary>
         public List<Wine> WineList
         {
             get => default(List<Wine>);

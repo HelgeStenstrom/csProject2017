@@ -19,9 +19,9 @@ namespace Vinbank
             InitializeComponent();
         }
 
-        public WineCellar WineCellar
+        public WineManager WineCellar
         {
-            get => default(WineCellar);
+            get => default(WineManager);
             set
             {
             }
