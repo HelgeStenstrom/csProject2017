@@ -15,24 +15,35 @@ namespace Winecellar
 
         private Wine wineObj; //declare wineObj as type Wine
 
-       // private bool closeForm; // flag to handle closing of form
-
+        /// <summary>
+        /// Property related to wine object
+        /// </summary> 
+        public Wine WineData
+        {
+            get => wineObj;
+            set
+            {
+                wineObj = value;
+                UpdateGui();
+            }
+        }
 
         /// <summary>
-        /// default constructor
+        /// default constructor with one parameter
         /// </summary>
-        public WineForm()
+        public WineForm(string title)
         {
             InitializeComponent();
-            InitializeGui();
+            InitializeGui(title);
             wineObj = new Wine(); // create wineObj
         }
 
         /// <summary>
         /// Initialize user interface
         /// </summary>
-        private void InitializeGui()
+        private void InitializeGui(string title)
         {
+            this.Text = title;
             txtWineName.Clear();
             txtWineName.Focus();
             btnSave.Enabled = false; //grey out Save (Spara) button

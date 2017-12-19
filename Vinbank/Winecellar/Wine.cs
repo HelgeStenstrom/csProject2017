@@ -33,7 +33,7 @@ namespace Winecellar
         }
 
         /// <summary>
-        /// Prperty, read and write access
+        /// Property, read and write access
         /// </summary>
         public CharacterTypes CharacterType
         {
