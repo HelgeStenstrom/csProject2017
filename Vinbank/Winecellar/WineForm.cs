@@ -37,7 +37,7 @@ namespace Winecellar
             txtWineName.Clear();
             txtWineName.Focus();
             btnSave.Enabled = false; //grey out Save (Spara) button
-            closeForm = true;
+            //closeForm = true;
             UpdateGui();
         }
 

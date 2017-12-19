@@ -19,6 +19,12 @@ namespace Winecellar
             InitializeComponent();
         }
 
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            var dialog = new WineForm();
+            var result = dialog.ShowDialog();
 
+            lblResultFromWineForm.Text = result.ToString();
+        }
     }
 }
