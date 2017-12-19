@@ -17,6 +17,19 @@ namespace Winecellar
         public MainForm()
         {
             InitializeComponent();
+            UpdateTable(); 
+        }
+
+        private void UpdateTable()
+        {
+            lstvWines.Items.Clear();
+            foreach (var wineForRow in wineManagerObj.WinesAsRows)
+            {
+                // Create a row of the data
+                ListViewItem tableRow = new ListViewItem(wineForRow);
+                // and add it to the ListView
+                lstvWines.Items.Add(tableRow);
+            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

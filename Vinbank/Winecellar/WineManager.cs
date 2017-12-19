@@ -86,5 +86,19 @@ namespace Winecellar
             throw new System.NotImplementedException();
         }
 
+        public List<String[]> WinesAsRows
+        {
+            get
+            {
+                List<string[]> listOfCellsForOneRow = new List<string[]>();
+                foreach (var wine in wines)
+                {
+                    // TODO: fyll på med fakta från ett vin istället.
+                    listOfCellsForOneRow.Add(wine.RowStrings);
+                }
+                return listOfCellsForOneRow;
+            }
+        }
+
     }
 }

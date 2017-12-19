@@ -126,5 +126,16 @@ namespace Winecellar
         {
             throw new System.NotImplementedException();
         }
+
+        /// <summary>
+        /// Strings used to fill a row in a ListView.
+        /// </summary>
+        public string[] RowStrings => new string[] {
+            // TODO: Fyll på med fakta, matchande kolumnerna i MainForm.
+                   WineName,
+                   "annat fakta"
+                    };
+
+
     }
 }
