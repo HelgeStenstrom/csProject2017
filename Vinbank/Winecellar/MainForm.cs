@@ -21,7 +21,7 @@ namespace Winecellar
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            var dialog = new WineForm();
+            WineForm dialog = new WineForm();
             var result = dialog.ShowDialog();
 
             lblResultFromWineForm.Text = result.ToString();

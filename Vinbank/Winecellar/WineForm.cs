@@ -26,7 +26,6 @@ namespace Winecellar
             InitializeComponent();
             InitializeGui();
             wineObj = new Wine(); // create wineObj
-            //UpdateGui();
         }
 
         /// <summary>
@@ -37,8 +36,6 @@ namespace Winecellar
             txtWineName.Clear();
             txtWineName.Focus();
             btnSave.Enabled = false; //grey out Save (Spara) button
-            //closeForm = true;
-            UpdateGui();
         }
 
         /// <summary>
@@ -55,9 +52,8 @@ namespace Winecellar
             /// <param name="sender"></param>
             /// <param name="e"></param>
             private void txtWineName_TextChanged(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrWhiteSpace(txtWineName.Text))
-                btnSave.Enabled = true; 
+        {            
+            btnSave.Enabled = !string.IsNullOrWhiteSpace(txtWineName.Text); 
         }
 
         /// <summary>
@@ -85,7 +81,7 @@ namespace Winecellar
             if (DialogResult == DialogResult.OK)
                 e.Cancel = false;
             else
-                e.Cancel = CancelFormQuestion();
+                e.Cancel = !CancelFormQuestion();
         }
 
         /// <summary>
