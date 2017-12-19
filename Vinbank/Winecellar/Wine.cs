@@ -12,13 +12,22 @@ namespace Winecellar
         /// </summary>
         public Wine()
         {
+            // TODO: Kom ihåg att när denna används, är inte Wine-objektet fullständigt. Det måste få data.
+        }
 
+        public Wine(string name, WineType wineType, bool isConsumed)
+        {
+            this.WineName = name;
+            this.WineType = wineType;
+            this.IsConsumed = isConsumed;
+            // TODO: Gör fullständig. Alla fields ska ha anropsparameterar.        
         }
 
         /// <param name="wine">Copy constructor</param>
-        public Wine(Wine wine)
+        public Wine(Wine other)
         {
-            this.WineName = WineName;
+            this.WineName = other.WineName;
+            // TODO: Copy constructorn behöver fler delar.
         }
 
         /// <summary>
@@ -48,10 +57,8 @@ namespace Winecellar
         /// </summary>
         public string WineName
         {
-            get => default(string);
-            set
-            {
-            }
+            get;
+            set;
         }
 
         /// <summary>

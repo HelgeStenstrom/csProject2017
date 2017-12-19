@@ -74,7 +74,13 @@ namespace Winecellar
         /// <param name="e"></param>
         private void btnSave_Click(object sender, EventArgs e)
         {
+            UpdateWineFromForm();
+        }
+
+        private void UpdateWineFromForm()
+        {
             wineObj.WineName = txtWineName.Text;
+            // TODO: Gör flera fält i formuläret, kopiera dem till vinet.
         }
 
 

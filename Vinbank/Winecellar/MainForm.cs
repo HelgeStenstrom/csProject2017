@@ -34,10 +34,18 @@ namespace Winecellar
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            WineForm dialog = new WineForm();
+            // TODO: hitta på bättre formulärrubrik.
+            WineForm dialog = new WineForm("Lägg till vin");
             var result = dialog.ShowDialog();
 
             lblResultFromWineForm.Text = result.ToString();
+            if (result == DialogResult.OK)
+            {
+                // TODO: Skriv färdigt nästa rader
+                Wine wine = dialog.WineData;
+                wineManagerObj.Add(wine);
+            }
+            UpdateTable();
         }
     }
 }
