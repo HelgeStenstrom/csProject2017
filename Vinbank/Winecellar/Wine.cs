@@ -18,7 +18,7 @@ namespace Winecellar
         /// <param name="wine">Copy constructor</param>
         public Wine(Wine wine)
         {
-            this.Name = Name;
+            this.WineName = WineName;
         }
 
         /// <summary>
@@ -46,7 +46,7 @@ namespace Winecellar
         /// <summary>
         /// Property, read and write access
         /// </summary>
-        public string Name
+        public string WineName
         {
             get => default(string);
             set
@@ -106,7 +106,7 @@ namespace Winecellar
         /// <returns>True or false</returns>
         public bool Checkdata()
         {
-            bool validName = !(string.IsNullOrWhiteSpace(Name));
+            bool validName = !(string.IsNullOrWhiteSpace(WineName));
             return (validName);
         }
 

@@ -49,24 +49,29 @@
             this.txtWineName.Name = "txtWineName";
             this.txtWineName.Size = new System.Drawing.Size(560, 22);
             this.txtWineName.TabIndex = 1;
+            this.txtWineName.TextChanged += new System.EventHandler(this.txtWineName_TextChanged);
             // 
             // btnSave
             // 
+            this.btnSave.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnSave.Location = new System.Drawing.Point(145, 85);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(88, 27);
             this.btnSave.TabIndex = 2;
             this.btnSave.Text = "Spara";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Location = new System.Drawing.Point(310, 85);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(88, 27);
             this.btnCancel.TabIndex = 3;
             this.btnCancel.Text = "Avbryt";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // WineForm
             // 
@@ -79,6 +84,7 @@
             this.Controls.Add(this.lblName);
             this.Name = "WineForm";
             this.Text = "WineForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.WineForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
