@@ -58,7 +58,7 @@ namespace Winecellar
         }
 
             /// <summary>
-            /// Check text and ungrey Save (Spara) button 
+            /// Check text and ungrey Spara button 
             /// </summary>
             /// <param name="sender"></param>
             /// <param name="e"></param>
@@ -107,7 +107,7 @@ namespace Winecellar
         /// <returns></returns>
         private bool CancelFormQuestion()
         {
-                MessageBoxButtons okButton = MessageBoxButtons.OKCancel;
+                MessageBoxButtons okButton = MessageBoxButtons.YesNo;
                 DialogResult result = MessageBox.Show("Vill du slänga alla ändringar?",
                     "Bekräfta!", okButton);
                 return (result == DialogResult.OK);
