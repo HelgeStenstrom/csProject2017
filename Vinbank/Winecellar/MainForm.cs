@@ -47,5 +47,25 @@ namespace Winecellar
             }
             UpdateTable();
         }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            if (lstvWines.SelectedIndices.Count == 1)
+            {
+                // TODO: redigera rätt vin
+                UpdateTable();
+                throw new NotImplementedException();
+            }
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            if (lstvWines.SelectedIndices.Count == 1)
+            {
+                // TODO: ta bort rätt vin
+                UpdateTable();
+                throw new NotImplementedException();
+            }
+        }
     }
 }

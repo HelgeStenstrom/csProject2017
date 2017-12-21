@@ -79,9 +79,17 @@ namespace Winecellar
         /// Change the details of an existing wine
         /// </summary>
         /// <param name="index">Points to the wine to edit</param>
-        public void Edit(int index)
+        public Wine Get(int index)
         {
-            throw new System.NotImplementedException();
+            return wines[index];
+        }
+
+        public bool ChangeWine(Wine wine, int index)
+        {
+            if (index >= wines.Count)
+                return false;
+            wines[index] = wine;
+            return true;
         }
 
         /// <returns>A list of wines yet not consumed, in the wine cellar.</returns>
