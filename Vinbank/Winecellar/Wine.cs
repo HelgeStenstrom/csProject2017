@@ -27,6 +27,7 @@ namespace Winecellar
         public Wine(Wine other)
         {
             this.WineName = other.WineName;
+            this.Vintage = other.Vintage;
             // TODO: Copy constructorn behöver fler delar.
         }
 

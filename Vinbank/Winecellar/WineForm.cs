@@ -80,6 +80,8 @@ namespace Winecellar
         private void UpdateWineFromForm()
         {
             wineObj.WineName = txtWineName.Text;
+            wineObj.Vintage = (int)numYear.Value;
+            wineObj.DateAdded = dateTimePicker1.Value.Date;
             // TODO: Gör flera fält i formuläret, kopiera dem till vinet.
         }
 
@@ -116,5 +118,25 @@ namespace Winecellar
                 return (result == DialogResult.Yes);
         }
 
+        /// <summary>
+        /// Create DateTimePicker, set max/min date, display control.
+        /// </summary>
+        //public void CreateMyDateTimePicker()
+        //{
+        //    // Create a new DateTimePicker control and initialize it.
+        //    DateTimePicker dateTimePicker1 = new DateTimePicker();
+
+        //    // Set the MinDate and MaxDate.
+        //    dateTimePicker1.MinDate = new DateTime(1900, 01, 01);
+        //    dateTimePicker1.MaxDate = new DateTime(2100, 12, 31);
+
+        //    // Set the CustomFormat string.
+        //    dateTimePicker1.CustomFormat = "yyyy MM dd";
+        //    dateTimePicker1.Format = DateTimePickerFormat.Custom;
+
+        //    // Show the CheckBox and display the control as an up-down control.
+        //    dateTimePicker1.ShowCheckBox = true;
+        //    dateTimePicker1.ShowUpDown = true;
+        //}
     } //close class
 }//close namespace
