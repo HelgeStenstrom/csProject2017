@@ -92,12 +92,20 @@ namespace Winecellar
             return true;
         }
 
-        /// <returns>A list of wines yet not consumed, in the wine cellar.</returns>
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public Wine GetNonConsumed()
         {
             throw new System.NotImplementedException();
         }
 
+
+        /// <summary>
+        /// Construct texts for the wine table that is used in the MainForm. 
+        /// One list item per wine, each item being a string array of table cells.
+        /// </summary>
         public List<String[]> WinesAsRows
         {
             get

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
             this.lstvWines = new System.Windows.Forms.ListView();
             this.colName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colTwo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -38,15 +37,6 @@
             this.lblResultFromWineForm = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(124, 93);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // lstvWines
             // 
             this.lstvWines.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -55,13 +45,14 @@
             this.lstvWines.FullRowSelect = true;
             this.lstvWines.GridLines = true;
             this.lstvWines.HideSelection = false;
-            this.lstvWines.Location = new System.Drawing.Point(34, 131);
+            this.lstvWines.Location = new System.Drawing.Point(18, 12);
             this.lstvWines.MultiSelect = false;
             this.lstvWines.Name = "lstvWines";
-            this.lstvWines.Size = new System.Drawing.Size(229, 97);
+            this.lstvWines.Size = new System.Drawing.Size(378, 232);
             this.lstvWines.TabIndex = 1;
             this.lstvWines.UseCompatibleStateImageBehavior = false;
             this.lstvWines.View = System.Windows.Forms.View.Details;
+            this.lstvWines.SelectedIndexChanged += new System.EventHandler(this.lstvWines_SelectedIndexChanged);
             // 
             // colName
             // 
@@ -106,21 +97,20 @@
             this.lblResultFromWineForm.AutoSize = true;
             this.lblResultFromWineForm.Location = new System.Drawing.Point(60, 313);
             this.lblResultFromWineForm.Name = "lblResultFromWineForm";
-            this.lblResultFromWineForm.Size = new System.Drawing.Size(35, 13);
+            this.lblResultFromWineForm.Size = new System.Drawing.Size(143, 13);
             this.lblResultFromWineForm.TabIndex = 5;
-            this.lblResultFromWineForm.Text = "label1";
+            this.lblResultFromWineForm.Text = "Dialogresultat från WineForm";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(397, 338);
+            this.ClientSize = new System.Drawing.Size(409, 338);
             this.Controls.Add(this.lblResultFromWineForm);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.lstvWines);
-            this.Controls.Add(this.button1);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "Vinkällaren";
@@ -130,8 +120,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ListView lstvWines;
         private System.Windows.Forms.ColumnHeader colName;
         private System.Windows.Forms.ColumnHeader colTwo;
