@@ -20,10 +20,10 @@ namespace Winecellar
         /// </summary> 
         public Wine WineData
         {
-            get => wineObj;
+            get => new Wine(wineObj);
             set
             {
-                wineObj = value;
+                wineObj = new Wine(value);
                 UpdateGui();
             }
         }
@@ -57,12 +57,12 @@ namespace Winecellar
             txtWineName.Text = wineObj.WineName;
         }
 
-            /// <summary>
-            /// Check text and ungrey Spara button 
-            /// </summary>
-            /// <param name="sender"></param>
-            /// <param name="e"></param>
-            private void txtWineName_TextChanged(object sender, EventArgs e)
+        /// <summary>
+        /// Check text and ungrey Spara button 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtWineName_TextChanged(object sender, EventArgs e)
         {            
             btnSave.Enabled = !string.IsNullOrWhiteSpace(txtWineName.Text); 
         }
@@ -98,7 +98,10 @@ namespace Winecellar
             if (DialogResult == DialogResult.OK)
                 e.Cancel = false;
             else
+            {
+                // TODO: fundera på när konfirmering ska användas.
                 e.Cancel = !CancelFormQuestion();
+            }
         }
 
         /// <summary>
@@ -110,7 +113,7 @@ namespace Winecellar
                 MessageBoxButtons okButton = MessageBoxButtons.YesNo;
                 DialogResult result = MessageBox.Show("Vill du slänga alla ändringar?",
                     "Bekräfta!", okButton);
-                return (result == DialogResult.OK);
+                return (result == DialogResult.Yes);
         }
 
     } //close class

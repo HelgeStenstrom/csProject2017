@@ -18,7 +18,6 @@ namespace Winecellar
         {
             InitializeComponent();
             UpdateTable();
-            EnableButtonsIfOneWineSelected();
         }
 
         private void UpdateTable()
@@ -31,18 +30,25 @@ namespace Winecellar
                 // and add it to the ListView
                 lstvWines.Items.Add(tableRow);
             }
+            EnableButtonsIfOneWineSelected();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            WineForm dialog = new WineForm("Lägg till vin");
-            var result = dialog.ShowDialog();
+            WineForm wineFormObj = new WineForm("Lägg till vin");
+            if (lstvWines.SelectedIndices.Count == 1)
+            {
+                int selectedIndex = lstvWines.SelectedIndices[0];
+                wineFormObj.WineData = wineManagerObj.Get(selectedIndex);
+            }
+            var result = wineFormObj.ShowDialog();
 
+            // Temporär label för att visa vad vi får för returnerat värde från WineForm
             lblResultFromWineForm.Text = result.ToString();
+
             if (result == DialogResult.OK)
             {
-                // TODO: Skriv färdigt nästa rader
-                Wine wine = dialog.WineData;
+                Wine wine = wineFormObj.WineData;
                 wineManagerObj.Add(wine);
             }
             UpdateTable();
@@ -53,21 +59,18 @@ namespace Winecellar
             if (lstvWines.SelectedIndices.Count == 1) 
                 // Not needed, actually, since we can't click the button if it's not true.
             {
-                // TODO: redigera rätt vin
-                int selected = lstvWines.SelectedIndices[0];
-                Wine toEdit = wineManagerObj.Get(selected);
+                int selectedIndex = lstvWines.SelectedIndices[0];
 
-                WineForm dialog = new WineForm("Lägg till vin");
-                dialog.WineData = toEdit;
-                var result = dialog.ShowDialog();
+                WineForm wineFormObj = new WineForm("Ändra vin");
+                wineFormObj.WineData = wineManagerObj.Get(selectedIndex);
+                var result = wineFormObj.ShowDialog();
 
                 lblResultFromWineForm.Text = result.ToString();
+
                 if (result == DialogResult.OK)
                 {
-                    // TODO: man kan inte avbryta
-                    // TODO: Skriv färdigt nästa rader
-                    Wine wine = dialog.WineData;
-                    // wineManagerObj.Add(wine);
+                    Wine wine = wineFormObj.WineData;
+                    wineManagerObj.ChangeWine(wine, selectedIndex);
                 }
                 UpdateTable();
             }
@@ -77,21 +80,21 @@ namespace Winecellar
         {
             if (lstvWines.SelectedIndices.Count == 1)
             {
-                int selected = lstvWines.SelectedIndices[0];
-                string selectedName = wineManagerObj.Get(selected).WineName;
+                int selectedIndex = lstvWines.SelectedIndices[0];
+                string selectedName = wineManagerObj.Get(selectedIndex).WineName;
                 if (ConfirmDialog($"Vill du ta bort {selectedName}?"))
-                    wineManagerObj.Remove(selected);
+                    wineManagerObj.Remove(selectedIndex);
                 UpdateTable();
             }
         }
 
-        private bool ConfirmDialog(string propmpt)
+        private bool ConfirmDialog(string prompt)
         {
-            MessageBoxButtons okButton = MessageBoxButtons.OKCancel;
-            DialogResult result = MessageBox.Show(propmpt,
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(prompt,
                 "Är du säker?",
-                okButton);
-            return (result == DialogResult.OK);
+                buttons);
+            return (result == DialogResult.Yes);
         }
 
         private void lstvWines_SelectedIndexChanged(object sender, EventArgs e)
