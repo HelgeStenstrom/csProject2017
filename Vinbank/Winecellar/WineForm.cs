@@ -47,10 +47,11 @@ namespace Winecellar
             txtWineName.Clear();
             txtWineName.Focus();
             numYear.Value = Convert.ToDecimal(DateTime.Now.ToString(@"yyyy"));
-            cboCountry.DataSource = GetAllCountryStrings();
-            cboWineType.DataSource = GetAllWineTypeStrings(); //populate WineType combobox
-
-
+            cboCountry.DataSource = GetAllCountryStrings(); //populate Land combobox
+            cboWineType.DataSource = GetAllWineTypeStrings(); //populate Typ combobox
+            chbIsConsumed.Checked = false;
+            lblDateConsumed.Enabled = false;
+            dtpDateConsumed.Enabled = false;
             btnSave.Enabled = false; // disable Spara button
         }
 
@@ -92,6 +93,13 @@ namespace Winecellar
             cboCountry.SelectedIndex = (int)wineObj.Country;
             cboWineType.SelectedIndex = (int)wineObj.WineType;
             dtpDateAdded.Value = wineObj.DateAdded;
+            chbIsConsumed.Checked = wineObj.IsConsumed;
+            if (chbIsConsumed.Enabled)
+            {
+                lblDateConsumed.Enabled = true;
+                dtpDateConsumed.Enabled = true;
+                dtpDateConsumed.Value = wineObj.DateConsumed;
+            }
         }
 
         /// <summary>
@@ -102,6 +110,17 @@ namespace Winecellar
         private void txtWineName_TextChanged(object sender, EventArgs e)
         {            
             btnSave.Enabled = !string.IsNullOrWhiteSpace(txtWineName.Text); 
+        }
+
+        /// <summary>
+        /// Checkbox for Dryckesdatum changed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chbIsConsumed_CheckedChanged(object sender, EventArgs e)
+        {
+            lblDateConsumed.Enabled = true;
+            dtpDateConsumed.Enabled = true;
         }
 
         /// <summary>
@@ -119,12 +138,14 @@ namespace Winecellar
         /// </summary>
         private void UpdateWineFromForm()
         {
-            //TODO: nya fält
             wineObj.WineName = txtWineName.Text;
             wineObj.Vintage = (int)numYear.Value;
             wineObj.Country = (Countries)cboCountry.SelectedIndex;
             wineObj.WineType = (WineType)cboWineType.SelectedIndex;
             wineObj.DateAdded = dtpDateAdded.Value.Date;
+            wineObj.IsConsumed = chbIsConsumed.Checked;
+            if (chbIsConsumed.Checked)
+                wineObj.DateConsumed = dtpDateConsumed.Value.Date;
         }
 
         /// <summary>
