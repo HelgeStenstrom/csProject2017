@@ -42,6 +42,7 @@
             this.cboWineType = new System.Windows.Forms.ComboBox();
             this.lblDateAdded = new System.Windows.Forms.Label();
             this.lblDateConsumed = new System.Windows.Forms.Label();
+            this.chbIsConsumed = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.numYear)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,7 +92,7 @@
             // 
             this.dtpDateAdded.CustomFormat = "";
             this.dtpDateAdded.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDateAdded.Location = new System.Drawing.Point(259, 196);
+            this.dtpDateAdded.Location = new System.Drawing.Point(182, 186);
             this.dtpDateAdded.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtpDateAdded.Name = "dtpDateAdded";
             this.dtpDateAdded.Size = new System.Drawing.Size(139, 28);
@@ -143,6 +144,7 @@
             // 
             // cboCountry
             // 
+            this.cboCountry.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCountry.FormattingEnabled = true;
             this.cboCountry.Location = new System.Drawing.Point(325, 109);
             this.cboCountry.Name = "cboCountry";
@@ -169,6 +171,7 @@
             // 
             // cboWineType
             // 
+            this.cboWineType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboWineType.FormattingEnabled = true;
             this.cboWineType.Location = new System.Drawing.Point(774, 112);
             this.cboWineType.Name = "cboWineType";
@@ -178,7 +181,7 @@
             // lblDateAdded
             // 
             this.lblDateAdded.AutoSize = true;
-            this.lblDateAdded.Location = new System.Drawing.Point(59, 196);
+            this.lblDateAdded.Location = new System.Drawing.Point(55, 192);
             this.lblDateAdded.Name = "lblDateAdded";
             this.lblDateAdded.Size = new System.Drawing.Size(117, 24);
             this.lblDateAdded.TabIndex = 13;
@@ -193,11 +196,22 @@
             this.lblDateConsumed.TabIndex = 14;
             this.lblDateConsumed.Text = "Dryckesdatum";
             // 
+            // chbIsConsumed
+            // 
+            this.chbIsConsumed.AutoSize = true;
+            this.chbIsConsumed.Location = new System.Drawing.Point(576, 197);
+            this.chbIsConsumed.Name = "chbIsConsumed";
+            this.chbIsConsumed.Size = new System.Drawing.Size(18, 17);
+            this.chbIsConsumed.TabIndex = 15;
+            this.chbIsConsumed.UseVisualStyleBackColor = true;
+            this.chbIsConsumed.CheckedChanged += new System.EventHandler(this.chbIsConsumed_CheckedChanged);
+            // 
             // WineForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1152, 350);
+            this.Controls.Add(this.chbIsConsumed);
             this.Controls.Add(this.lblDateConsumed);
             this.Controls.Add(this.lblDateAdded);
             this.Controls.Add(this.cboWineType);
@@ -239,5 +253,6 @@
         private System.Windows.Forms.ComboBox cboWineType;
         private System.Windows.Forms.Label lblDateAdded;
         private System.Windows.Forms.Label lblDateConsumed;
+        private System.Windows.Forms.CheckBox chbIsConsumed;
     }
 }
