@@ -94,12 +94,10 @@ namespace Winecellar
             cboWineType.SelectedIndex = (int)wineObj.WineType;
             dtpDateAdded.Value = wineObj.DateAdded;
             chbIsConsumed.Checked = wineObj.IsConsumed;
-            if (chbIsConsumed.Enabled)
-            {
-                lblDateConsumed.Enabled = true;
-                dtpDateConsumed.Enabled = true;
+            lblDateConsumed.Enabled = wineObj.IsConsumed;
+            dtpDateConsumed.Enabled = wineObj.IsConsumed;
+            if (wineObj.IsConsumed)
                 dtpDateConsumed.Value = wineObj.DateConsumed;
-            }
         }
 
         /// <summary>
@@ -119,8 +117,8 @@ namespace Winecellar
         /// <param name="e"></param>
         private void chbIsConsumed_CheckedChanged(object sender, EventArgs e)
         {
-            lblDateConsumed.Enabled = true;
-            dtpDateConsumed.Enabled = true;
+            lblDateConsumed.Enabled = chbIsConsumed.Checked;
+            dtpDateConsumed.Enabled = chbIsConsumed.Checked;
         }
 
         /// <summary>
