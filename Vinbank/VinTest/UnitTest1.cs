@@ -1,11 +1,10 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Winecellar;
 
 namespace VinTest
 {
     [TestClass]
-    public class managerTests
+    public class ManagerTests
     {
         [TestMethod]
         public void AddWine()
