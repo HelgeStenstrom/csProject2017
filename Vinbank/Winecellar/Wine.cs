@@ -28,7 +28,12 @@ namespace Winecellar
         {
             this.WineName = other.WineName;
             this.Vintage = other.Vintage;
-            // TODO: Copy constructorn behöver fler delar.
+            this.WineType = other.WineType;
+            this.DateAdded = other.DateAdded;
+            this.CharacterType = other.CharacterType;
+            this.IsConsumed = other.IsConsumed;
+            this.Country = other.Country;
+            // TODO: Behövs ytterligare någon del i Wine copy constructor?
         }
 
         /// <summary>
@@ -71,6 +76,15 @@ namespace Winecellar
             set
             {
             }
+        }
+
+        /// <summary>
+        /// Property, read and write access
+        /// </summary>
+        public Countries Country
+        {
+            get;
+            set;
         }
 
         /// <summary>
@@ -141,9 +155,8 @@ namespace Winecellar
         public string[] RowStrings => new string[] {
             // TODO: Fyll på med fakta, matchande kolumnerna i MainForm.
                    WineName,
+                   Vintage.ToString(),
                    "annat fakta"
                     };
-
-
     }
 }

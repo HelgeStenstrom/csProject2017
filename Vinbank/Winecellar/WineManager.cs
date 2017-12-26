@@ -77,8 +77,8 @@ namespace Winecellar
         public Wine GetWine(int index)
         {
             if (CheckIndex(index))
-                return wines[index];
-            // TODO: else ?
+                return new Wine(wines[index]);
+            else throw new IndexOutOfRangeException();
             // TODO: kolla inkapsling
         }
 

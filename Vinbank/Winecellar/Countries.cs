@@ -1,7 +1,7 @@
 ﻿// Helge Stenström 2017
 // ah7875
 
-namespace Assignment5.ContactFiles
+namespace Winecellar
 {
 	/// <summary>
 	///The countries of the world.
