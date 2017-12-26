@@ -23,45 +23,55 @@ namespace Winecellar
             // TODO: Gör fullständig. Alla fields ska ha anropsparameterar.        
         }
 
-        /// <param name="wine">Copy constructor</param>
+        /// <summary>
+        /// Copy constructor
+        /// </summary>
+        ///<param name="wine"></param>
         public Wine(Wine other)
         {
             this.WineName = other.WineName;
             this.Vintage = other.Vintage;
             this.WineType = other.WineType;
             this.DateAdded = other.DateAdded;
-            this.CharacterType = other.CharacterType;
             this.IsConsumed = other.IsConsumed;
             this.Country = other.Country;
             // TODO: Behövs ytterligare någon del i Wine copy constructor?
+        }
+
+
+        /// <summary>
+        /// Property, read and write access
+        /// </summary>
+        public string WineName
+        {
+            get;
+            set;
+        }
+
+
+
+        /// <summary>
+        /// Property, read and write access
+        /// </summary>
+        public int Vintage
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Property, read and write access
+        /// </summary>
+        public Countries Country
+        {
+            get;
+            set;
         }
 
         /// <summary>
         /// Property, read and write access
         /// </summary>
         public WineType WineType
-        {
-            get => default(int);
-            set
-            {
-            }
-        }
-
-        /// <summary>
-        /// Property, read and write access
-        /// </summary>
-        public CharacterTypes CharacterType
-        {
-            get => default(CharacterTypes);
-            set
-            {
-            }
-        }
-
-        /// <summary>
-        /// Property, read and write access
-        /// </summary>
-        public string WineName
         {
             get;
             set;
@@ -77,16 +87,7 @@ namespace Winecellar
             {
             }
         }
-
-        /// <summary>
-        /// Property, read and write access
-        /// </summary>
-        public Countries Country
-        {
-            get;
-            set;
-        }
-
+        
         /// <summary>
         /// Property, read and write access
         /// </summary>
@@ -98,45 +99,31 @@ namespace Winecellar
             }
         }
 
-        /// <summary>
-        /// Property, read and write access
+        /// <summary> 
+        /// Delete underscore char from selected country
         /// </summary>
-        public int Vintage
+        /// <returns>Country name without underscore char</returns>
+        private string GetCountryString()
         {
-            get => default(int);
-            set
-            {
-            }
+            string strCountry = Country.ToString();
+            strCountry = strCountry.Replace("_", " ");
+            return strCountry;
         }
 
         /// <summary>
-        /// Property, read and write access
+        /// Strings used to fill a row in a ListView.
         /// </summary>
-        public CharacterTypes CharacterTypes
-        {
-            get => default(CharacterTypes);
-            set
-            {
-            }
-        }
-
-
-
-        /// <summary>
-        /// Check if input is valid.
-        /// </summary>
-        /// <returns>True or false</returns>
-        public bool Checkdata()
-        {
-            bool validName = !(string.IsNullOrWhiteSpace(WineName));
-            return (validName);
-        }
-
+        public string[] RowStrings => new string[] {
+            // TODO: Fyll på med fakta, matchande kolumnerna i MainForm.
+                   WineName,
+                   Vintage.ToString(),
+                   "annat fakta"
+                    };
 
         /// <summary>
         /// Method,   
         /// </summary>
-            public void Consume()
+        public void Consume()
         {
             throw new System.NotImplementedException();
         }
@@ -149,14 +136,5 @@ namespace Winecellar
             throw new System.NotImplementedException();
         }
 
-        /// <summary>
-        /// Strings used to fill a row in a ListView.
-        /// </summary>
-        public string[] RowStrings => new string[] {
-            // TODO: Fyll på med fakta, matchande kolumnerna i MainForm.
-                   WineName,
-                   Vintage.ToString(),
-                   "annat fakta"
-                    };
-    }
-}
+    } //close class
+} // close namespace

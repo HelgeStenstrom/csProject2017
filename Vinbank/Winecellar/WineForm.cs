@@ -46,7 +46,40 @@ namespace Winecellar
             this.Text = title;
             txtWineName.Clear();
             txtWineName.Focus();
-            btnSave.Enabled = false; //grey out Save (Spara) button
+            numYear.Value = Convert.ToDecimal(DateTime.Now.ToString(@"yyyy"));
+            cboCountry.DataSource = GetAllCountryStrings();
+            cboWineType.DataSource = GetAllWineTypeStrings(); //populate WineType combobox
+
+
+            btnSave.Enabled = false; // disable Spara button
+        }
+
+        /// <summary>
+        /// Create country strings without underscore chars
+        /// </summary>
+        /// <returns>returns countries list without underscore chars </returns>
+        private static List<string> GetAllCountryStrings()
+        {
+            List<string> countries = new List<string>();
+            foreach (string country in Enum.GetNames(typeof(Countries)))
+            {
+                countries.Add(country.Replace("_", " "));
+            }
+            return countries;
+        }
+
+        /// <summary>
+        /// Create wine type strings
+        /// </summary>
+        /// <returns>return wine type list </returns>
+        private static List<string> GetAllWineTypeStrings()
+        {
+            List<string> wineTypes = new List<string>();
+            foreach (string winetype in Enum.GetNames(typeof(WineType)))
+            {
+                wineTypes.Add(winetype);
+            }
+            return wineTypes;
         }
 
         /// <summary>
@@ -54,8 +87,11 @@ namespace Winecellar
         /// </summary>
         private void UpdateGui()
         {
-            //TODO: nya fält
             txtWineName.Text = wineObj.WineName;
+            numYear.Value = wineObj.Vintage;
+            cboCountry.SelectedIndex = (int)wineObj.Country;
+            cboWineType.SelectedIndex = (int)wineObj.WineType;
+            dtpDateAdded.Value = wineObj.DateAdded;
         }
 
         /// <summary>
@@ -86,7 +122,9 @@ namespace Winecellar
             //TODO: nya fält
             wineObj.WineName = txtWineName.Text;
             wineObj.Vintage = (int)numYear.Value;
-            wineObj.DateAdded = dateTimePicker1.Value.Date;
+            wineObj.Country = (Countries)cboCountry.SelectedIndex;
+            wineObj.WineType = (WineType)cboWineType.SelectedIndex;
+            wineObj.DateAdded = dtpDateAdded.Value.Date;
         }
 
         /// <summary>
@@ -125,6 +163,8 @@ namespace Winecellar
                     "Bekräfta!", okButton);
                 return (result == DialogResult.Yes);
         }
+
+
 
         /// <summary>
         /// Create DateTimePicker, set max/min date, display control.
