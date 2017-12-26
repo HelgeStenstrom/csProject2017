@@ -124,25 +124,24 @@ namespace Winecellar
                    Vintage.ToString(),
                    Country.ToString(),
                    WineType.ToString(),
-                   DateAdded.ToString(@"yyyy-MM-dd"),
-                   DateConsumed.ToString(@"yyyy-MM-dd")
+                   // DateAdded.ToString(@"yyyy-MM-dd"),
+                   DateColumnString(),
+                   //DateConsumed.ToString(@"yyyy-MM-dd")
                     };
 
-        /// <summary>
-        /// Method,   
-        /// </summary>
-        public void Consume()
+        private string DateColumnString()
         {
-            throw new System.NotImplementedException();
+            if (markedAsConsumed())
+                return "Drucken: " + DateConsumed.ToString(@"yyyy-MM-dd");
+            else
+                return "Tillagd: " + DateAdded.ToString(@"yyyy-MM-dd");
         }
 
-        /// <summary>
-        /// Method,  
-        /// </summary>
-        public void Unconsume()
+        private bool markedAsConsumed()
         {
-            throw new System.NotImplementedException();
+            return (DateConsumed > new DateTime(1900, 1, 1));
         }
+
 
     } //close class
 } // close namespace

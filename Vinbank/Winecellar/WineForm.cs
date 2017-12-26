@@ -119,6 +119,11 @@ namespace Winecellar
         {
             lblDateConsumed.Enabled = chbIsConsumed.Checked;
             dtpDateConsumed.Enabled = chbIsConsumed.Checked;
+
+            if (!chbIsConsumed.Checked)
+            {
+                dtpDateConsumed.Value = dtpDateConsumed.MinDate;
+            }
         }
 
         /// <summary>

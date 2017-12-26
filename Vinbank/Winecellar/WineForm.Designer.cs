@@ -51,7 +51,7 @@
             this.lblName.AutoSize = true;
             this.lblName.Location = new System.Drawing.Point(55, 62);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(61, 24);
+            this.lblName.Size = new System.Drawing.Size(48, 18);
             this.lblName.TabIndex = 0;
             this.lblName.Text = "Namn";
             // 
@@ -60,7 +60,7 @@
             this.txtWineName.Location = new System.Drawing.Point(134, 59);
             this.txtWineName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtWineName.Name = "txtWineName";
-            this.txtWineName.Size = new System.Drawing.Size(761, 28);
+            this.txtWineName.Size = new System.Drawing.Size(761, 24);
             this.txtWineName.TabIndex = 1;
             this.txtWineName.TextChanged += new System.EventHandler(this.txtWineName_TextChanged);
             // 
@@ -94,8 +94,10 @@
             this.dtpDateAdded.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpDateAdded.Location = new System.Drawing.Point(182, 186);
             this.dtpDateAdded.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dtpDateAdded.MaxDate = new System.DateTime(2100, 12, 31, 0, 0, 0, 0);
+            this.dtpDateAdded.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.dtpDateAdded.Name = "dtpDateAdded";
-            this.dtpDateAdded.Size = new System.Drawing.Size(139, 28);
+            this.dtpDateAdded.Size = new System.Drawing.Size(139, 24);
             this.dtpDateAdded.TabIndex = 4;
             this.dtpDateAdded.Value = new System.DateTime(2017, 12, 25, 19, 25, 10, 0);
             // 
@@ -104,7 +106,7 @@
             this.lblYear.AutoSize = true;
             this.lblYear.Location = new System.Drawing.Point(55, 115);
             this.lblYear.Name = "lblYear";
-            this.lblYear.Size = new System.Drawing.Size(72, 24);
+            this.lblYear.Size = new System.Drawing.Size(54, 18);
             this.lblYear.TabIndex = 5;
             this.lblYear.Text = "Årgång";
             // 
@@ -114,8 +116,10 @@
             this.dtpDateConsumed.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpDateConsumed.Location = new System.Drawing.Point(756, 192);
             this.dtpDateConsumed.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dtpDateConsumed.MaxDate = new System.DateTime(2100, 12, 31, 0, 0, 0, 0);
+            this.dtpDateConsumed.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.dtpDateConsumed.Name = "dtpDateConsumed";
-            this.dtpDateConsumed.Size = new System.Drawing.Size(139, 28);
+            this.dtpDateConsumed.Size = new System.Drawing.Size(139, 24);
             this.dtpDateConsumed.TabIndex = 6;
             this.dtpDateConsumed.Value = new System.DateTime(2017, 12, 25, 19, 25, 10, 0);
             // 
@@ -134,7 +138,7 @@
             0,
             0});
             this.numYear.Name = "numYear";
-            this.numYear.Size = new System.Drawing.Size(68, 28);
+            this.numYear.Size = new System.Drawing.Size(68, 24);
             this.numYear.TabIndex = 8;
             this.numYear.Value = new decimal(new int[] {
             2020,
@@ -148,7 +152,7 @@
             this.cboCountry.FormattingEnabled = true;
             this.cboCountry.Location = new System.Drawing.Point(325, 109);
             this.cboCountry.Name = "cboCountry";
-            this.cboCountry.Size = new System.Drawing.Size(356, 30);
+            this.cboCountry.Size = new System.Drawing.Size(356, 25);
             this.cboCountry.TabIndex = 9;
             // 
             // lblCountry
@@ -156,7 +160,7 @@
             this.lblCountry.AutoSize = true;
             this.lblCountry.Location = new System.Drawing.Point(255, 120);
             this.lblCountry.Name = "lblCountry";
-            this.lblCountry.Size = new System.Drawing.Size(52, 24);
+            this.lblCountry.Size = new System.Drawing.Size(40, 18);
             this.lblCountry.TabIndex = 10;
             this.lblCountry.Text = "Land";
             // 
@@ -165,7 +169,7 @@
             this.lblWineType.AutoSize = true;
             this.lblWineType.Location = new System.Drawing.Point(687, 115);
             this.lblWineType.Name = "lblWineType";
-            this.lblWineType.Size = new System.Drawing.Size(42, 24);
+            this.lblWineType.Size = new System.Drawing.Size(32, 18);
             this.lblWineType.TabIndex = 11;
             this.lblWineType.Text = "Typ";
             // 
@@ -175,7 +179,7 @@
             this.cboWineType.FormattingEnabled = true;
             this.cboWineType.Location = new System.Drawing.Point(774, 112);
             this.cboWineType.Name = "cboWineType";
-            this.cboWineType.Size = new System.Drawing.Size(121, 30);
+            this.cboWineType.Size = new System.Drawing.Size(121, 25);
             this.cboWineType.TabIndex = 12;
             // 
             // lblDateAdded
@@ -183,7 +187,7 @@
             this.lblDateAdded.AutoSize = true;
             this.lblDateAdded.Location = new System.Drawing.Point(55, 192);
             this.lblDateAdded.Name = "lblDateAdded";
-            this.lblDateAdded.Size = new System.Drawing.Size(117, 24);
+            this.lblDateAdded.Size = new System.Drawing.Size(93, 18);
             this.lblDateAdded.TabIndex = 13;
             this.lblDateAdded.Text = "Datum tillagd";
             // 
@@ -192,7 +196,7 @@
             this.lblDateConsumed.AutoSize = true;
             this.lblDateConsumed.Location = new System.Drawing.Point(600, 192);
             this.lblDateConsumed.Name = "lblDateConsumed";
-            this.lblDateConsumed.Size = new System.Drawing.Size(129, 24);
+            this.lblDateConsumed.Size = new System.Drawing.Size(104, 18);
             this.lblDateConsumed.TabIndex = 14;
             this.lblDateConsumed.Text = "Dryckesdatum";
             // 
@@ -201,14 +205,14 @@
             this.chbIsConsumed.AutoSize = true;
             this.chbIsConsumed.Location = new System.Drawing.Point(576, 197);
             this.chbIsConsumed.Name = "chbIsConsumed";
-            this.chbIsConsumed.Size = new System.Drawing.Size(18, 17);
+            this.chbIsConsumed.Size = new System.Drawing.Size(15, 14);
             this.chbIsConsumed.TabIndex = 15;
             this.chbIsConsumed.UseVisualStyleBackColor = true;
             this.chbIsConsumed.CheckedChanged += new System.EventHandler(this.chbIsConsumed_CheckedChanged);
             // 
             // WineForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1152, 350);
             this.Controls.Add(this.chbIsConsumed);

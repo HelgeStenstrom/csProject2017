@@ -52,7 +52,7 @@
             this.lstvWines.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.lstvWines.MultiSelect = false;
             this.lstvWines.Name = "lstvWines";
-            this.lstvWines.Size = new System.Drawing.Size(775, 390);
+            this.lstvWines.Size = new System.Drawing.Size(860, 390);
             this.lstvWines.TabIndex = 1;
             this.lstvWines.UseCompatibleStateImageBehavior = false;
             this.lstvWines.View = System.Windows.Forms.View.Details;
@@ -130,7 +130,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(803, 572);
+            this.ClientSize = new System.Drawing.Size(902, 572);
             this.Controls.Add(this.lblBredd);
             this.Controls.Add(this.lblResultFromWineForm);
             this.Controls.Add(this.btnRemove);

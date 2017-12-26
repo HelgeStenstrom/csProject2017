@@ -20,12 +20,12 @@ namespace Winecellar
             // It's easier to match these columns to the data in Wine.RowStrings method.
             // Column widths are in argument #2 in the Add argument list.
             lstvWines.Columns.Clear();
-            lstvWines.Columns.Add("Namn", 200, HorizontalAlignment.Center);
-            lstvWines.Columns.Add("Årgång", 70, HorizontalAlignment.Center);
-            lstvWines.Columns.Add("Land", 100, HorizontalAlignment.Center);
-            lstvWines.Columns.Add("Typ", 100, HorizontalAlignment.Center);
-            lstvWines.Columns.Add("Datum 1", 100, HorizontalAlignment.Center);
-            lstvWines.Columns.Add("Datum 2", 100, HorizontalAlignment.Center);
+            lstvWines.Columns.Add("Namn", 300, HorizontalAlignment.Center);
+            lstvWines.Columns.Add("Årgång", 65, HorizontalAlignment.Center);
+            lstvWines.Columns.Add("Land", 180, HorizontalAlignment.Center);
+            lstvWines.Columns.Add("Typ", 50, HorizontalAlignment.Center);
+            lstvWines.Columns.Add("Datum", 150, HorizontalAlignment.Center);
+            lstvWines.Columns.Add("Datum 2", 95, HorizontalAlignment.Center);
         }
 
         private void UpdateGUI()
@@ -160,7 +160,6 @@ namespace Winecellar
         private void lstvWines_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
         {
             var newWidth = e.NewWidth;
-            Console.Out.Write(newWidth);
             lblBredd.Text = newWidth.ToString();
         }
     }
