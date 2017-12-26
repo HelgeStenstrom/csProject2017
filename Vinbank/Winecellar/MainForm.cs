@@ -17,7 +17,22 @@ namespace Winecellar
         public MainForm()
         {
             InitializeComponent();
+            InitializeGui();
             UpdateGUI();
+        }
+
+        private void InitializeGui()
+        {
+            // Replace the columns drawn in the GUI editor with columns defined here.
+            // It's easier to match these columns to the data in Wine.RowStrings method.
+            // Column widths are in argument #2 in the Add argument list.
+            lstvWines.Columns.Clear();
+            lstvWines.Columns.Add("Namn", 200, HorizontalAlignment.Center);
+            lstvWines.Columns.Add("Årgång", 70, HorizontalAlignment.Center);
+            lstvWines.Columns.Add("Land", 100, HorizontalAlignment.Center);
+            lstvWines.Columns.Add("Typ", 100, HorizontalAlignment.Center);
+            lstvWines.Columns.Add("Datum 1", 100, HorizontalAlignment.Center);
+            lstvWines.Columns.Add("Datum 2", 100, HorizontalAlignment.Center);
         }
 
         private void UpdateGUI()
@@ -135,6 +150,25 @@ namespace Winecellar
             bool onlyOneSelected = (lstvWines.SelectedIndices.Count == 1);
             btnChange.Enabled = onlyOneSelected;
             btnRemove.Enabled = onlyOneSelected;
+        }
+
+        // Tillfällig funktion för att ta reda på hur breda kolumner som är lagom.
+        private void lstvWines_ColumnWidthChanged(object sender, ColumnWidthChangedEventArgs e)
+        {
+            int newWidth = e.ColumnIndex;
+        }
+
+
+        /// <summary>
+        /// Temporary function used to find suitable column widths.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void lstvWines_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
+        {
+            var newWidth = e.NewWidth;
+            Console.Out.Write(newWidth);
+            lblBredd.Text = newWidth.ToString();
         }
     }
 }
