@@ -33,6 +33,7 @@ namespace Winecellar
             this.Vintage = other.Vintage;
             this.WineType = other.WineType;
             this.DateAdded = other.DateAdded;
+            this.DateConsumed = other.DateConsumed;
             this.IsConsumed = other.IsConsumed;
             this.Country = other.Country;
             // TODO: Behövs ytterligare någon del i Wine copy constructor?
@@ -82,10 +83,16 @@ namespace Winecellar
         /// </summary>
         public DateTime DateAdded
         {
-            get => default(DateTime);
-            set
-            {
-            }
+            get;
+            set;
+        }
+        /// <summary>
+        /// Property, read and write access
+        /// </summary>
+        public DateTime DateConsumed
+        {
+            get;
+            set;
         }
         
         /// <summary>
@@ -93,10 +100,8 @@ namespace Winecellar
         /// </summary>
         public bool IsConsumed
         {
-            get => default(bool);
-            set
-            {
-            }
+            get;
+            set;
         }
 
         /// <summary> 
@@ -117,7 +122,10 @@ namespace Winecellar
             // TODO: Fyll på med fakta, matchande kolumnerna i MainForm.
                    WineName,
                    Vintage.ToString(),
-                   "annat fakta"
+                   Country.ToString(),
+                   WineType.ToString(),
+                   DateAdded.ToString(),
+                   DateConsumed.ToString()
                     };
 
         /// <summary>
