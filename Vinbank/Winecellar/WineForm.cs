@@ -54,11 +54,12 @@ namespace Winecellar
         /// </summary>
         private void UpdateGui()
         {
+            //TODO: nya fält
             txtWineName.Text = wineObj.WineName;
         }
 
         /// <summary>
-        /// Check text and ungrey Spara button 
+        /// Enable Spara button when name is written
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -68,7 +69,7 @@ namespace Winecellar
         }
 
         /// <summary>
-        /// Button Spara click - save input to wine object
+        /// Spara button
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -77,17 +78,19 @@ namespace Winecellar
             UpdateWineFromForm();
         }
 
+        /// <summary>
+        /// Save input from form to wine object
+        /// </summary>
         private void UpdateWineFromForm()
         {
+            //TODO: nya fält
             wineObj.WineName = txtWineName.Text;
             wineObj.Vintage = (int)numYear.Value;
             wineObj.DateAdded = dateTimePicker1.Value.Date;
-            // TODO: Gör flera fält i formuläret, kopiera dem till vinet.
         }
 
-
         /// <summary>
-        /// Button Avbryt click
+        /// Avbryt button
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -95,6 +98,11 @@ namespace Winecellar
         {
         }
 
+        /// <summary>
+        /// Form closing
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void WineForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (DialogResult == DialogResult.OK)

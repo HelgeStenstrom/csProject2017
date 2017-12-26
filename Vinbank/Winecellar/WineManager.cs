@@ -1,4 +1,6 @@
-﻿using System;
+﻿//TODO: filnamn, namn och id, datum
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,7 +33,7 @@ namespace Winecellar
         /// <summary>
         /// Add a wine to the wine cellar
         /// </summary>
-        public void Add(Wine wineIn)
+        public void AddWine(Wine wineIn)
         {
             Wine wineObj = new Wine(wineIn); //declare and create  wine object
             wines.Add(wineObj);
@@ -41,15 +43,43 @@ namespace Winecellar
         /// Remove wine from wine cellar
         /// </summary>
         /// <param name="index"></param>
-        public bool Remove(int index)
+        public bool RemoveWine(int index)
         {
-            if (!CheckIndex(index))
-                return false;
-            else
+            //TODO: Vad göra vid return false?
+            if (CheckIndex(index))
             {
                 wines.RemoveAt(index);
                 return true;
             }
+            else
+                return false;
+        }
+
+        /// <summary>
+        /// Change the details of an existing wine
+        /// </summary>
+        /// <param name="index">Points to the wine to change</param>
+        public bool ChangeWine(Wine wine, int index)
+        {
+            if (CheckIndex(index))
+            {
+                wines[index] = wine;
+                return true;
+            }
+            else
+                return false;
+        }
+
+        /// <summary>
+        /// Get the details of an existing wine
+        /// </summary>
+        /// <param name="index">Points to the wine to get</param>
+        public Wine GetWine(int index)
+        {
+            if (CheckIndex(index))
+                return wines[index];
+            // TODO: else ?
+            // TODO: kolla inkapsling
         }
 
         /// <summary>
@@ -63,44 +93,6 @@ namespace Winecellar
             else
                 return false;
         }
-
-
-
-        /// <summary>
-        /// Mark the wine pointed to by the index, as consumed.
-        /// </summary>
-        public void Consume(int index)
-       {
-            throw new System.NotImplementedException();
-        }
-
-
-        /// <summary>
-        /// Change the details of an existing wine
-        /// </summary>
-        /// <param name="index">Points to the wine to edit</param>
-        public Wine Get(int index)
-        {
-            return wines[index];
-        }
-
-        public bool ChangeWine(Wine wine, int index)
-        {
-            if (index >= wines.Count)
-                return false;
-            wines[index] = wine;
-            return true;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        public Wine GetNonConsumed()
-        {
-            throw new System.NotImplementedException();
-        }
-
 
         /// <summary>
         /// Construct texts for the wine table that is used in the MainForm. 
@@ -118,6 +110,25 @@ namespace Winecellar
                 }
                 return listOfCellsForOneRow;
             }
+        }
+
+
+
+        /// <summary>
+        /// TODO: GetNonConsumed
+        /// </summary>
+        /// <returns></returns>
+        public Wine GetNonConsumed()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        /// <summary>
+        /// TODO:Mark the wine pointed to by the index, as consumed.
+        /// </summary>
+        public void Consume(int index)
+        {
+            throw new System.NotImplementedException();
         }
 
     }

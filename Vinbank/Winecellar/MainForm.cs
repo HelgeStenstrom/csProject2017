@@ -17,10 +17,10 @@ namespace Winecellar
         public MainForm()
         {
             InitializeComponent();
-            UpdateTable();
+            UpdateGUI();
         }
 
-        private void UpdateTable()
+        private void UpdateGUI()
         {
             lstvWines.Items.Clear();
             foreach (var wineForRow in wineManagerObj.WinesAsRows)
@@ -33,13 +33,18 @@ namespace Winecellar
             EnableButtonsIfOneWineSelected();
         }
 
+        /// <summary>
+        /// Button Lägg till vin
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAdd_Click(object sender, EventArgs e)
         {
             WineForm wineFormObj = new WineForm("Lägg till vin");
             if (lstvWines.SelectedIndices.Count == 1)
             {
                 int selectedIndex = lstvWines.SelectedIndices[0];
-                wineFormObj.WineData = wineManagerObj.Get(selectedIndex);
+                wineFormObj.WineData = wineManagerObj.GetWine(selectedIndex);
             }
             var result = wineFormObj.ShowDialog();
 
@@ -49,20 +54,25 @@ namespace Winecellar
             if (result == DialogResult.OK)
             {
                 Wine wine = wineFormObj.WineData;
-                wineManagerObj.Add(wine);
+                wineManagerObj.AddWine(wine);
             }
-            UpdateTable();
+            UpdateGUI();
         }
 
-        private void btnEdit_Click(object sender, EventArgs e)
+        /// <summary>
+        /// button Ändra vin
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnChange_Click(object sender, EventArgs e)
         {
             if (lstvWines.SelectedIndices.Count == 1) 
-                // Not needed, actually, since we can't click the button if it's not true.
+                // TODO: Not needed, actually, since we can't click the button if it's not true.
             {
                 int selectedIndex = lstvWines.SelectedIndices[0];
 
                 WineForm wineFormObj = new WineForm("Ändra vin");
-                wineFormObj.WineData = wineManagerObj.Get(selectedIndex);
+                wineFormObj.WineData = wineManagerObj.GetWine(selectedIndex);
                 var result = wineFormObj.ShowDialog();
 
                 lblResultFromWineForm.Text = result.ToString();
@@ -72,22 +82,32 @@ namespace Winecellar
                     Wine wine = wineFormObj.WineData;
                     wineManagerObj.ChangeWine(wine, selectedIndex);
                 }
-                UpdateTable();
+                UpdateGUI();
             }
         }
 
+        /// <summary>
+        /// button Ta bort vin
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnRemove_Click(object sender, EventArgs e)
         {
             if (lstvWines.SelectedIndices.Count == 1)
             {
                 int selectedIndex = lstvWines.SelectedIndices[0];
-                string selectedName = wineManagerObj.Get(selectedIndex).WineName;
+                string selectedName = wineManagerObj.GetWine(selectedIndex).WineName;
                 if (ConfirmDialog($"Vill du ta bort {selectedName}?"))
-                    wineManagerObj.Remove(selectedIndex);
-                UpdateTable();
+                    wineManagerObj.RemoveWine(selectedIndex);
+                UpdateGUI();
             }
         }
 
+        /// <summary>
+        /// Messagebox to confirm choice
+        /// </summary>
+        /// <param name="prompt"></param>
+        /// <returns></returns>
         private bool ConfirmDialog(string prompt)
         {
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
@@ -97,15 +117,23 @@ namespace Winecellar
             return (result == DialogResult.Yes);
         }
 
+        /// <summary>
+        /// When a wine is selected
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lstvWines_SelectedIndexChanged(object sender, EventArgs e)
         {
             EnableButtonsIfOneWineSelected();
         }
 
+        /// <summary>
+        /// Enable Change and Remove buttons
+        /// </summary>
         private void EnableButtonsIfOneWineSelected()
         {
             bool onlyOneSelected = (lstvWines.SelectedIndices.Count == 1);
-            btnEdit.Enabled = onlyOneSelected;
+            btnChange.Enabled = onlyOneSelected;
             btnRemove.Enabled = onlyOneSelected;
         }
     }
