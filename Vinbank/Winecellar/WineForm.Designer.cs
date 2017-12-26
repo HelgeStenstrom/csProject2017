@@ -127,10 +127,10 @@
             0,
             0});
             this.numYear.Name = "numYear";
-            this.numYear.Size = new System.Drawing.Size(82, 28);
+            this.numYear.Size = new System.Drawing.Size(68, 28);
             this.numYear.TabIndex = 8;
             this.numYear.Value = new decimal(new int[] {
-            2017,
+            2018,
             0,
             0,
             0});

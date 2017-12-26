@@ -32,7 +32,7 @@
             this.colName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colTwo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnAdd = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnChange = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
             this.lblResultFromWineForm = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -45,10 +45,11 @@
             this.lstvWines.FullRowSelect = true;
             this.lstvWines.GridLines = true;
             this.lstvWines.HideSelection = false;
-            this.lstvWines.Location = new System.Drawing.Point(18, 12);
+            this.lstvWines.Location = new System.Drawing.Point(30, 21);
+            this.lstvWines.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.lstvWines.MultiSelect = false;
             this.lstvWines.Name = "lstvWines";
-            this.lstvWines.Size = new System.Drawing.Size(378, 232);
+            this.lstvWines.Size = new System.Drawing.Size(628, 390);
             this.lstvWines.TabIndex = 1;
             this.lstvWines.UseCompatibleStateImageBehavior = false;
             this.lstvWines.View = System.Windows.Forms.View.Details;
@@ -64,29 +65,32 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(49, 263);
+            this.btnAdd.Location = new System.Drawing.Point(81, 446);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.Size = new System.Drawing.Size(125, 38);
             this.btnAdd.TabIndex = 2;
             this.btnAdd.Text = "Lägg till vin";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // btnEdit
+            // btnChange
             // 
-            this.btnEdit.Location = new System.Drawing.Point(172, 263);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(75, 23);
-            this.btnEdit.TabIndex = 3;
-            this.btnEdit.Text = "Redigera vin";
-            this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            this.btnChange.Location = new System.Drawing.Point(286, 446);
+            this.btnChange.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.btnChange.Name = "btnChange";
+            this.btnChange.Size = new System.Drawing.Size(125, 38);
+            this.btnChange.TabIndex = 3;
+            this.btnChange.Text = "Ändra vin";
+            this.btnChange.UseVisualStyleBackColor = true;
+            this.btnChange.Click += new System.EventHandler(this.btnChange_Click);
             // 
             // btnRemove
             // 
-            this.btnRemove.Location = new System.Drawing.Point(278, 263);
+            this.btnRemove.Location = new System.Drawing.Point(464, 446);
+            this.btnRemove.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(75, 23);
+            this.btnRemove.Size = new System.Drawing.Size(125, 38);
             this.btnRemove.TabIndex = 4;
             this.btnRemove.Text = "Ta bort vin";
             this.btnRemove.UseVisualStyleBackColor = true;
@@ -95,22 +99,25 @@
             // lblResultFromWineForm
             // 
             this.lblResultFromWineForm.AutoSize = true;
-            this.lblResultFromWineForm.Location = new System.Drawing.Point(60, 313);
+            this.lblResultFromWineForm.Location = new System.Drawing.Point(100, 529);
+            this.lblResultFromWineForm.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblResultFromWineForm.Name = "lblResultFromWineForm";
-            this.lblResultFromWineForm.Size = new System.Drawing.Size(143, 13);
+            this.lblResultFromWineForm.Size = new System.Drawing.Size(252, 24);
             this.lblResultFromWineForm.TabIndex = 5;
             this.lblResultFromWineForm.Text = "Dialogresultat från WineForm";
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(409, 338);
+            this.ClientSize = new System.Drawing.Size(1349, 572);
             this.Controls.Add(this.lblResultFromWineForm);
             this.Controls.Add(this.btnRemove);
-            this.Controls.Add(this.btnEdit);
+            this.Controls.Add(this.btnChange);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.lstvWines);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "Vinkällaren";
@@ -124,7 +131,7 @@
         private System.Windows.Forms.ColumnHeader colName;
         private System.Windows.Forms.ColumnHeader colTwo;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.Button btnChange;
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.Label lblResultFromWineForm;
     }

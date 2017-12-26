@@ -15,8 +15,8 @@ namespace VinTest
             Wine wine = new Wine();
 
             // Exercise
-            wineManager.Add(wine);
-            wineManager.Add(wine);
+            wineManager.AddWine(wine);
+            wineManager.AddWine(wine);
 
             // Verify
             Assert.AreEqual(2, wineManager.WineCount);
@@ -31,15 +31,15 @@ namespace VinTest
             wine1.WineName = "ett";
             Wine wine2 = new Wine();
             wine2.WineName = "två";
-            wineManager.Add(wine1);
-            wineManager.Add(wine2);
+            wineManager.AddWine(wine1);
+            wineManager.AddWine(wine2);
 
             // Exercise
-            wineManager.Remove(0);
+            wineManager.RemoveWine(0);
 
             // Verify
             Assert.AreEqual(1, wineManager.WineCount);
-            Assert.AreSame("två", wineManager.Get(0).WineName);
+            Assert.AreSame("två", wineManager.GetWine(0).WineName);
         }
 
         [TestMethod]
@@ -51,14 +51,14 @@ namespace VinTest
             wine1.WineName = "ett";
             Wine wine2 = new Wine();
             wine2.WineName = "två";
-            wineManager.Add(wine1);
+            wineManager.AddWine(wine1);
 
             // Exercise
             var result = wineManager.ChangeWine(wine2, 0);
 
             // Verify
             Assert.IsTrue(result);
-            Assert.AreSame("två", wineManager.Get(0).WineName);
+            Assert.AreSame("två", wineManager.GetWine(0).WineName);
         }
     }
 }
