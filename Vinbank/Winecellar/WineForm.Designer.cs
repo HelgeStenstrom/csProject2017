@@ -32,10 +32,16 @@
             this.txtWineName = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpDateAdded = new System.Windows.Forms.DateTimePicker();
             this.lblYear = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dtpDateConsumed = new System.Windows.Forms.DateTimePicker();
             this.numYear = new System.Windows.Forms.NumericUpDown();
+            this.cboCountry = new System.Windows.Forms.ComboBox();
+            this.lblCountry = new System.Windows.Forms.Label();
+            this.lblWineType = new System.Windows.Forms.Label();
+            this.cboWineType = new System.Windows.Forms.ComboBox();
+            this.lblDateAdded = new System.Windows.Forms.Label();
+            this.lblDateConsumed = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numYear)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,7 +56,7 @@
             // 
             // txtWineName
             // 
-            this.txtWineName.Location = new System.Drawing.Point(118, 59);
+            this.txtWineName.Location = new System.Drawing.Point(134, 59);
             this.txtWineName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtWineName.Name = "txtWineName";
             this.txtWineName.Size = new System.Drawing.Size(761, 28);
@@ -81,40 +87,40 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // dateTimePicker1
+            // dtpDateAdded
             // 
-            this.dateTimePicker1.CustomFormat = "";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(740, 110);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(139, 28);
-            this.dateTimePicker1.TabIndex = 4;
-            this.dateTimePicker1.Value = new System.DateTime(2017, 12, 25, 19, 25, 10, 0);
+            this.dtpDateAdded.CustomFormat = "";
+            this.dtpDateAdded.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpDateAdded.Location = new System.Drawing.Point(259, 196);
+            this.dtpDateAdded.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dtpDateAdded.Name = "dtpDateAdded";
+            this.dtpDateAdded.Size = new System.Drawing.Size(139, 28);
+            this.dtpDateAdded.TabIndex = 4;
+            this.dtpDateAdded.Value = new System.DateTime(2017, 12, 25, 19, 25, 10, 0);
             // 
             // lblYear
             // 
             this.lblYear.AutoSize = true;
             this.lblYear.Location = new System.Drawing.Point(55, 115);
             this.lblYear.Name = "lblYear";
-            this.lblYear.Size = new System.Drawing.Size(29, 24);
+            this.lblYear.Size = new System.Drawing.Size(72, 24);
             this.lblYear.TabIndex = 5;
-            this.lblYear.Text = "År";
+            this.lblYear.Text = "Årgång";
             // 
-            // dateTimePicker2
+            // dtpDateConsumed
             // 
-            this.dateTimePicker2.CustomFormat = "";
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker2.Location = new System.Drawing.Point(740, 163);
-            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(139, 28);
-            this.dateTimePicker2.TabIndex = 6;
-            this.dateTimePicker2.Value = new System.DateTime(2017, 12, 25, 19, 25, 10, 0);
+            this.dtpDateConsumed.CustomFormat = "";
+            this.dtpDateConsumed.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpDateConsumed.Location = new System.Drawing.Point(756, 192);
+            this.dtpDateConsumed.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dtpDateConsumed.Name = "dtpDateConsumed";
+            this.dtpDateConsumed.Size = new System.Drawing.Size(139, 28);
+            this.dtpDateConsumed.TabIndex = 6;
+            this.dtpDateConsumed.Value = new System.DateTime(2017, 12, 25, 19, 25, 10, 0);
             // 
             // numYear
             // 
-            this.numYear.Location = new System.Drawing.Point(118, 110);
+            this.numYear.Location = new System.Drawing.Point(134, 110);
             this.numYear.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.numYear.Maximum = new decimal(new int[] {
             2100,
@@ -130,20 +136,78 @@
             this.numYear.Size = new System.Drawing.Size(68, 28);
             this.numYear.TabIndex = 8;
             this.numYear.Value = new decimal(new int[] {
-            2018,
+            2020,
             0,
             0,
             0});
+            // 
+            // cboCountry
+            // 
+            this.cboCountry.FormattingEnabled = true;
+            this.cboCountry.Location = new System.Drawing.Point(325, 109);
+            this.cboCountry.Name = "cboCountry";
+            this.cboCountry.Size = new System.Drawing.Size(356, 30);
+            this.cboCountry.TabIndex = 9;
+            // 
+            // lblCountry
+            // 
+            this.lblCountry.AutoSize = true;
+            this.lblCountry.Location = new System.Drawing.Point(255, 120);
+            this.lblCountry.Name = "lblCountry";
+            this.lblCountry.Size = new System.Drawing.Size(52, 24);
+            this.lblCountry.TabIndex = 10;
+            this.lblCountry.Text = "Land";
+            // 
+            // lblWineType
+            // 
+            this.lblWineType.AutoSize = true;
+            this.lblWineType.Location = new System.Drawing.Point(687, 115);
+            this.lblWineType.Name = "lblWineType";
+            this.lblWineType.Size = new System.Drawing.Size(42, 24);
+            this.lblWineType.TabIndex = 11;
+            this.lblWineType.Text = "Typ";
+            // 
+            // cboWineType
+            // 
+            this.cboWineType.FormattingEnabled = true;
+            this.cboWineType.Location = new System.Drawing.Point(774, 112);
+            this.cboWineType.Name = "cboWineType";
+            this.cboWineType.Size = new System.Drawing.Size(121, 30);
+            this.cboWineType.TabIndex = 12;
+            // 
+            // lblDateAdded
+            // 
+            this.lblDateAdded.AutoSize = true;
+            this.lblDateAdded.Location = new System.Drawing.Point(59, 196);
+            this.lblDateAdded.Name = "lblDateAdded";
+            this.lblDateAdded.Size = new System.Drawing.Size(117, 24);
+            this.lblDateAdded.TabIndex = 13;
+            this.lblDateAdded.Text = "Datum tillagd";
+            // 
+            // lblDateConsumed
+            // 
+            this.lblDateConsumed.AutoSize = true;
+            this.lblDateConsumed.Location = new System.Drawing.Point(600, 192);
+            this.lblDateConsumed.Name = "lblDateConsumed";
+            this.lblDateConsumed.Size = new System.Drawing.Size(129, 24);
+            this.lblDateConsumed.TabIndex = 14;
+            this.lblDateConsumed.Text = "Dryckesdatum";
             // 
             // WineForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1152, 350);
+            this.Controls.Add(this.lblDateConsumed);
+            this.Controls.Add(this.lblDateAdded);
+            this.Controls.Add(this.cboWineType);
+            this.Controls.Add(this.lblWineType);
+            this.Controls.Add(this.lblCountry);
+            this.Controls.Add(this.cboCountry);
             this.Controls.Add(this.numYear);
-            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.dtpDateConsumed);
             this.Controls.Add(this.lblYear);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dtpDateAdded);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtWineName);
@@ -165,9 +229,15 @@
         private System.Windows.Forms.TextBox txtWineName;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpDateAdded;
         private System.Windows.Forms.Label lblYear;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dtpDateConsumed;
         private System.Windows.Forms.NumericUpDown numYear;
+        private System.Windows.Forms.ComboBox cboCountry;
+        private System.Windows.Forms.Label lblCountry;
+        private System.Windows.Forms.Label lblWineType;
+        private System.Windows.Forms.ComboBox cboWineType;
+        private System.Windows.Forms.Label lblDateAdded;
+        private System.Windows.Forms.Label lblDateConsumed;
     }
 }
