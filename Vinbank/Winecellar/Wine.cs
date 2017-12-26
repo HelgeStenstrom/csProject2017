@@ -124,9 +124,7 @@ namespace Winecellar
                    Vintage.ToString(),
                    Country.ToString(),
                    WineType.ToString(),
-                   // DateAdded.ToString(@"yyyy-MM-dd"),
                    DateColumnString(),
-                   //DateConsumed.ToString(@"yyyy-MM-dd")
                     };
 
         private string DateColumnString()
