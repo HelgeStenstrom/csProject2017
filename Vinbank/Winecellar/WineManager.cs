@@ -79,7 +79,6 @@ namespace Winecellar
             if (CheckIndex(index))
                 return new Wine(wines[index]);
             else throw new IndexOutOfRangeException();
-            // TODO: kolla inkapsling
         }
 
         /// <summary>
@@ -105,31 +104,10 @@ namespace Winecellar
                 List<string[]> listOfCellsForOneRow = new List<string[]>();
                 foreach (var wine in wines)
                 {
-                    // TODO: fyll på med fakta från ett vin istället.
                     listOfCellsForOneRow.Add(wine.RowStrings);
                 }
                 return listOfCellsForOneRow;
             }
         }
-
-
-
-        /// <summary>
-        /// TODO: GetNonConsumed
-        /// </summary>
-        /// <returns></returns>
-        public Wine GetNonConsumed()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        /// <summary>
-        /// TODO:Mark the wine pointed to by the index, as consumed.
-        /// </summary>
-        public void Consume(int index)
-        {
-            throw new System.NotImplementedException();
-        }
-
     }
 }

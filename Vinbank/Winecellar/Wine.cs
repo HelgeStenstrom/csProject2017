@@ -15,13 +15,6 @@ namespace Winecellar
             // TODO: Kom ihåg att när denna används, är inte Wine-objektet fullständigt. Det måste få data.
         }
 
-        public Wine(string name, WineType wineType, bool isConsumed)
-        {
-            this.WineName = name;
-            this.WineType = wineType;
-            this.IsConsumed = isConsumed;
-            // TODO: Gör fullständig. Alla fields ska ha anropsparameterar.        
-        }
 
         /// <summary>
         /// Copy constructor
@@ -119,7 +112,6 @@ namespace Winecellar
         /// Strings used to fill a row in a ListView.
         /// </summary>
         public string[] RowStrings => new string[] {
-            // TODO: Fyll på med fakta, matchande kolumnerna i MainForm.
                    WineName,
                    Vintage.ToString(),
                    Country.ToString(),
@@ -127,19 +119,19 @@ namespace Winecellar
                    DateColumnString(),
                     };
 
+        /// <summary>
+        /// The date column of the wine list has different contents depending on if the wine is consumed or not.
+        /// Because both the wine manager and the main form treats all columns the same, we implement
+        /// the column here.
+        /// </summary>
+        /// <returns>Date string of consumption or addition to wine cellar.</returns>
         private string DateColumnString()
         {
-            if (markedAsConsumed())
+            if (IsConsumed)
                 return "Drucken: " + DateConsumed.ToString(@"yyyy-MM-dd");
             else
                 return "Tillagd: " + DateAdded.ToString(@"yyyy-MM-dd");
         }
-
-        private bool markedAsConsumed()
-        {
-            return (DateConsumed > new DateTime(1900, 1, 1));
-        }
-
 
     } //close class
 } // close namespace

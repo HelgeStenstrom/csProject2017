@@ -147,8 +147,8 @@ namespace Winecellar
             wineObj.WineType = (WineType)cboWineType.SelectedIndex;
             wineObj.DateAdded = dtpDateAdded.Value.Date;
             wineObj.IsConsumed = chbIsConsumed.Checked;
-            if (chbIsConsumed.Checked)
-                wineObj.DateConsumed = dtpDateConsumed.Value.Date;
+            //if (chbIsConsumed.Checked)
+            wineObj.DateConsumed = dtpDateConsumed.Value.Date;
         }
 
         /// <summary>
