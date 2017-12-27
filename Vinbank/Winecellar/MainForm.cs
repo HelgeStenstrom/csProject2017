@@ -25,7 +25,7 @@ namespace Winecellar
             lstvWines.Columns.Add("Land", 180, HorizontalAlignment.Center);
             lstvWines.Columns.Add("Typ", 50, HorizontalAlignment.Center);
             lstvWines.Columns.Add("Datum", 150, HorizontalAlignment.Center);
-            lstvWines.Columns.Add("Datum 2", 95, HorizontalAlignment.Center);
+            //lstvWines.Columns.Add("Datum 2", 95, HorizontalAlignment.Center);
         }
 
         private void UpdateGUI()

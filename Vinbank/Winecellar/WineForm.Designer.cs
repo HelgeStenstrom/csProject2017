@@ -90,6 +90,7 @@
             // 
             // dtpDateAdded
             // 
+            this.dtpDateAdded.Checked = false;
             this.dtpDateAdded.CustomFormat = "";
             this.dtpDateAdded.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpDateAdded.Location = new System.Drawing.Point(182, 186);
@@ -99,7 +100,6 @@
             this.dtpDateAdded.Name = "dtpDateAdded";
             this.dtpDateAdded.Size = new System.Drawing.Size(139, 24);
             this.dtpDateAdded.TabIndex = 4;
-            this.dtpDateAdded.Value = new System.DateTime(2017, 12, 25, 19, 25, 10, 0);
             // 
             // lblYear
             // 
@@ -112,6 +112,7 @@
             // 
             // dtpDateConsumed
             // 
+            this.dtpDateConsumed.Checked = false;
             this.dtpDateConsumed.CustomFormat = "";
             this.dtpDateConsumed.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpDateConsumed.Location = new System.Drawing.Point(756, 192);
@@ -121,7 +122,6 @@
             this.dtpDateConsumed.Name = "dtpDateConsumed";
             this.dtpDateConsumed.Size = new System.Drawing.Size(139, 24);
             this.dtpDateConsumed.TabIndex = 6;
-            this.dtpDateConsumed.Value = new System.DateTime(2017, 12, 25, 19, 25, 10, 0);
             // 
             // numYear
             // 
