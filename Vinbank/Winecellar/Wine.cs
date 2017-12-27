@@ -35,7 +35,7 @@ namespace Winecellar
         #region Properties
 
         /// <summary>
-        /// Property, read and write access
+        /// Name of the wine, as string. Property, read and write access
         /// </summary>
         public string WineName
         {
@@ -46,7 +46,7 @@ namespace Winecellar
 
 
         /// <summary>
-        /// Property, read and write access
+        /// The vintage (year) of the wine. Property, read and write access
         /// </summary>
         public int Vintage
         {
@@ -55,7 +55,7 @@ namespace Winecellar
         }
 
         /// <summary>
-        /// Property, read and write access
+        /// The country of origin. Property, read and write access
         /// </summary>
         public Countries Country
         {
@@ -64,7 +64,7 @@ namespace Winecellar
         }
 
         /// <summary>
-        /// Property, read and write access
+        /// The type of the wine. Property, read and write access
         /// </summary>
         public WineType WineType
         {
@@ -73,7 +73,7 @@ namespace Winecellar
         }
 
         /// <summary>
-        /// Property, read and write access
+        /// The date the wine was added to the wine cellar. Property, read and write access
         /// </summary>
         public DateTime DateAdded
         {
@@ -81,7 +81,8 @@ namespace Winecellar
             set;
         }
         /// <summary>
-        /// Property, read and write access
+        /// The date the wine was consumed. Property, read and write access.
+        /// Don't care, if IsConsumed is False. Should be correct and valid if IsConsumed is True.
         /// </summary>
         public DateTime DateConsumed
         {
@@ -90,7 +91,8 @@ namespace Winecellar
         }
         
         /// <summary>
-        /// Property, read and write access
+        /// True if the wine is consumed. Property, read and write access.
+        /// Consumed wines should have a valid DateConsumed.
         /// </summary>
         public bool IsConsumed
         {
@@ -104,7 +106,7 @@ namespace Winecellar
         public string[] RowStrings => new string[] {
                    WineName,
                    Vintage.ToString(),
-                   Country.ToString(),
+                   Country.ToString().Replace("_", " "),
                    WineType.ToString(),
                    DateColumnString(),
                     };

@@ -60,7 +60,7 @@
             this.txtWineName.Location = new System.Drawing.Point(134, 59);
             this.txtWineName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtWineName.Name = "txtWineName";
-            this.txtWineName.Size = new System.Drawing.Size(761, 24);
+            this.txtWineName.Size = new System.Drawing.Size(734, 24);
             this.txtWineName.TabIndex = 1;
             this.txtWineName.TextChanged += new System.EventHandler(this.txtWineName_TextChanged);
             // 
@@ -115,7 +115,7 @@
             this.dtpDateConsumed.Checked = false;
             this.dtpDateConsumed.CustomFormat = "";
             this.dtpDateConsumed.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDateConsumed.Location = new System.Drawing.Point(756, 192);
+            this.dtpDateConsumed.Location = new System.Drawing.Point(729, 192);
             this.dtpDateConsumed.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtpDateConsumed.MaxDate = new System.DateTime(2100, 12, 31, 0, 0, 0, 0);
             this.dtpDateConsumed.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
@@ -152,7 +152,7 @@
             this.cboCountry.FormattingEnabled = true;
             this.cboCountry.Location = new System.Drawing.Point(325, 109);
             this.cboCountry.Name = "cboCountry";
-            this.cboCountry.Size = new System.Drawing.Size(356, 25);
+            this.cboCountry.Size = new System.Drawing.Size(266, 25);
             this.cboCountry.TabIndex = 9;
             // 
             // lblCountry
@@ -167,7 +167,7 @@
             // lblWineType
             // 
             this.lblWineType.AutoSize = true;
-            this.lblWineType.Location = new System.Drawing.Point(687, 115);
+            this.lblWineType.Location = new System.Drawing.Point(691, 112);
             this.lblWineType.Name = "lblWineType";
             this.lblWineType.Size = new System.Drawing.Size(32, 18);
             this.lblWineType.TabIndex = 11;
@@ -177,9 +177,9 @@
             // 
             this.cboWineType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboWineType.FormattingEnabled = true;
-            this.cboWineType.Location = new System.Drawing.Point(774, 112);
+            this.cboWineType.Location = new System.Drawing.Point(729, 109);
             this.cboWineType.Name = "cboWineType";
-            this.cboWineType.Size = new System.Drawing.Size(121, 25);
+            this.cboWineType.Size = new System.Drawing.Size(139, 25);
             this.cboWineType.TabIndex = 12;
             // 
             // lblDateAdded

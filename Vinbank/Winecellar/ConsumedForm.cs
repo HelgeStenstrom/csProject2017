@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Winecellar
@@ -15,7 +8,7 @@ namespace Winecellar
         private Wine wineObj; //declare wineObj as type Wine
 
         /// <summary>
-        /// Property related to wine object
+        /// Wine object as property, using copy constructors
         /// </summary> 
         public Wine WineData
     {
@@ -26,18 +19,33 @@ namespace Winecellar
             }
     }
 
+        /// <summary>
+        /// Constructor with a form title.
+        /// Open the form for marking a wine as consumed, and optionally setting the date.
+        /// </summary>
+        /// <param name="title"></param>
         public ConsumedForm(string title)
         {
             InitializeComponent();
             this.Text = title;
         }
 
+        /// <summary>
+        /// Called when the button "Spara" is clicked.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSave_Click(object sender, EventArgs e)
         {
             wineObj.DateConsumed = dtpDateConsumed.Value.Date;
             wineObj.IsConsumed = true;
         }
 
+        /// <summary>
+        /// Called when the button "Avbryt" is clicked.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCancel_Click(object sender, EventArgs e)
         {
 

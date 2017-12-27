@@ -5,8 +5,17 @@ namespace Winecellar
 {
     public partial class MainForm : Form
     {
+        #region Fields.
+        /// <summary>
+        /// The MainForm has a WineManager which controls the list of wines.
+        /// </summary>
         private WineManager wineManagerObj = new WineManager();
+        #endregion
 
+        #region Constructor
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public MainForm()
         {
             InitializeComponent();
@@ -14,6 +23,14 @@ namespace Winecellar
             UpdateGUI();
         }
 
+        #endregion
+
+        #region Methods
+
+
+        /// <summary>
+        /// Initialize the GUI. Currently, it's only the ListView for wines that needs any initialization.
+        /// </summary>
         private void InitializeGui()
         {
             // Replace the columns drawn in the GUI editor with columns defined here.
@@ -22,12 +39,17 @@ namespace Winecellar
             lstvWines.Columns.Clear();
             lstvWines.Columns.Add("Namn", 300, HorizontalAlignment.Center);
             lstvWines.Columns.Add("Årgång", 65, HorizontalAlignment.Center);
-            lstvWines.Columns.Add("Land", 180, HorizontalAlignment.Center);
+            lstvWines.Columns.Add("Land", 250, HorizontalAlignment.Left);
             lstvWines.Columns.Add("Typ", 50, HorizontalAlignment.Center);
             lstvWines.Columns.Add("Datum", 150, HorizontalAlignment.Center);
             //lstvWines.Columns.Add("Datum 2", 95, HorizontalAlignment.Center);
         }
 
+        /// <summary>
+        /// Update the GUI using available information.
+        /// Add wines to the list.
+        /// Enable some buttons if a wine is selected.
+        /// </summary>
         private void UpdateGUI()
         {
             lstvWines.Items.Clear();
@@ -44,22 +66,22 @@ namespace Winecellar
         /// <summary>
         /// Button Lägg till vin
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void btnAdd_Click(object sender, EventArgs e)
         {
             WineForm wineFormObj = new WineForm("Lägg till vin");
+            // Only one wine may be selected, so we know which wine to act on.
             if (lstvWines.SelectedIndices.Count == 1)
             {
-                int selectedIndex = lstvWines.SelectedIndices[0];
+                int selectedIndex = lstvWines.SelectedIndices[0]; // The first and only wine that is selected.
                 wineFormObj.WineData = wineManagerObj.GetWine(selectedIndex);
             }
             var result = wineFormObj.ShowDialog();
 
             // Temporär label för att visa vad vi får för returnerat värde från WineForm
+            // TODO: Ta bort lblResultFromWineForm från slutliga programmet.
             lblResultFromWineForm.Text = result.ToString();
 
-            if (result == DialogResult.OK)
+            if (result == DialogResult.OK) // If the user really wants to add the wine,
             {
                 Wine wine = wineFormObj.WineData;
                 wineManagerObj.AddWine(wine);
@@ -75,7 +97,8 @@ namespace Winecellar
         private void btnChange_Click(object sender, EventArgs e)
         {
             if (lstvWines.SelectedIndices.Count == 1) 
-                // TODO: Not needed, actually, since we can't click the button if it's not true.
+                // Not needed, actually, since we can't click the button if it's not true.
+                // We test anyway, to be extra super safe.
             {
                 int selectedIndex = lstvWines.SelectedIndices[0];
 
@@ -97,8 +120,6 @@ namespace Winecellar
         /// <summary>
         /// button Ta bort vin
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void btnRemove_Click(object sender, EventArgs e)
         {
             if (lstvWines.SelectedIndices.Count == 1)
@@ -114,8 +135,6 @@ namespace Winecellar
         /// <summary>
         /// button Drick vin
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void btnDrink_Click(object sender, EventArgs e)
         {
             int selectedIndex = lstvWines.SelectedIndices[0];
@@ -149,17 +168,16 @@ namespace Winecellar
         }
 
         /// <summary>
-        /// When a wine is selected
+        /// When a wine is selected, enable some buttons.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void lstvWines_SelectedIndexChanged(object sender, EventArgs e)
         {
             EnableButtonsIfOneWineSelected();
         }
 
         /// <summary>
-        /// Enable Change and Remove buttons
+        /// Enable Change, Remove and Drink buttons if one wine is selected.
+        /// In Swedish: Ändra vin, Ta bort vin, Drick vin!
         /// </summary>
         private void EnableButtonsIfOneWineSelected()
         {
@@ -170,6 +188,7 @@ namespace Winecellar
         }
 
         // Tillfällig funktion för att ta reda på hur breda kolumner som är lagom.
+        // TODO: ta bort lstvWines_ColumnWidthChanged från slutgiltiga versionen, inklusive property som använder den.
         private void lstvWines_ColumnWidthChanged(object sender, ColumnWidthChangedEventArgs e)
         {
             int newWidth = e.ColumnIndex;
@@ -178,6 +197,7 @@ namespace Winecellar
 
         /// <summary>
         /// Temporary function used to find suitable column widths.
+        /// TODO: ta bort lstvWines_ColumnWidthChanging från slutgiltiga versionen, inklusive property som använder den.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -187,6 +207,6 @@ namespace Winecellar
             lblBredd.Text = newWidth.ToString();
         }
 
-
+        #endregion
     }
 }

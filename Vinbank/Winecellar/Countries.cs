@@ -4,12 +4,11 @@
 namespace Winecellar
 {
 	/// <summary>
-	///The countries of the world.
+	///The countries of the world. The first value, _, is used as a default value.
 	/// </summary>
-
-	public enum Countries
+    	public enum Countries
 	{
-        Invalid_Country,
+        _,
 		Afghanistan,
 		Algeria,
 		Andorra,

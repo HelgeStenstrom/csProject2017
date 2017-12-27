@@ -6,41 +6,42 @@
   <Comment CommentText="En DateConsumedForm skapas vid behov, troligen av MainForm. Den används för att lagra och editera vilket datum man har kunsumerat ett vin.">
     <Position X="0.635" Y="1.521" Height="1.125" Width="2.044" />
   </Comment>
-  <Class Name="Vinbank.MainForm">
-    <Position X="3" Y="0.5" Width="2.5" />
-    <Members>
-      <Field Name="components" Hidden="true" />
-      <Method Name="Dispose" Hidden="true" />
-      <Method Name="InitializeComponent" Hidden="true" />
-    </Members>
+  <Class Name="Winecellar.ConsumedForm" Collapsed="true">
+    <Position X="5.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAAAAAACAAAATAAAAAAAIAAAAAAAAACA=</HashCode>
+      <HashCode>EAAAAAAAACAAAAEAAACAAEACEAAAABAAAAAAAAIAAAI=</HashCode>
+      <FileName>ConsumedForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Winecellar.MainForm" Collapsed="true">
+    <Position X="3" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAETgAACBAAAAQARCAAAACBAAEhAQAAACgQAAEAQI=</HashCode>
       <FileName>MainForm.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Vinbank.WineManager">
-    <Position X="6.75" Y="2.75" Width="2.5" />
+  <Class Name="Winecellar.Wine" Collapsed="true">
+    <Position X="7" Y="2.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AEIAAAAIAAAAAAAAAAAABAAAAAAAAAACAAAIAAAAAAE=</HashCode>
+      <HashCode>AEAACAgAABAAAAAAAAEACAAAAAIAAAAgAQAAAQAAAAA=</HashCode>
+      <FileName>Wine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Winecellar.WineForm" Collapsed="true">
+    <Position X="6.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EQQABEACQGAAEAEBBBGCgEACEAAAAhAAAQHAABICAAA=</HashCode>
+      <FileName>WineForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Winecellar.WineManager" Collapsed="true">
+    <Position X="3" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAKAAAAAAAAAAAAABAAAAAAAAAAAQAAAAAAAAigAAAA=</HashCode>
       <FileName>WineManager.cs</FileName>
-      <NewMemberFileName>Wine.cs</NewMemberFileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Vinbank.DateConsumedForm">
-    <Position X="0.5" Y="3" Width="2.25" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAEAAAAAAAAAIAAAAAAA=</HashCode>
-      <FileName>DateConsumedForm.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Enum Name="Vinbank.CharacterTypes">
-    <Position X="8" Y="6" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>CharacterTypes.cs</FileName>
-    </TypeIdentifier>
-  </Enum>
-  <Enum Name="Vinbank.WineType">
+  <Enum Name="Winecellar.WineType">
     <Position X="6" Y="6" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAgAAAAEAIAAAAAAAAAAAAAQA=</HashCode>
