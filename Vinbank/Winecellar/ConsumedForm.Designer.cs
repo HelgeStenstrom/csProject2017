@@ -70,6 +70,7 @@
             // 
             // dtpDateConsumed
             // 
+            this.dtpDateConsumed.Checked = false;
             this.dtpDateConsumed.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpDateConsumed.Location = new System.Drawing.Point(150, 26);
             this.dtpDateConsumed.Margin = new System.Windows.Forms.Padding(4);
