@@ -37,6 +37,7 @@
             this.btnRemove = new System.Windows.Forms.Button();
             this.lblResultFromWineForm = new System.Windows.Forms.Label();
             this.lblBredd = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lstvWines
@@ -113,7 +114,7 @@
             this.lblResultFromWineForm.Location = new System.Drawing.Point(100, 529);
             this.lblResultFromWineForm.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblResultFromWineForm.Name = "lblResultFromWineForm";
-            this.lblResultFromWineForm.Size = new System.Drawing.Size(201, 18);
+            this.lblResultFromWineForm.Size = new System.Drawing.Size(252, 24);
             this.lblResultFromWineForm.TabIndex = 5;
             this.lblResultFromWineForm.Text = "Dialogresultat från WineForm";
             // 
@@ -122,15 +123,26 @@
             this.lblBredd.AutoSize = true;
             this.lblBredd.Location = new System.Drawing.Point(37, 415);
             this.lblBredd.Name = "lblBredd";
-            this.lblBredd.Size = new System.Drawing.Size(193, 18);
+            this.lblBredd.Size = new System.Drawing.Size(245, 24);
             this.lblBredd.TabIndex = 6;
             this.lblBredd.Text = "bredd på kolum som ändras";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(654, 446);
+            this.button1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(125, 38);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Ta bort vin";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(902, 572);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.lblBredd);
             this.Controls.Add(this.lblResultFromWineForm);
             this.Controls.Add(this.btnRemove);
@@ -157,6 +169,7 @@
         private System.Windows.Forms.Label lblResultFromWineForm;
         private System.Windows.Forms.ColumnHeader colVintage;
         private System.Windows.Forms.Label lblBredd;
+        private System.Windows.Forms.Button button1;
     }
 }
 
