@@ -12,9 +12,9 @@ namespace Winecellar
         /// </summary>
         public Wine()
         {
-            // TODO: Kom ihåg att när denna används, är inte Wine-objektet fullständigt. Det måste få data.
+            // Kom ihåg att när denna constructor används, 
+            // är inte Wine-objektet fullständigt. Det måste få data.
         }
-
 
         /// <summary>
         /// Copy constructor
@@ -32,6 +32,7 @@ namespace Winecellar
             // TODO: Behövs ytterligare någon del i Wine copy constructor?
         }
 
+        #region Properties
 
         /// <summary>
         /// Property, read and write access
@@ -97,17 +98,6 @@ namespace Winecellar
             set;
         }
 
-        /// <summary> 
-        /// Delete underscore char from selected country
-        /// </summary>
-        /// <returns>Country name without underscore char</returns>
-        private string GetCountryString()
-        {
-            string strCountry = Country.ToString();
-            strCountry = strCountry.Replace("_", " ");
-            return strCountry;
-        }
-
         /// <summary>
         /// Strings used to fill a row in a ListView.
         /// </summary>
@@ -118,6 +108,19 @@ namespace Winecellar
                    WineType.ToString(),
                    DateColumnString(),
                     };
+
+        #endregion  
+
+        /// <summary> 
+        /// Delete underscore char from selected country
+        /// </summary>
+        /// <returns>Country name without underscore char</returns>
+        private string GetCountryString()
+        {
+            string strCountry = Country.ToString();
+            strCountry = strCountry.Replace("_", " ");
+            return strCountry;
+        }
 
         /// <summary>
         /// The date column of the wine list has different contents depending on if the wine is consumed or not.
