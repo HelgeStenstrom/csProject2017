@@ -124,6 +124,8 @@ namespace Winecellar
             consumedFormObj.WineData = wineIn;
             var result = consumedFormObj.ShowDialog();
 
+            lblResultFromWineForm.Text = result.ToString();
+
             if (result == DialogResult.OK)
             {
                 Wine wineOut = consumedFormObj.WineData;
