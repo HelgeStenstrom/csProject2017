@@ -47,28 +47,28 @@ namespace Winecellar
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ConsumedForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (DialogResult == DialogResult.OK)
-                e.Cancel = false;
-            else
-            {
-                // TODO: fundera på när konfirmering ska användas.
-                e.Cancel = !CancelFormQuestion();
-            }
-        }
+        //private void ConsumedForm_FormClosing(object sender, FormClosingEventArgs e)
+        //{
+        //    if (DialogResult == DialogResult.OK)
+        //        e.Cancel = false;
+        //    else
+        //    {
+        //        // TODO: fundera på när konfirmering ska användas.
+        //        e.Cancel = !CancelFormQuestion();
+        //    }
+        //}
 
         /// <summary>
         /// Ask if changes should be discarded and form closed
         /// </summary>
         /// <returns></returns>
-        private bool CancelFormQuestion()
-        {
-            MessageBoxButtons okButton = MessageBoxButtons.YesNo;
-            DialogResult result = MessageBox.Show("Vill du slänga alla ändringar?",
-                "Bekräfta!", okButton);
-            return (result == DialogResult.Yes);
-        }
+        //private bool CancelFormQuestion()
+        //{
+        //    MessageBoxButtons okButton = MessageBoxButtons.YesNo;
+        //    DialogResult result = MessageBox.Show("Vill du slänga alla ändringar?",
+        //        "Bekräfta!", okButton);
+        //    return (result == DialogResult.Yes);
+        //}
 
     } // close class
 }

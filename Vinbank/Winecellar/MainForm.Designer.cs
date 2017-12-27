@@ -37,7 +37,7 @@
             this.btnRemove = new System.Windows.Forms.Button();
             this.lblResultFromWineForm = new System.Windows.Forms.Label();
             this.lblBredd = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnDrink = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lstvWines
@@ -127,22 +127,25 @@
             this.lblBredd.TabIndex = 6;
             this.lblBredd.Text = "bredd på kolum som ändras";
             // 
-            // button1
+            // btnDrink
             // 
-            this.button1.Location = new System.Drawing.Point(654, 446);
-            this.button1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(125, 38);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Ta bort vin";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnDrink.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDrink.ForeColor = System.Drawing.Color.Red;
+            this.btnDrink.Location = new System.Drawing.Point(654, 446);
+            this.btnDrink.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.btnDrink.Name = "btnDrink";
+            this.btnDrink.Size = new System.Drawing.Size(125, 38);
+            this.btnDrink.TabIndex = 7;
+            this.btnDrink.Text = "Drick vin!";
+            this.btnDrink.UseVisualStyleBackColor = true;
+            this.btnDrink.Click += new System.EventHandler(this.btnDrink_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(902, 572);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnDrink);
             this.Controls.Add(this.lblBredd);
             this.Controls.Add(this.lblResultFromWineForm);
             this.Controls.Add(this.btnRemove);
@@ -169,7 +172,7 @@
         private System.Windows.Forms.Label lblResultFromWineForm;
         private System.Windows.Forms.ColumnHeader colVintage;
         private System.Windows.Forms.Label lblBredd;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnDrink;
     }
 }
 

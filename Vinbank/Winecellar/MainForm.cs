@@ -110,6 +110,27 @@ namespace Winecellar
                 UpdateGUI();
             }
         }
+       
+        /// <summary>
+        /// button Drick vin
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnDrink_Click(object sender, EventArgs e)
+        {
+            int selectedIndex = lstvWines.SelectedIndices[0];
+            Wine wineIn = wineManagerObj.GetWine(selectedIndex);
+            ConsumedForm consumedFormObj = new ConsumedForm(wineIn.WineName);
+            consumedFormObj.WineData = wineIn;
+            var result = consumedFormObj.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                Wine wineOut = consumedFormObj.WineData;
+                wineManagerObj.ChangeWine(wineOut, selectedIndex);
+            }
+            UpdateGUI();
+        }
 
         /// <summary>
         /// Messagebox to confirm choice
@@ -143,6 +164,7 @@ namespace Winecellar
             bool onlyOneSelected = (lstvWines.SelectedIndices.Count == 1);
             btnChange.Enabled = onlyOneSelected;
             btnRemove.Enabled = onlyOneSelected;
+            btnDrink.Enabled = onlyOneSelected;
         }
 
         // Tillfällig funktion för att ta reda på hur breda kolumner som är lagom.
@@ -162,5 +184,7 @@ namespace Winecellar
             var newWidth = e.NewWidth;
             lblBredd.Text = newWidth.ToString();
         }
+
+
     }
 }
