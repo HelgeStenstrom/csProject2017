@@ -1,12 +1,18 @@
-﻿using System;
+﻿//ConsumedForm.cs
+//Ann-Marie Bergström ai2436
+//2017-12-29
+using System;
 using System.Windows.Forms;
 
 namespace Winecellar
 {
     public partial class ConsumedForm : Form
     {
+        #region Fields
         private Wine wineObj; //declare wineObj as type Wine
+        #endregion Fields
 
+        #region Properties
         /// <summary>
         /// Wine object as property, using copy constructors
         /// </summary> 
@@ -18,10 +24,11 @@ namespace Winecellar
                 wineObj = new Wine(value);
             }
     }
+        #endregion Properties
 
+        #region Constructors
         /// <summary>
-        /// Constructor with a form title.
-        /// Open the form for marking a wine as consumed, and optionally setting the date.
+        /// Constructor with a parameter for form title.
         /// </summary>
         /// <param name="title"></param>
         public ConsumedForm(string title)
@@ -29,9 +36,11 @@ namespace Winecellar
             InitializeComponent();
             this.Text = title;
         }
+        #endregion Constructors
 
+        #region Event handlers
         /// <summary>
-        /// Called when the button "Spara" is clicked.
+        /// Button "Spara"
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -42,7 +51,7 @@ namespace Winecellar
         }
 
         /// <summary>
-        /// Called when the button "Avbryt" is clicked.
+        /// Button "Avbryt"
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -50,34 +59,7 @@ namespace Winecellar
         {
 
         }
-
-        /// <summary>
-        /// Form closing
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        //private void ConsumedForm_FormClosing(object sender, FormClosingEventArgs e)
-        //{
-        //    if (DialogResult == DialogResult.OK)
-        //        e.Cancel = false;
-        //    else
-        //    {
-        //        // TODO: fundera på när konfirmering ska användas.
-        //        e.Cancel = !CancelFormQuestion();
-        //    }
-        //}
-
-        /// <summary>
-        /// Ask if changes should be discarded and form closed
-        /// </summary>
-        /// <returns></returns>
-        //private bool CancelFormQuestion()
-        //{
-        //    MessageBoxButtons okButton = MessageBoxButtons.YesNo;
-        //    DialogResult result = MessageBox.Show("Vill du slänga alla ändringar?",
-        //        "Bekräfta!", okButton);
-        //    return (result == DialogResult.Yes);
-        //}
+        #endregion Event handlers
 
     } // close class
 }

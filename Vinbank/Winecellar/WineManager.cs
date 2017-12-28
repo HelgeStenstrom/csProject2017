@@ -1,4 +1,6 @@
-﻿//TODO: filnamn, namn och id, datum
+﻿//WineManager.cs
+//Ann-Marie Bergström ai2436
+//2017-12-29
 
 using System;
 using System.Collections.Generic;
@@ -9,10 +11,11 @@ namespace Winecellar
 {
     public class WineManager
     {
-
+        #region Fields
         private List<Wine> wines; //declare list of wine
+        #endregion Fields
 
-
+        #region Properties
         /// <summary>
         /// Property returning number of wines
         /// Only read access
@@ -21,7 +24,9 @@ namespace Winecellar
         {
             get => wines.Count;
         }
-        
+        #endregion Properties
+
+        #region Constructors
         /// <summary>
         /// Default constructor
         /// </summary>
@@ -29,13 +34,16 @@ namespace Winecellar
         {
             wines = new List<Wine>(); //create list of wines
         }
+        #endregion Constructors
 
+        #region Methods
         /// <summary>
         /// Add a wine to the wine cellar
         /// </summary>
+        /// <param name="wineIn"></param>
         public void AddWine(Wine wineIn)
         {
-            Wine wineObj = new Wine(wineIn); //declare and create  wine object
+            Wine wineObj = new Wine(wineIn); //declare and create wine object
             wines.Add(wineObj);
         }
         
@@ -45,10 +53,9 @@ namespace Winecellar
         /// <param name="index"></param>
         public bool RemoveWine(int index)
         {
-            //TODO: Vad göra vid return false?
             if (CheckIndex(index))
             {
-                wines.RemoveAt(index);
+                 wines.RemoveAt(index);
                 return true;
             }
             else
@@ -56,9 +63,9 @@ namespace Winecellar
         }
 
         /// <summary>
-        /// Change the details of an existing wine
+        /// Change an existing wine
         /// </summary>
-        /// <param name="index">Points to the wine to change</param>
+        /// <param name="index"></param>
         public bool ChangeWine(Wine wine, int index)
         {
             if (CheckIndex(index))
@@ -73,7 +80,7 @@ namespace Winecellar
         /// <summary>
         /// Get the details of an existing wine
         /// </summary>
-        /// <param name="index">Points to the wine to get</param>
+        /// <param name="index"></param>
         public Wine GetWine(int index)
         {
             if (CheckIndex(index))
@@ -82,7 +89,7 @@ namespace Winecellar
         }
 
         /// <summary>
-        /// checks if index is valid
+        /// Check if index is valid
         /// </summary>
         /// <param name="index"></param>
         public bool CheckIndex(int index)
@@ -109,5 +116,6 @@ namespace Winecellar
                 return listOfCellsForOneRow;
             }
         }
+        #endregion Methods
     }
 }

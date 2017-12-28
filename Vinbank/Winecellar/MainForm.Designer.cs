@@ -35,8 +35,6 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnChange = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
-            this.lblResultFromWineForm = new System.Windows.Forms.Label();
-            this.lblBredd = new System.Windows.Forms.Label();
             this.btnDrink = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -57,8 +55,6 @@
             this.lstvWines.TabIndex = 1;
             this.lstvWines.UseCompatibleStateImageBehavior = false;
             this.lstvWines.View = System.Windows.Forms.View.Details;
-            this.lstvWines.ColumnWidthChanged += new System.Windows.Forms.ColumnWidthChangedEventHandler(this.lstvWines_ColumnWidthChanged);
-            this.lstvWines.ColumnWidthChanging += new System.Windows.Forms.ColumnWidthChangingEventHandler(this.lstvWines_ColumnWidthChanging);
             this.lstvWines.SelectedIndexChanged += new System.EventHandler(this.lstvWines_SelectedIndexChanged);
             // 
             // colName
@@ -108,25 +104,6 @@
             this.btnRemove.UseVisualStyleBackColor = true;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
-            // lblResultFromWineForm
-            // 
-            this.lblResultFromWineForm.AutoSize = true;
-            this.lblResultFromWineForm.Location = new System.Drawing.Point(100, 529);
-            this.lblResultFromWineForm.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.lblResultFromWineForm.Name = "lblResultFromWineForm";
-            this.lblResultFromWineForm.Size = new System.Drawing.Size(252, 24);
-            this.lblResultFromWineForm.TabIndex = 5;
-            this.lblResultFromWineForm.Text = "Dialogresultat från WineForm";
-            // 
-            // lblBredd
-            // 
-            this.lblBredd.AutoSize = true;
-            this.lblBredd.Location = new System.Drawing.Point(37, 415);
-            this.lblBredd.Name = "lblBredd";
-            this.lblBredd.Size = new System.Drawing.Size(245, 24);
-            this.lblBredd.TabIndex = 6;
-            this.lblBredd.Text = "bredd på kolum som ändras";
-            // 
             // btnDrink
             // 
             this.btnDrink.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -146,8 +123,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(902, 572);
             this.Controls.Add(this.btnDrink);
-            this.Controls.Add(this.lblBredd);
-            this.Controls.Add(this.lblResultFromWineForm);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnChange);
             this.Controls.Add(this.btnAdd);
@@ -158,7 +133,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "Vinkällaren";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -169,9 +143,7 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnChange;
         private System.Windows.Forms.Button btnRemove;
-        private System.Windows.Forms.Label lblResultFromWineForm;
         private System.Windows.Forms.ColumnHeader colVintage;
-        private System.Windows.Forms.Label lblBredd;
         private System.Windows.Forms.Button btnDrink;
     }
 }

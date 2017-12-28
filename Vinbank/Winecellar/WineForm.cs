@@ -1,4 +1,8 @@
-﻿using System;
+﻿//WineForm.cs
+//Ann-Marie Bergström ai2436
+//2017-12-29
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +16,11 @@ namespace Winecellar
 {
     public partial class WineForm : Form
     {
-
+        #region Fields
         private Wine wineObj; //declare wineObj as type Wine
+        #endregion Fields
 
+        #region Properties
         /// <summary>
         /// Property related to wine object
         /// </summary> 
@@ -27,9 +33,11 @@ namespace Winecellar
                 UpdateGui();
             }
         }
+        #endregion Properties
 
+        #region Constructors
         /// <summary>
-        /// default constructor with one parameter
+        /// default constructor with one parameter for form title
         /// </summary>
         public WineForm(string title)
         {
@@ -37,7 +45,9 @@ namespace Winecellar
             InitializeGui(title);
             wineObj = new Wine(); // create wineObj
         }
+        #endregion Constructors
 
+        #region Methods
         /// <summary>
         /// Initialize user interface
         /// </summary>
@@ -46,12 +56,12 @@ namespace Winecellar
             this.Text = title;
             txtWineName.Clear();
             txtWineName.Focus();
-            numYear.Value = Convert.ToDecimal(DateTime.Now.ToString(@"yyyy"));
+            numYear.Value = Convert.ToDecimal(DateTime.Now.ToString(@"yyyy")); //set Årgång to current year
             cboCountry.DataSource = GetAllCountryStrings(); //populate Land combobox
             cboWineType.DataSource = GetAllWineTypeStrings(); //populate Typ combobox
-            chbIsConsumed.Checked = false;
-            lblDateConsumed.Enabled = false;
-            dtpDateConsumed.Enabled = false;
+            chbIsConsumed.Checked = false; //uncheck checkbox for Dryckesdatum
+            lblDateConsumed.Enabled = false; //grey out Dryckesdatum text
+            dtpDateConsumed.Enabled = false; //grey out datetimepicker Dryckesdatum
             btnSave.Enabled = false; // disable Spara button
         }
 
@@ -100,6 +110,8 @@ namespace Winecellar
                 dtpDateConsumed.Value = wineObj.DateConsumed;
         }
 
+        #region Event handlers
+
         /// <summary>
         /// Enable Spara button when name is written
         /// </summary>
@@ -137,20 +149,6 @@ namespace Winecellar
         }
 
         /// <summary>
-        /// Save input from form to wine object
-        /// </summary>
-        private void UpdateWineFromForm()
-        {
-            wineObj.WineName = txtWineName.Text;
-            wineObj.Vintage = (int)numYear.Value;
-            wineObj.Country = (Countries)cboCountry.SelectedIndex;
-            wineObj.WineType = (WineType)cboWineType.SelectedIndex;
-            wineObj.DateAdded = dtpDateAdded.Value.Date;
-            wineObj.IsConsumed = chbIsConsumed.Checked;
-            wineObj.DateConsumed = dtpDateConsumed.Value.Date;
-        }
-
-        /// <summary>
         /// Avbryt button
         /// </summary>
         /// <param name="sender"></param>
@@ -170,15 +168,28 @@ namespace Winecellar
                 e.Cancel = false;
             else
             {
-                // TODO: fundera på när konfirmering ska användas.
                 e.Cancel = !CancelFormQuestion();
             }
+        }
+        #endregion Event handlers
+
+        /// <summary>
+        /// Save input from form to wine object
+        /// </summary>
+        private void UpdateWineFromForm()
+        {
+            wineObj.WineName = txtWineName.Text;
+            wineObj.Vintage = (int)numYear.Value;
+            wineObj.Country = (Countries)cboCountry.SelectedIndex;
+            wineObj.WineType = (WineType)cboWineType.SelectedIndex;
+            wineObj.DateAdded = dtpDateAdded.Value.Date;
+            wineObj.IsConsumed = chbIsConsumed.Checked;
+            wineObj.DateConsumed = dtpDateConsumed.Value.Date;
         }
 
         /// <summary>
         /// Ask if changes should be discarded and form closed
         /// </summary>
-        /// <returns></returns>
         private bool CancelFormQuestion()
         {
                 MessageBoxButtons okButton = MessageBoxButtons.YesNo;
@@ -187,27 +198,7 @@ namespace Winecellar
                 return (result == DialogResult.Yes);
         }
 
+        #endregion Methods
 
-
-        /// <summary>
-        /// Create DateTimePicker, set max/min date, display control.
-        /// </summary>
-        //public void CreateMyDateTimePicker()
-        //{
-        //    // Create a new DateTimePicker control and initialize it.
-        //    DateTimePicker dateTimePicker1 = new DateTimePicker();
-
-        //    // Set the MinDate and MaxDate.
-        //    dateTimePicker1.MinDate = new DateTime(1900, 01, 01);
-        //    dateTimePicker1.MaxDate = new DateTime(2100, 12, 31);
-
-        //    // Set the CustomFormat string.
-        //    dateTimePicker1.CustomFormat = "yyyy MM dd";
-        //    dateTimePicker1.Format = DateTimePickerFormat.Custom;
-
-        //    // Show the CheckBox and display the control as an up-down control.
-        //    dateTimePicker1.ShowCheckBox = true;
-        //    dateTimePicker1.ShowUpDown = true;
-        //}
     } //close class
 }//close namespace

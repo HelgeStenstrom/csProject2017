@@ -1,51 +1,52 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
-  <Comment CommentText="Pilarna som Visual Studio kan åstadkomma blir lite missvisande. De Properties och Fields som visas i klasserna är mer korrekta.">
-    <Position X="2.802" Y="5.26" Height="1.688" Width="2.367" />
-  </Comment>
-  <Comment CommentText="En DateConsumedForm skapas vid behov, troligen av MainForm. Den används för att lagra och editera vilket datum man har kunsumerat ett vin.">
-    <Position X="0.635" Y="1.521" Height="1.125" Width="2.044" />
-  </Comment>
-  <Class Name="Winecellar.ConsumedForm" Collapsed="true">
-    <Position X="5.25" Y="2.5" Width="1.5" />
+  <Class Name="Winecellar.ConsumedForm">
+    <Position X="7.5" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EAAAAAAAACAAAAEAAACAAEACEAAAABAAAAAAAAIAAAI=</HashCode>
       <FileName>ConsumedForm.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Winecellar.MainForm" Collapsed="true">
-    <Position X="3" Y="1.5" Width="1.5" />
+  <Class Name="Winecellar.MainForm">
+    <Position X="0.5" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAEAETgAACBAAAAQARCAAAACBAAEhAQAAACgQAAEAQI=</HashCode>
+      <HashCode>AAAAFSgAACAABAAQARCAAAACBAAEhAQAAAAgQAAEAAI=</HashCode>
       <FileName>MainForm.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Winecellar.Wine" Collapsed="true">
-    <Position X="7" Y="2.25" Width="1.5" />
+  <Class Name="Winecellar.Wine">
+    <Position X="5.75" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AEAACAgAABAAAAAAAAEACAAAAAIAAAAgAQAAAQAAAAA=</HashCode>
+      <HashCode>AEAACAgAABAAAAAAAAEACAAAAAIAAAAgAQAAAAAAAAA=</HashCode>
       <FileName>Wine.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Winecellar.WineForm" Collapsed="true">
-    <Position X="6.75" Y="3.25" Width="1.5" />
+  <Class Name="Winecellar.WineForm">
+    <Position X="4" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EQQABEACQGAAEAEBBBGCgEACEAAAAhAAAQHAABICAAA=</HashCode>
       <FileName>WineForm.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Winecellar.WineManager" Collapsed="true">
-    <Position X="3" Y="2.25" Width="1.5" />
+  <Class Name="Winecellar.WineManager">
+    <Position X="2.25" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>CAKAAAAAAAAAAAAABAAAAAAAAAAAQAAAAAAAAigAAAA=</HashCode>
       <FileName>WineManager.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Enum Name="Winecellar.WineType">
-    <Position X="6" Y="6" Width="1.5" />
+  <Enum Name="Winecellar.WineType" Collapsed="true">
+    <Position X="5.75" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAgAAAAEAIAAAAAAAAAAAAAQA=</HashCode>
       <FileName>WineTypes.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Winecellar.Countries" Collapsed="true">
+    <Position X="5.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>iv9xbfbzI1rWmtgC3YUk9lZ6Chh6NfxGM3O0rBUA3b0=</HashCode>
+      <FileName>Countries.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Font Name="Segoe UI" Size="9" />

@@ -1,11 +1,14 @@
-﻿using System;
+﻿//MainForm.cs
+//Helge Stenström ah7875
+//2017-12-29
+using System;
 using System.Windows.Forms;
 
 namespace Winecellar
 {
     public partial class MainForm : Form
     {
-        #region Fields.
+        #region Fields
         /// <summary>
         /// The MainForm has a WineManager which controls the list of wines.
         /// </summary>
@@ -20,13 +23,11 @@ namespace Winecellar
         {
             InitializeComponent();
             InitializeGui();
-            UpdateGUI();
+            UpdateGui();
         }
-
         #endregion
 
         #region Methods
-
 
         /// <summary>
         /// Initialize the GUI. Currently, it's only the ListView for wines that needs any initialization.
@@ -37,12 +38,11 @@ namespace Winecellar
             // It's easier to match these columns to the data in Wine.RowStrings method.
             // Column widths are in argument #2 in the Add argument list.
             lstvWines.Columns.Clear();
-            lstvWines.Columns.Add("Namn", 300, HorizontalAlignment.Center);
+            lstvWines.Columns.Add("Namn", 350, HorizontalAlignment.Center);
             lstvWines.Columns.Add("Årgång", 65, HorizontalAlignment.Center);
-            lstvWines.Columns.Add("Land", 250, HorizontalAlignment.Left);
+            lstvWines.Columns.Add("Land", 170, HorizontalAlignment.Left);
             lstvWines.Columns.Add("Typ", 50, HorizontalAlignment.Center);
             lstvWines.Columns.Add("Datum", 150, HorizontalAlignment.Center);
-            //lstvWines.Columns.Add("Datum 2", 95, HorizontalAlignment.Center);
         }
 
         /// <summary>
@@ -50,7 +50,7 @@ namespace Winecellar
         /// Add wines to the list.
         /// Enable some buttons if a wine is selected.
         /// </summary>
-        private void UpdateGUI()
+        private void UpdateGui()
         {
             lstvWines.Items.Clear();
             foreach (var wineForRow in wineManagerObj.WinesAsRows)
@@ -63,6 +63,7 @@ namespace Winecellar
             EnableButtonsIfOneWineSelected();
         }
 
+        #region Event handlers
         /// <summary>
         /// Button Lägg till vin
         /// </summary>
@@ -73,20 +74,23 @@ namespace Winecellar
             if (lstvWines.SelectedIndices.Count == 1)
             {
                 int selectedIndex = lstvWines.SelectedIndices[0]; // The first and only wine that is selected.
-                wineFormObj.WineData = wineManagerObj.GetWine(selectedIndex);
+                try
+                {
+                    wineFormObj.WineData = wineManagerObj.GetWine(selectedIndex);
+                }
+                catch (IndexOutOfRangeException)
+                {
+                    MessageProblem(false); // If the selectedIndex was out of range, show a warning message.
+                }
             }
             var result = wineFormObj.ShowDialog();
 
-            // Temporär label för att visa vad vi får för returnerat värde från WineForm
-            // TODO: Ta bort lblResultFromWineForm från slutliga programmet.
-            lblResultFromWineForm.Text = result.ToString();
-
-            if (result == DialogResult.OK) // If the user really wants to add the wine,
+            if (result == DialogResult.OK) // If the user wants to add the wine
             {
                 Wine wine = wineFormObj.WineData;
                 wineManagerObj.AddWine(wine);
             }
-            UpdateGUI();
+            UpdateGui();
         }
 
         /// <summary>
@@ -97,23 +101,28 @@ namespace Winecellar
         private void btnChange_Click(object sender, EventArgs e)
         {
             if (lstvWines.SelectedIndices.Count == 1) 
-                // Not needed, actually, since we can't click the button if it's not true.
+                // Always true, since we can't click the button if it's not true.
                 // We test anyway, to be extra super safe.
             {
                 int selectedIndex = lstvWines.SelectedIndices[0];
 
                 WineForm wineFormObj = new WineForm("Ändra vin");
-                wineFormObj.WineData = wineManagerObj.GetWine(selectedIndex);
-                var result = wineFormObj.ShowDialog();
-
-                lblResultFromWineForm.Text = result.ToString();
-
-                if (result == DialogResult.OK)
+                try
                 {
-                    Wine wine = wineFormObj.WineData;
-                    wineManagerObj.ChangeWine(wine, selectedIndex);
+                    wineFormObj.WineData = wineManagerObj.GetWine(selectedIndex);
+                    var result = wineFormObj.ShowDialog();
+
+                    if (result == DialogResult.OK)
+                    {
+                        Wine wine = wineFormObj.WineData;
+                        wineManagerObj.ChangeWine(wine, selectedIndex);
+                    }
                 }
-                UpdateGUI();
+                catch (IndexOutOfRangeException )
+                {
+                    MessageProblem(false); // If the selectedIndex was out of range, show a warning message.
+                }
+                UpdateGui();
             }
         }
 
@@ -127,44 +136,33 @@ namespace Winecellar
                 int selectedIndex = lstvWines.SelectedIndices[0];
                 string selectedName = wineManagerObj.GetWine(selectedIndex).WineName;
                 if (ConfirmDialog($"Vill du ta bort {selectedName}?"))
-                    wineManagerObj.RemoveWine(selectedIndex);
-                UpdateGUI();
+                {
+                     bool success = wineManagerObj.RemoveWine(selectedIndex);
+                    MessageProblem(success); // If the selectedIndex was out of range, show a warning message.
+                }
+
+                UpdateGui();
             }
         }
-       
+        
         /// <summary>
-        /// button Drick vin
+        /// button Drick vin!
         /// </summary>
         private void btnDrink_Click(object sender, EventArgs e)
         {
             int selectedIndex = lstvWines.SelectedIndices[0];
+
             Wine wineIn = wineManagerObj.GetWine(selectedIndex);
             ConsumedForm consumedFormObj = new ConsumedForm(wineIn.WineName);
             consumedFormObj.WineData = wineIn;
             var result = consumedFormObj.ShowDialog();
-
-            lblResultFromWineForm.Text = result.ToString();
 
             if (result == DialogResult.OK)
             {
                 Wine wineOut = consumedFormObj.WineData;
                 wineManagerObj.ChangeWine(wineOut, selectedIndex);
             }
-            UpdateGUI();
-        }
-
-        /// <summary>
-        /// Messagebox to confirm choice
-        /// </summary>
-        /// <param name="prompt"></param>
-        /// <returns></returns>
-        private bool ConfirmDialog(string prompt)
-        {
-            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-            DialogResult result = MessageBox.Show(prompt,
-                "Är du säker?",
-                buttons);
-            return (result == DialogResult.Yes);
+            UpdateGui();
         }
 
         /// <summary>
@@ -175,6 +173,8 @@ namespace Winecellar
             EnableButtonsIfOneWineSelected();
         }
 
+        #endregion Event handlers
+        
         /// <summary>
         /// Enable Change, Remove and Drink buttons if one wine is selected.
         /// In Swedish: Ändra vin, Ta bort vin, Drick vin!
@@ -187,26 +187,28 @@ namespace Winecellar
             btnDrink.Enabled = onlyOneSelected;
         }
 
-        // Tillfällig funktion för att ta reda på hur breda kolumner som är lagom.
-        // TODO: ta bort lstvWines_ColumnWidthChanged från slutgiltiga versionen, inklusive property som använder den.
-        private void lstvWines_ColumnWidthChanged(object sender, ColumnWidthChangedEventArgs e)
+        /// <summary>
+        /// Messagebox to confirm choice
+        /// </summary>
+        /// <param name="prompt"></param>
+        private bool ConfirmDialog(string prompt)
         {
-            int newWidth = e.ColumnIndex;
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(prompt,
+                "Är du säker?",
+                buttons);
+            return (result == DialogResult.Yes);
         }
-
 
         /// <summary>
-        /// Temporary function used to find suitable column widths.
-        /// TODO: ta bort lstvWines_ColumnWidthChanging från slutgiltiga versionen, inklusive property som använder den.
+        /// Messagebox to inform about internal error
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void lstvWines_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
+        /// <param name="success"></param>
+        private void MessageProblem(bool success)
         {
-            var newWidth = e.NewWidth;
-            lblBredd.Text = newWidth.ToString();
+            if (success == false)
+                MessageBox.Show("Något gick fel, försök igen!");
         }
-
-        #endregion
+        #endregion Methods
     }
 }
