@@ -60,7 +60,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Wine.cs" />
+    <Compile Include="Wines\SweetWine.cs" />
+    <Compile Include="Wines\RoseWine.cs" />
+    <Compile Include="Wines\WhiteWine.cs" />
+    <Compile Include="Wines\RedWine.cs" />
+    <Compile Include="Wines\Wine.cs" />
     <Compile Include="WineForm.cs">
       <SubType>Form</SubType>
     </Compile>
