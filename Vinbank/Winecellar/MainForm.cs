@@ -173,8 +173,34 @@ namespace Winecellar
             EnableButtonsIfOneWineSelected();
         }
 
+        /// <summary>
+        /// MainForm closing
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            MessageBoxButtons okButton = MessageBoxButtons.YesNoCancel;
+            DialogResult result = MessageBox.Show("Vill du spara alla ändringar innan avslut?",
+                "Bekräfta!", okButton);
+
+            if (result == DialogResult.Yes)
+            {
+                SaveWinesToFile();
+                e.Cancel = false;
+            }
+                          
+            else if (result == DialogResult.No)
+            {
+                e.Cancel = false;
+            }
+            else
+            {
+                e.Cancel = true;
+            }
+        }
         #endregion Event handlers
-        
+
         /// <summary>
         /// Enable Change, Remove and Drink buttons if one wine is selected.
         /// In Swedish: Ändra vin, Ta bort vin, Drick vin!
@@ -209,6 +235,14 @@ namespace Winecellar
             if (success == false)
                 MessageBox.Show("Något gick fel, försök igen!");
         }
+
+        private void SaveWinesToFile()
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion Methods
+
+
     }
 }
