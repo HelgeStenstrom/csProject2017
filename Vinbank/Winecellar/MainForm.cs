@@ -13,7 +13,9 @@ namespace Winecellar
         /// The MainForm has a WineManager which controls the list of wines.
         /// </summary>
         private WineManager wineManagerObj = new WineManager();
-        private string fileName;
+        private string wineFileName;
+        private bool wineListChangedButNotSaved = false; //flag
+
         #endregion
 
         #region Constructor
@@ -62,6 +64,9 @@ namespace Winecellar
                 lstvWines.Items.Add(tableRow);
             }
             EnableButtonsIfOneWineSelected();
+
+            wineListChangedButNotSaved = true;
+
         }
 
         #region Event handlers
@@ -184,7 +189,7 @@ namespace Winecellar
         {
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                fileName = saveFileDialog.FileName;
+                wineFileName = saveFileDialog.FileName;
                 SaveWinesToFile();
             }
         }
@@ -196,7 +201,7 @@ namespace Winecellar
         /// <param name="e"></param>
         private void mnuSaveFile_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(fileName))
+            if (String.IsNullOrEmpty(wineFileName))
             {
                 mnuSaveFileAs_Click(sender, e);
             }
@@ -213,7 +218,7 @@ namespace Winecellar
         {
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                fileName = openFileDialog.FileName;
+                wineFileName = openFileDialog.FileName;
                 ReadWinesfromFile();
                 UpdateGui();
             }
@@ -221,7 +226,22 @@ namespace Winecellar
 
         private void mnuNewFile_Click(object sender, EventArgs e)
         {
+            DialogResult result = DialogResult.OK;
+            if (wineListChangedButNotSaved)
+            {
+                //ask if it is ok that unsaved wine list will be lost
+                MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
+                result = MessageBox.Show("Existerande inlista kommer inte att sparas?",
+                    "Bekräfta?", buttons);
+            }
 
+            if (result == DialogResult.OK)
+            {
+                InitializeGui();
+                lstvWines.Items.Clear();
+                //wineManagerObj.ClearList(); //TODO
+                wineListChangedButNotSaved = false;
+            }
         }
 
         /// <summary>
@@ -231,7 +251,7 @@ namespace Winecellar
         /// <param name="e"></param>
         private void mnuExit_Click(object sender, EventArgs e)
         {
-            //MainForm_FormClosing(sender, e);
+            //MainForm_FormClosing(sender, e); //TODO
         }
         #endregion menu event handlers
 
@@ -302,7 +322,7 @@ namespace Winecellar
         {
             try
             {
-                wineManagerObj.BinarySerialize(fileName);
+                wineManagerObj.BinarySerialize(wineFileName);
                 //animalListChangedButNotSaved = false; //animal list has been saved
                 MessageBox.Show("Vinlistan har sparats till fil."); //write message
             }
@@ -314,7 +334,16 @@ namespace Winecellar
 
         private void ReadWinesfromFile()
         {
-            throw new NotImplementedException();
+            try
+            {
+                wineManagerObj.BinaryDeSerialize(wineFileName);
+                MessageBox.Show("Vinlistan har lästs in."); //write message
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message); //write message
+            }
         }
 
         #endregion Methods
