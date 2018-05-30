@@ -318,12 +318,15 @@ namespace Winecellar
                 MessageBox.Show("Något gick fel, försök igen!");
         }
 
+        /// <summary>
+        /// Save wine list to file
+        /// </summary>
         private void SaveWinesToFile()
         {
             try
             {
                 wineManagerObj.BinarySerialize(wineFileName);
-                //animalListChangedButNotSaved = false; //animal list has been saved
+                wineListChangedButNotSaved = false; //wine list has been saved
                 MessageBox.Show("Vinlistan har sparats till fil."); //write message
             }
             catch (Exception e)
@@ -332,6 +335,9 @@ namespace Winecellar
             }
         }
 
+        /// <summary>
+        /// read wine list to file
+        /// </summary>
         private void ReadWinesfromFile()
         {
             try

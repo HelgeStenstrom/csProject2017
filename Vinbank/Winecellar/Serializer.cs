@@ -14,7 +14,7 @@ namespace Winecellar
     /// <summary>
     /// class with serializer methods
     /// </summary>
-    public class Serializer
+    public class Serializer2
     {
             /// <summary>
             /// serialize object
