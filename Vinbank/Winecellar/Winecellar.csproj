@@ -61,6 +61,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Serializer.cs" />
+    <Compile Include="WineEventArgs.cs" />
     <Compile Include="Wines\SweetWine.cs" />
     <Compile Include="Wines\RoseWine.cs" />
     <Compile Include="Wines\WhiteWine.cs" />

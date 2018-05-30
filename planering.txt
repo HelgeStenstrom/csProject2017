@@ -1,0 +1,19 @@
+-*- org -*-
+
+* Idéer om delegater
+
+- Sändare, Publisher
+  - En metod i MainForm eller WineForm
+    - Triggad av att man sparar ett vin som drucket
+- Mottagare, Subscriber
+  - Ett fönster som skapas när programmet startas, jämsides med MainForm
+- Meddelande, EventArgs
+  - Klassen WineEventArgs
+    - Kan definieras lokalt i annan klass
+    - Kan definieras i egen fil. Det är kanske flexilblare
+    - Kan innehålla vad som helst som vi tycker är intressant
+- Subscriber kan inte läggas till en publisher, förrän båda
+  existerar. Om subscribern (listan) finns hela tiden, men publisher
+  är i WineForm, verkar det bäst att sätta upp sambandet när WineForm
+  skapas, i WineForm
+
