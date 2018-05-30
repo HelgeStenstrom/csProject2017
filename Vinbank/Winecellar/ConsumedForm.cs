@@ -18,10 +18,10 @@ namespace Winecellar
         /// </summary> 
         public Wine WineData
     {
-            get => new Wine(wineObj);
+            get => wineObj.Clone();
             set
             {
-                wineObj = new Wine(value);
+                wineObj = wineObj.Clone();
             }
     }
         #endregion Properties
