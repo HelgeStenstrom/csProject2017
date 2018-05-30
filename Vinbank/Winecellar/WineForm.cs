@@ -23,7 +23,7 @@ namespace Winecellar
             get => wineObj.Clone(); // new Wine(wineObj);
             set
             {
-                wineObj = wineObj.Clone();
+                wineObj = value.Clone();
                 UpdateGui();
             }
         }
