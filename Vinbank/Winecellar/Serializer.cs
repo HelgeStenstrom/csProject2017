@@ -1,20 +1,15 @@
 ﻿/// Serializer.cs
 /// Ann-Marie Bergström  ai2436 2018
 /// 
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Winecellar
 {
     /// <summary>
     /// class with serializer methods
     /// </summary>
-    public class Serializer2
+    public class Serializer
     {
             /// <summary>
             /// serialize object

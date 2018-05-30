@@ -21,7 +21,7 @@ namespace Winecellar
             get => wineObj.Clone();
             set
             {
-                wineObj = wineObj.Clone();
+                wineObj = value.Clone();
             }
     }
         #endregion Properties
