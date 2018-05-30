@@ -1,7 +1,7 @@
 ﻿using System;
 using Winecellar;
 
-namespace Vinbank.Wines
+namespace Winecellar
 {
     /// <summary>
     /// Creates wines of the wanted type

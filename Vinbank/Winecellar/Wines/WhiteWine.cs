@@ -1,7 +1,6 @@
 ﻿using System;
-using Winecellar;
 
-namespace Vinbank
+namespace Winecellar
 {
     class WhiteWine : Wine
     {

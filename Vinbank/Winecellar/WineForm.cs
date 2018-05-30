@@ -5,7 +5,6 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using Vinbank.Wines;
 
 namespace Winecellar
 {
