@@ -33,6 +33,8 @@ namespace Winecellar
         /// </summary>
         private void InitializeGui()
         {
+            lblWineEventInfo.Text = "Events appear here";
+
             // Replace the columns drawn in the GUI editor with columns defined here.
             // It's easier to match these columns to the data in Wine.RowStrings method.
             // Column widths are in argument #2 in the Add argument list.
@@ -66,6 +68,16 @@ namespace Winecellar
         }
 
         #region Event handlers
+
+        #region Own defined event handlers
+        private void OnFlightChanged_handler(object sender, WineEventArgs e)
+            // TODO: Sätt upp samband mellan en publisher och denna subscriber
+        {
+            // TODO: Fyll med något vettigt, istället för detta.
+            lblWineEventInfo.Text = e.Interesting;
+        }
+
+        #endregion
 
         #region Wine event handlers
         /// <summary>

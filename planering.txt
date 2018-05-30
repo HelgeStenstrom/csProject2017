@@ -5,8 +5,13 @@
 - Sändare, Publisher
   - En metod i MainForm eller WineForm
     - Triggad av att man sparar ett vin som drucket
+  - En klass, som har metoden ovan
+  - klassen har en lista över prenumeranter. Listan är initialt tom
+    - public event EventHandler<WineEventArgs> WineEvent_handlers
+  - sedan lägger man till prenumeranter.
 - Mottagare, Subscriber
   - Ett fönster som skapas när programmet startas, jämsides med MainForm
+  - en funktion som kan vara en eventhandler för WineEvent_handlers
 - Meddelande, EventArgs
   - Klassen WineEventArgs
     - Kan definieras lokalt i annan klass

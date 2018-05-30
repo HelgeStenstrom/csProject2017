@@ -45,6 +45,7 @@
             this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.lblWineEventInfo = new System.Windows.Forms.Label();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -134,7 +135,7 @@
             this.fileToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(902, 28);
+            this.menuStrip.Size = new System.Drawing.Size(902, 24);
             this.menuStrip.TabIndex = 8;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -147,14 +148,14 @@
             this.mnuNewFile,
             this.mnuExit});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.fileToolStripMenuItem.Text = "Vinfil";
             // 
             // mnuOpenFile
             // 
             this.mnuOpenFile.Name = "mnuOpenFile";
             this.mnuOpenFile.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.mnuOpenFile.Size = new System.Drawing.Size(218, 26);
+            this.mnuOpenFile.Size = new System.Drawing.Size(182, 22);
             this.mnuOpenFile.Text = "Öppna vinfil";
             this.mnuOpenFile.Click += new System.EventHandler(this.mnuOpenFile_Click);
             // 
@@ -162,14 +163,14 @@
             // 
             this.mnuSaveFile.Name = "mnuSaveFile";
             this.mnuSaveFile.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.mnuSaveFile.Size = new System.Drawing.Size(218, 26);
+            this.mnuSaveFile.Size = new System.Drawing.Size(182, 22);
             this.mnuSaveFile.Text = "Spara vinfil";
             this.mnuSaveFile.Click += new System.EventHandler(this.mnuSaveFile_Click);
             // 
             // mnuSaveFileAs
             // 
             this.mnuSaveFileAs.Name = "mnuSaveFileAs";
-            this.mnuSaveFileAs.Size = new System.Drawing.Size(218, 26);
+            this.mnuSaveFileAs.Size = new System.Drawing.Size(182, 22);
             this.mnuSaveFileAs.Text = "Spara vinfil som";
             this.mnuSaveFileAs.Click += new System.EventHandler(this.mnuSaveFileAs_Click);
             // 
@@ -177,7 +178,7 @@
             // 
             this.mnuNewFile.Name = "mnuNewFile";
             this.mnuNewFile.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.mnuNewFile.Size = new System.Drawing.Size(218, 26);
+            this.mnuNewFile.Size = new System.Drawing.Size(182, 22);
             this.mnuNewFile.Text = "Ny vinfil";
             this.mnuNewFile.Click += new System.EventHandler(this.mnuNewFile_Click);
             // 
@@ -185,7 +186,7 @@
             // 
             this.mnuExit.Name = "mnuExit";
             this.mnuExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.mnuExit.Size = new System.Drawing.Size(218, 26);
+            this.mnuExit.Size = new System.Drawing.Size(182, 22);
             this.mnuExit.Text = "Stäng";
             this.mnuExit.Click += new System.EventHandler(this.mnuExit_Click);
             // 
@@ -198,11 +199,21 @@
             // 
             this.saveFileDialog.Filter = "Binary file|*.bin";
             // 
+            // lblWineEventInfo
+            // 
+            this.lblWineEventInfo.AutoSize = true;
+            this.lblWineEventInfo.Location = new System.Drawing.Point(87, 24);
+            this.lblWineEventInfo.Name = "lblWineEventInfo";
+            this.lblWineEventInfo.Size = new System.Drawing.Size(142, 18);
+            this.lblWineEventInfo.TabIndex = 9;
+            this.lblWineEventInfo.Text = "Will be set by events";
+            // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(902, 572);
+            this.Controls.Add(this.lblWineEventInfo);
             this.Controls.Add(this.btnDrink);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnChange);
@@ -241,6 +252,7 @@
         private System.Windows.Forms.ToolStripMenuItem mnuExit;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.Label lblWineEventInfo;
     }
 }
 
