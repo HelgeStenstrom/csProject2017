@@ -302,11 +302,9 @@ namespace Winecellar
         {
             try
             {
-                //wineManagerObj.Serialize(fileName);
-                //Vinbank.Serializer.Serialize(fileName);
+                wineManagerObj.BinarySerialize(fileName);
                 //animalListChangedButNotSaved = false; //animal list has been saved
                 MessageBox.Show("Vinlistan har sparats till fil."); //write message
-
             }
             catch (Exception e)
             {
