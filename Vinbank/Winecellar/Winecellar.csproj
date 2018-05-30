@@ -72,6 +72,7 @@
       <DependentUpon>WineForm.cs</DependentUpon>
     </Compile>
     <Compile Include="WineManager.cs" />
+    <Compile Include="Wines\WineFactory.cs" />
     <Compile Include="WineTypes.cs" />
     <EmbeddedResource Include="ConsumedForm.resx">
       <DependentUpon>ConsumedForm.cs</DependentUpon>

@@ -10,6 +10,7 @@ namespace Winecellar
 {
     public class Wine
     {
+        // TODO: Se till att rätt vinklass skapas när viner skapas av formulär
         #region Constructors
         /// <summary>
         /// Default constructor
