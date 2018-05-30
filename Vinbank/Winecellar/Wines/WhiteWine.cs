@@ -2,6 +2,7 @@
 
 namespace Winecellar
 {
+    [Serializable]
     class WhiteWine : Wine
     {
         public WhiteWine(string name, 

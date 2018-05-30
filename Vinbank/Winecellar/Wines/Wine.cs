@@ -6,6 +6,7 @@ using System;
 
 namespace Winecellar
 {
+    [Serializable]
     public class Wine
     {
         // TODO: Se till att rätt vinklass skapas när viner skapas av formulär
