@@ -50,7 +50,7 @@ namespace Winecellar
         /// Copy constructor
         /// </summary>
         ///<param name="wine"></param>
-        public Wine(Wine other)
+        protected Wine(Wine other)
         {
             WineName = other.WineName;
             Vintage = other.Vintage;

@@ -43,7 +43,7 @@ namespace Winecellar
         /// <param name="wineIn"></param>
         public void AddWine(Wine wineIn)
         {
-            Wine wineObj = new Wine(wineIn); //declare and create wine object
+            Wine wineObj = wineIn.Clone();  //declare and create wine object
             wines.Add(wineObj);
         }
         
@@ -84,7 +84,7 @@ namespace Winecellar
         public Wine GetWine(int index)
         {
             if (CheckIndex(index))
-                return new Wine(wines[index]);
+                return wines[index].Clone();
             else throw new IndexOutOfRangeException();
         }
 
