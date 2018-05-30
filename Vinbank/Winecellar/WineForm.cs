@@ -4,20 +4,15 @@
 
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Vinbank.Wines;
 
 namespace Winecellar
 {
     public partial class WineForm : Form
     {
         #region Fields
-        private Wine wineObj; //declare wineObj as type Wine
+        private Wine wineObj; //declare wineObj as type Wine. Actual class will vary.
         #endregion Fields
 
         #region Properties
@@ -26,10 +21,10 @@ namespace Winecellar
         /// </summary> 
         public Wine WineData
         {
-            get => new Wine(wineObj);
+            get => wineObj.Clone(); // new Wine(wineObj);
             set
             {
-                wineObj = new Wine(value);
+                wineObj = wineObj.Clone();
                 UpdateGui();
             }
         }
@@ -43,7 +38,6 @@ namespace Winecellar
         {
             InitializeComponent();
             InitializeGui(title);
-            wineObj = new Wine(); // create wineObj
         }
         #endregion Constructors
 
@@ -174,17 +168,17 @@ namespace Winecellar
         #endregion Event handlers
 
         /// <summary>
-        /// Save input from form to wine object
+        /// Save data from the form to the wine object
         /// </summary>
         private void UpdateWineFromForm()
         {
-            wineObj.WineName = txtWineName.Text;
-            wineObj.Vintage = (int)numYear.Value;
-            wineObj.Country = (Countries)cboCountry.SelectedIndex;
-            wineObj.WineType = (WineType)cboWineType.SelectedIndex;
-            wineObj.DateAdded = dtpDateAdded.Value.Date;
-            wineObj.IsConsumed = chbIsConsumed.Checked;
-            wineObj.DateConsumed = dtpDateConsumed.Value.Date;
+            wineObj = WineFactory.MakeWine((WineType) cboWineType.SelectedIndex,
+                txtWineName.Text,
+                (int)numYear.Value,
+                (Countries)cboCountry.SelectedIndex,
+                dtpDateAdded.Value.Date,
+                dtpDateConsumed.Value.Date,
+                chbIsConsumed.Checked);
         }
 
         /// <summary>
