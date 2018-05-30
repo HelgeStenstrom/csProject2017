@@ -13,6 +13,7 @@ namespace Winecellar
         /// The MainForm has a WineManager which controls the list of wines.
         /// </summary>
         private WineManager wineManagerObj = new WineManager();
+        private string fileName;
         #endregion
 
         #region Constructor
@@ -173,6 +174,67 @@ namespace Winecellar
             EnableButtonsIfOneWineSelected();
         }
 
+        #region menu event handlers
+        /// <summary>
+        /// menu item Spara vinfil som - save wine file as
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void mnuSaveFileAs_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                fileName = saveFileDialog.FileName;
+                SaveWinesToFile();
+            }
+        }
+
+        /// <summary>
+        /// menu item Spara vinfil - save wine file
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void mnuSaveFile_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(fileName))
+            {
+                mnuSaveFileAs_Click(sender, e);
+            }
+            else
+                SaveWinesToFile();
+        }
+
+        /// <summary>
+        /// menu item Öppna vinfil - open wine file
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void mnuOpenFile_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                fileName = openFileDialog.FileName;
+                ReadWinesfromFile();
+                UpdateGui();
+            }
+        }
+
+        private void mnuNewFile_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// menu item Stäng exit program
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void mnuExit_Click(object sender, EventArgs e)
+        {
+            //MainForm_FormClosing(sender, e);
+        }
+        #endregion menu event handlers
+
         /// <summary>
         /// MainForm closing
         /// </summary>
@@ -238,11 +300,26 @@ namespace Winecellar
 
         private void SaveWinesToFile()
         {
+            try
+            {
+                //wineManagerObj.Serialize(fileName);
+                //Vinbank.Serializer.Serialize(fileName);
+                //animalListChangedButNotSaved = false; //animal list has been saved
+                MessageBox.Show("Vinlistan har sparats till fil."); //write message
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message); //write message
+            }
+        }
+
+        private void ReadWinesfromFile()
+        {
             throw new NotImplementedException();
         }
 
         #endregion Methods
-
 
     }
 }

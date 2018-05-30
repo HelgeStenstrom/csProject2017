@@ -116,6 +116,18 @@ namespace Winecellar
                 return listOfCellsForOneRow;
             }
         }
+
+        #region serialize functions
+        public void BinarySerialize(string binFileName)
+        {
+            Serializer.Serialize(binFileName, wines);
+        }
+
+        public void BinaryDeSerialize(string binFileName)
+        {
+            wines = Serializer.DeSerialize<List<Wine>>(binFileName);
+        }
+        #endregion serialize functions
         #endregion Methods
     }
 }

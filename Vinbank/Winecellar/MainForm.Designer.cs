@@ -36,16 +36,16 @@
             this.btnChange = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnDrink = new System.Windows.Forms.Button();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveFileAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.menuStrip1.SuspendLayout();
+            this.mnuOpenFile = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuSaveFile = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuSaveFileAs = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuNewFile = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // lstvWines
@@ -127,71 +127,76 @@
             this.btnDrink.UseVisualStyleBackColor = true;
             this.btnDrink.Click += new System.EventHandler(this.btnDrink_Click);
             // 
-            // menuStrip1
+            // menuStrip
             // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(902, 28);
-            this.menuStrip1.TabIndex = 8;
-            this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Size = new System.Drawing.Size(902, 28);
+            this.menuStrip.TabIndex = 8;
+            this.menuStrip.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.openFileToolStripMenuItem,
-            this.saveFileToolStripMenuItem,
-            this.saveFileAsToolStripMenuItem,
-            this.newFileToolStripMenuItem,
-            this.exitToolStripMenuItem});
+            this.mnuOpenFile,
+            this.mnuSaveFile,
+            this.mnuSaveFileAs,
+            this.mnuNewFile,
+            this.mnuExit});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
             this.fileToolStripMenuItem.Text = "Vinfil";
             // 
-            // openFileToolStripMenuItem
+            // mnuOpenFile
             // 
-            this.openFileToolStripMenuItem.Name = "openFileToolStripMenuItem";
-            this.openFileToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openFileToolStripMenuItem.Size = new System.Drawing.Size(218, 26);
-            this.openFileToolStripMenuItem.Text = "Öppna vinfil";
+            this.mnuOpenFile.Name = "mnuOpenFile";
+            this.mnuOpenFile.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.mnuOpenFile.Size = new System.Drawing.Size(218, 26);
+            this.mnuOpenFile.Text = "Öppna vinfil";
+            this.mnuOpenFile.Click += new System.EventHandler(this.mnuOpenFile_Click);
             // 
-            // saveFileToolStripMenuItem
+            // mnuSaveFile
             // 
-            this.saveFileToolStripMenuItem.Name = "saveFileToolStripMenuItem";
-            this.saveFileToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveFileToolStripMenuItem.Size = new System.Drawing.Size(218, 26);
-            this.saveFileToolStripMenuItem.Text = "Spara vinfil";
+            this.mnuSaveFile.Name = "mnuSaveFile";
+            this.mnuSaveFile.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.mnuSaveFile.Size = new System.Drawing.Size(218, 26);
+            this.mnuSaveFile.Text = "Spara vinfil";
+            this.mnuSaveFile.Click += new System.EventHandler(this.mnuSaveFile_Click);
             // 
-            // saveFileAsToolStripMenuItem
+            // mnuSaveFileAs
             // 
-            this.saveFileAsToolStripMenuItem.Name = "saveFileAsToolStripMenuItem";
-            this.saveFileAsToolStripMenuItem.Size = new System.Drawing.Size(218, 26);
-            this.saveFileAsToolStripMenuItem.Text = "Spara vinfil som";
+            this.mnuSaveFileAs.Name = "mnuSaveFileAs";
+            this.mnuSaveFileAs.Size = new System.Drawing.Size(218, 26);
+            this.mnuSaveFileAs.Text = "Spara vinfil som";
+            this.mnuSaveFileAs.Click += new System.EventHandler(this.mnuSaveFileAs_Click);
             // 
-            // newFileToolStripMenuItem
+            // mnuNewFile
             // 
-            this.newFileToolStripMenuItem.Name = "newFileToolStripMenuItem";
-            this.newFileToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.newFileToolStripMenuItem.Size = new System.Drawing.Size(218, 26);
-            this.newFileToolStripMenuItem.Text = "Ny vinfil";
+            this.mnuNewFile.Name = "mnuNewFile";
+            this.mnuNewFile.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.mnuNewFile.Size = new System.Drawing.Size(218, 26);
+            this.mnuNewFile.Text = "Ny vinfil";
+            this.mnuNewFile.Click += new System.EventHandler(this.mnuNewFile_Click);
             // 
-            // exitToolStripMenuItem
+            // mnuExit
             // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(218, 26);
-            this.exitToolStripMenuItem.Text = "Stäng";
+            this.mnuExit.Name = "mnuExit";
+            this.mnuExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
+            this.mnuExit.Size = new System.Drawing.Size(218, 26);
+            this.mnuExit.Text = "Stäng";
+            this.mnuExit.Click += new System.EventHandler(this.mnuExit_Click);
             // 
-            // openFileDialog1
+            // openFileDialog
             // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            this.openFileDialog1.Filter = "Binary file|*.bin|All files|*.*";
+            this.openFileDialog.FileName = "openFileDialog1";
+            this.openFileDialog.Filter = "Binary file|*.bin|All files|*.*";
             // 
-            // saveFileDialog1
+            // saveFileDialog
             // 
-            this.saveFileDialog1.Filter = "Binary file|*.bin";
+            this.saveFileDialog.Filter = "Binary file|*.bin";
             // 
             // MainForm
             // 
@@ -203,16 +208,16 @@
             this.Controls.Add(this.btnChange);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.lstvWines);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.menuStrip);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MainMenuStrip = this.menuStrip1;
+            this.MainMenuStrip = this.menuStrip;
             this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "Vinkällaren";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.menuStrip.ResumeLayout(false);
+            this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -227,15 +232,15 @@
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.ColumnHeader colVintage;
         private System.Windows.Forms.Button btnDrink;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem openFileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem saveFileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem saveFileAsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem newFileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.ToolStripMenuItem mnuOpenFile;
+        private System.Windows.Forms.ToolStripMenuItem mnuSaveFile;
+        private System.Windows.Forms.ToolStripMenuItem mnuSaveFileAs;
+        private System.Windows.Forms.ToolStripMenuItem mnuNewFile;
+        private System.Windows.Forms.ToolStripMenuItem mnuExit;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
     }
 }
 
