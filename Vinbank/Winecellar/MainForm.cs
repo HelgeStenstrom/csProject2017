@@ -1,6 +1,6 @@
 ﻿//MainForm.cs
 //Helge Stenström ah7875
-//2017-12-29
+//2018
 using System;
 using System.Windows.Forms;
 
@@ -9,13 +9,9 @@ namespace Winecellar
     public partial class MainForm : Form
     {
         #region Fields
-        /// <summary>
-        /// The MainForm has a WineManager which controls the list of wines.
-        /// </summary>
-        private WineManager wineManagerObj = new WineManager();
-        private string wineFileName; 
+        private WineManager wineManagerObj = new WineManager(); // WineManager controls the wine list.
+        private string wineFileName;
         private bool wineListChangedButNotSaved = false; //flag
-
         #endregion
 
         #region Constructor
@@ -70,6 +66,8 @@ namespace Winecellar
         }
 
         #region Event handlers
+
+        #region Wine event handlers
         /// <summary>
         /// Button Lägg till vin
         /// </summary>
@@ -178,8 +176,9 @@ namespace Winecellar
         {
             EnableButtonsIfOneWineSelected();
         }
+        #endregion Wine event handlers
 
-        #region menu event handlers
+        #region Menu event handlers
         /// <summary>
         /// menu item Spara vinfil som - save wine file as
         /// </summary>
@@ -231,7 +230,7 @@ namespace Winecellar
             {
                 //ask if it is ok that unsaved wine list will be lost
                 MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
-                result = MessageBox.Show("Existerande inlista kommer inte att sparas?",
+                result = MessageBox.Show("Existerande vinlista kommer inte att sparas?",
                     "OK?", buttons);
             }
 
@@ -239,8 +238,7 @@ namespace Winecellar
             {
                 InitializeGui();
                 lstvWines.Items.Clear();
-                //wineManagerObj.ClearList(); 
-                // TODO: radera vinlista
+                wineManagerObj.ClearList(); 
                 wineListChangedButNotSaved = false;
             }
         }
@@ -254,7 +252,7 @@ namespace Winecellar
         {
              // TODO: skapa stängfunktion?
         }
-        #endregion menu event handlers
+        #endregion Menu event handlers
 
         /// <summary>
         /// MainForm closing
@@ -264,7 +262,7 @@ namespace Winecellar
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             MessageBoxButtons okButton = MessageBoxButtons.YesNoCancel;
-            DialogResult result = MessageBox.Show("Vill du spara alla ändringar innan avslut?",
+            DialogResult result = MessageBox.Show("Vill du spara alla ändringar innan stängning?",
                 "Bekräfta!", okButton);
 
             if (result == DialogResult.Yes)

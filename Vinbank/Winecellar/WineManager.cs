@@ -115,6 +115,14 @@ namespace Winecellar
             }
         }
 
+        /// <summary>
+        /// clear list
+        /// </summary>
+        public void ClearList()
+        {
+            wines.Clear();
+        }
+
         #region serialize functions
         public void BinarySerialize(string binFileName)
         {
