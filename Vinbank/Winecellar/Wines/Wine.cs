@@ -1,10 +1,8 @@
 ﻿//Wine.cs
 //Helge Stenström ah7875
 //2017-12-29
+
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Winecellar
 {
@@ -20,18 +18,46 @@ namespace Winecellar
         }
 
         /// <summary>
+        /// Constructor with all fields
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="vintage"></param>
+        /// <param name="country"></param>
+        /// <param name="type"></param>
+        /// <param name="dateAdded"></param>
+        /// <param name="dateConsumed"></param>
+        /// <param name="isConsumed"></param>
+        public Wine(string name, 
+            int vintage, 
+            Countries country,
+            WineType type,
+            DateTime dateAdded,
+            DateTime dateConsumed,
+            bool isConsumed)
+        {
+            WineName = name;
+            Vintage = vintage;
+            Country = country;
+            WineType = type;
+            DateAdded = dateAdded;
+            DateConsumed = dateConsumed;
+            IsConsumed = isConsumed;
+
+        }
+
+        /// <summary>
         /// Copy constructor
         /// </summary>
         ///<param name="wine"></param>
-        public Wine(Wine other)
+        protected Wine(Wine other)
         {
-            this.WineName = other.WineName;
-            this.Vintage = other.Vintage;
-            this.Country = other.Country;
-            this.WineType = other.WineType;
-            this.DateAdded = other.DateAdded;
-            this.DateConsumed = other.DateConsumed;
-            this.IsConsumed = other.IsConsumed;
+            WineName = other.WineName;
+            Vintage = other.Vintage;
+            Country = other.Country;
+            WineType = other.WineType; // TODO: ta bort WineTYpe som fält.
+            DateAdded = other.DateAdded;
+            DateConsumed = other.DateConsumed;
+            IsConsumed = other.IsConsumed;
         }
         #endregion Constructors
 
@@ -105,12 +131,12 @@ namespace Winecellar
         /// <summary>
         /// Strings used to fill a row in a ListView. Property, read access.
         /// </summary>
-        public string[] RowStrings => new string[] {
+        public string[] RowStrings => new[] {
                    WineName,
                    Vintage.ToString(),
                    Country.ToString().Replace("_", " "),
                    WineType.ToString(),
-                   DateColumnString,
+                   DateColumnString
                     };
         
         /// <summary>
@@ -125,11 +151,14 @@ namespace Winecellar
             {
                 if (IsConsumed)
                     return "Drucken: " + DateConsumed.ToString(@"yyyy-MM-dd");
-                else
-                    return "Tillagd: " + DateAdded.ToString(@"yyyy-MM-dd");
+                return "Tillagd: " + DateAdded.ToString(@"yyyy-MM-dd");
             }
         }
         #endregion Properties
 
+        public virtual Wine Clone()
+        {
+            return new Wine(this);
+        }
     } //close class
 } // close namespace
