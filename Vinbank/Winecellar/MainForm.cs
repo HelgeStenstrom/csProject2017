@@ -239,7 +239,8 @@ namespace Winecellar
             {
                 InitializeGui();
                 lstvWines.Items.Clear();
-                //wineManagerObj.ClearList(); //TODO
+                //wineManagerObj.ClearList(); 
+                // TODO: radera vinlista
                 wineListChangedButNotSaved = false;
             }
         }
@@ -251,7 +252,7 @@ namespace Winecellar
         /// <param name="e"></param>
         private void mnuExit_Click(object sender, EventArgs e)
         {
-            //MainForm_FormClosing(sender, e); //TODO
+             // TODO: skapa stängfunktion?
         }
         #endregion menu event handlers
 
@@ -336,7 +337,7 @@ namespace Winecellar
         }
 
         /// <summary>
-        /// read wine list to file
+        /// read wine list from  file
         /// </summary>
         private void ReadWinesfromFile()
         {
