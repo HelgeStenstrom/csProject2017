@@ -13,7 +13,7 @@ namespace Winecellar
         /// The MainForm has a WineManager which controls the list of wines.
         /// </summary>
         private WineManager wineManagerObj = new WineManager();
-        private string wineFileName;
+        private string wineFileName; 
         private bool wineListChangedButNotSaved = false; //flag
 
         #endregion
@@ -232,7 +232,7 @@ namespace Winecellar
                 //ask if it is ok that unsaved wine list will be lost
                 MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
                 result = MessageBox.Show("Existerande inlista kommer inte att sparas?",
-                    "Bekräfta?", buttons);
+                    "OK?", buttons);
             }
 
             if (result == DialogResult.OK)

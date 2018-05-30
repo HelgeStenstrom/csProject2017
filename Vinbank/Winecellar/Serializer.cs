@@ -11,6 +11,9 @@ using System.Threading.Tasks;
 
 namespace Winecellar
 {
+    /// <summary>
+    /// class with serializer methods
+    /// </summary>
     public class Serializer
     {
             /// <summary>
