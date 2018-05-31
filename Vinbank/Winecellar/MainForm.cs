@@ -107,11 +107,17 @@ namespace Winecellar
         #region Event handlers
 
         #region Own defined event handlers
+
+        /// <summary>
+        /// Called on the receiving side, when an event is passed.
+        /// Handles wine events, and updates a label in the form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnWineChanged_handler(object sender, WineEventArgs e)
-            // TODO: Sätt upp samband mellan en publisher och denna subscriber
         {
-            // TODO: Fyll med något vettigt, istället för detta.
             lblWineEventInfo.Text = e.When.ToShortTimeString();
+            lblWineEventInfo.Text = e.Message;
         }
 
         #endregion
