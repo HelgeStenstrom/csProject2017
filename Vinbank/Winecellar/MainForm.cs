@@ -10,9 +10,9 @@ namespace Winecellar
     {
         #region Fields
         private WineManager wineManagerObj = new WineManager(); // WineManager controls the wine list.
-        private string wineFileName;
+        private string wineFileName; 
         private bool wineListChangedButNotSaved = false; //flag
-        #endregion
+        #endregion Fields
 
         #region Constructor
         /// <summary>
@@ -24,15 +24,17 @@ namespace Winecellar
             InitializeGui();
             UpdateGui();
         }
-        #endregion
+        #endregion Constructor
 
-        #region Methods
+        #region GUI methods
 
         /// <summary>
         /// Initialize the GUI. Currently, it's only the ListView for wines that needs any initialization.
         /// </summary>
         private void InitializeGui()
         {
+            lblWineEventInfo.Text = "Events appear here";
+
             // Replace the columns drawn in the GUI editor with columns defined here.
             // It's easier to match these columns to the data in Wine.RowStrings method.
             // Column widths are in argument #2 in the Add argument list.
@@ -65,11 +67,56 @@ namespace Winecellar
 
         }
 
+        /// <summary>
+        /// Enable Ändra (Change), Ta bort (Remove) and Dick vin (Drink) buttons if one wine is selected.
+        /// </summary>
+        private void EnableButtonsIfOneWineSelected()
+        {
+            bool onlyOneSelected = (lstvWines.SelectedIndices.Count == 1);
+            btnChange.Enabled = onlyOneSelected;
+            btnRemove.Enabled = onlyOneSelected;
+            btnDrink.Enabled = onlyOneSelected;
+        }
+
+        /// <summary>
+        /// Messagebox to confirm choice
+        /// </summary>
+        /// <param name="prompt"></param>
+        private bool ConfirmDialog(string prompt)
+        {
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(prompt,
+                "Är du säker?",
+                buttons);
+            return (result == DialogResult.Yes);
+        }
+
+        /// <summary>
+        /// Messagebox to inform about internal error
+        /// </summary>
+        /// <param name="success"></param>
+        private void MessageProblem(bool success)
+        {
+            if (success == false)
+                MessageBox.Show("Något gick fel, försök igen!");
+        }
+        #endregion GUI methods
+
         #region Event handlers
+
+        #region Own defined event handlers
+        private void OnWineChanged_handler(object sender, WineEventArgs e)
+            // TODO: Sätt upp samband mellan en publisher och denna subscriber
+        {
+            // TODO: Fyll med något vettigt, istället för detta.
+            lblWineEventInfo.Text = e.When.ToShortTimeString();
+        }
+
+        #endregion
 
         #region Wine event handlers
         /// <summary>
-        /// Button Lägg till vin
+        /// Button Lägg till vin (Add wine)
         /// </summary>
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -98,14 +145,14 @@ namespace Winecellar
         }
 
         /// <summary>
-        /// button Ändra vin
+        /// button Ändra vin (Change wine)
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnChange_Click(object sender, EventArgs e)
         {
             if (lstvWines.SelectedIndices.Count == 1) 
-                // Always true, since we can't click the button if it's not true.
+                // Always true, since we cannot click the button if it's not true.
                 // We test anyway, to be extra super safe.
             {
                 int selectedIndex = lstvWines.SelectedIndices[0];
@@ -131,7 +178,7 @@ namespace Winecellar
         }
 
         /// <summary>
-        /// button Ta bort vin
+        /// button Ta bort vin (Remove wine)
         /// </summary>
         private void btnRemove_Click(object sender, EventArgs e)
         {
@@ -150,7 +197,7 @@ namespace Winecellar
         }
         
         /// <summary>
-        /// button Drick vin!
+        /// button Drick vin! (Drink wine)
         /// </summary>
         private void btnDrink_Click(object sender, EventArgs e)
         {
@@ -223,6 +270,11 @@ namespace Winecellar
             }
         }
 
+        /// <summary>
+        /// menu item Ny fil - create new file
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void mnuNewFile_Click(object sender, EventArgs e)
         {
             DialogResult result = DialogResult.OK;
@@ -241,16 +293,6 @@ namespace Winecellar
                 wineManagerObj.ClearList(); 
                 wineListChangedButNotSaved = false;
             }
-        }
-
-        /// <summary>
-        /// menu item Stäng exit program
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void mnuExit_Click(object sender, EventArgs e)
-        {
-             // TODO: skapa stängfunktion?
         }
         #endregion Menu event handlers
 
@@ -282,41 +324,7 @@ namespace Winecellar
         }
         #endregion Event handlers
 
-        /// <summary>
-        /// Enable Change, Remove and Drink buttons if one wine is selected.
-        /// In Swedish: Ändra vin, Ta bort vin, Drick vin!
-        /// </summary>
-        private void EnableButtonsIfOneWineSelected()
-        {
-            bool onlyOneSelected = (lstvWines.SelectedIndices.Count == 1);
-            btnChange.Enabled = onlyOneSelected;
-            btnRemove.Enabled = onlyOneSelected;
-            btnDrink.Enabled = onlyOneSelected;
-        }
-
-        /// <summary>
-        /// Messagebox to confirm choice
-        /// </summary>
-        /// <param name="prompt"></param>
-        private bool ConfirmDialog(string prompt)
-        {
-            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-            DialogResult result = MessageBox.Show(prompt,
-                "Är du säker?",
-                buttons);
-            return (result == DialogResult.Yes);
-        }
-
-        /// <summary>
-        /// Messagebox to inform about internal error
-        /// </summary>
-        /// <param name="success"></param>
-        private void MessageProblem(bool success)
-        {
-            if (success == false)
-                MessageBox.Show("Något gick fel, försök igen!");
-        }
-
+        #region Wine file methods
         /// <summary>
         /// Save wine list to file
         /// </summary>
@@ -350,8 +358,6 @@ namespace Winecellar
                 MessageBox.Show(e.Message); //write message
             }
         }
-
-        #endregion Methods
-
+        #endregion Wine file methods
     }
 }
