@@ -180,17 +180,6 @@
             this.mnuNewFile.Text = "Ny vinfil";
             this.mnuNewFile.Click += new System.EventHandler(this.mnuNewFile_Click);
             // 
-<<<<<<< HEAD
-=======
-            // mnuExit
-            // 
-            this.mnuExit.Name = "mnuExit";
-            this.mnuExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.mnuExit.Size = new System.Drawing.Size(182, 22);
-            this.mnuExit.Text = "Stäng";
-            this.mnuExit.Click += new System.EventHandler(this.mnuExit_Click);
-            // 
->>>>>>> e8ddbb847441f4bc33c1c5bd5577bc7299f2784a
             // openFileDialog
             // 
             this.openFileDialog.FileName = "openFileDialog1";
