@@ -8,6 +8,9 @@ using System.Windows.Forms;
 
 namespace Winecellar
 {
+    /// <summary>
+    /// Form for entering and changing wines.
+    /// </summary>
     public partial class WineForm : Form
     {
         #region Fields

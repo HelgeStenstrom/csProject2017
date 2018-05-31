@@ -8,6 +8,9 @@ using System.Linq;
 
 namespace Winecellar
 {
+    /// <summary>
+    /// Handles the list of wines in this program
+    /// </summary>
     public class WineManager
     {
         #region Fields

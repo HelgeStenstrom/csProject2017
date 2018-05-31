@@ -6,6 +6,9 @@ using System;
 
 namespace Winecellar
 {
+    /// <summary>
+    /// Base class for wines. 
+    /// </summary>
     [Serializable]
     public class Wine
     {
@@ -18,15 +21,15 @@ namespace Winecellar
         }
 
         /// <summary>
-        /// Constructor with all fields
+        /// Constructor with all properties
         /// </summary>
-        /// <param name="name"></param>
-        /// <param name="vintage"></param>
-        /// <param name="country"></param>
-        /// <param name="type"></param>
-        /// <param name="dateAdded"></param>
-        /// <param name="dateConsumed"></param>
-        /// <param name="isConsumed"></param>
+        /// <param name="name">Name of the wine</param>
+        /// <param name="vintage">The year the wine was produced</param>
+        /// <param name="country">Country of origin</param>
+        /// <param name="type">Type of wine</param>
+        /// <param name="dateAdded">Date the wine was added to the program</param>
+        /// <param name="dateConsumed">Date the wine was marked as consumed</param>
+        /// <param name="isConsumed">True if the wine is consumed, i.e., the bottle is empty</param>
         public Wine(string name, 
             int vintage, 
             Countries country,
@@ -156,6 +159,10 @@ namespace Winecellar
         }
         #endregion Properties
 
+        /// <summary>
+        /// Return a copy of this wine object
+        /// </summary>
+        /// <returns>a copy of this wine object</returns>
         public virtual Wine Clone()
         {
             return new Wine(this);

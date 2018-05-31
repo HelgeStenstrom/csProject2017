@@ -6,6 +6,9 @@ using System.Windows.Forms;
 
 namespace Winecellar
 {
+    /// <summary>
+    /// Starting point of this program
+    /// </summary>
     static class Program
     {
         /// <summary>

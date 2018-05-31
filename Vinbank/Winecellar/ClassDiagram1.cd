@@ -1,51 +1,90 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
   <Class Name="Winecellar.ConsumedForm">
-    <Position X="7.5" Y="1" Width="1.5" />
+    <Position X="2.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EAAAAAAAACAAAAEAAACAAEACEAAAABAAAAAAAAIAAAI=</HashCode>
       <FileName>ConsumedForm.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Winecellar.MainForm">
-    <Position X="0.5" Y="1" Width="1.5" />
+    <Position X="0.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAFSgAACAABAAQARCAAAACBAAEhAQAAAAgQAAEAAI=</HashCode>
+      <HashCode>BIAANSnAACAABAAQERCAQAACBAAWhAQAAAAgYQKEgAM=</HashCode>
       <FileName>MainForm.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Winecellar.Wine">
-    <Position X="5.75" Y="1" Width="1.5" />
+    <Position X="7.75" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AEAACAgAABAAAAAAAAEACAAAAAIAAAAgAQAAAAAAAAA=</HashCode>
-      <FileName>Wine.cs</FileName>
+      <HashCode>AEAACAgAABAAAAAAAAEACAAAAAIAAAAgAQAAAAAAABA=</HashCode>
+      <FileName>Wines\Wine.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Winecellar.WineForm">
-    <Position X="4" Y="1" Width="1.5" />
+    <Position X="4" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EQQABEACQGAAEAEBBBGCgEACEAAAAhAAAQHAABICAAA=</HashCode>
       <FileName>WineForm.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Winecellar.WineManager">
-    <Position X="2.25" Y="1" Width="1.5" />
+    <Position X="5.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>CAKAAAAAAAAAAAAABAAAAAAAAAAAQAAAAAAAAigAAAA=</HashCode>
+      <HashCode>CAKAAAAAABABAAAABAAAAAAMAAAAUgAAAAAQAqgAAAI=</HashCode>
       <FileName>WineManager.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="Winecellar.RedWine" Collapsed="true">
+    <Position X="7.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Wines\RedWine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Winecellar.RoseWine" Collapsed="true">
+    <Position X="8.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Wines\RoseWine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Winecellar.SweetWine" Collapsed="true">
+    <Position X="8.5" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Wines\SweetWine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Winecellar.WhiteWine" Collapsed="true">
+    <Position X="7.75" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Wines\WhiteWine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Winecellar.WineFactory">
+    <Position X="7.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Wines\WineFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Windows.Forms.Form" Collapsed="true">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
   <Enum Name="Winecellar.WineType" Collapsed="true">
-    <Position X="5.75" Y="5.25" Width="1.5" />
+    <Position X="9.5" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAgAAAAEAIAAAAAAAAAAAAAQA=</HashCode>
       <FileName>WineTypes.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="Winecellar.Countries" Collapsed="true">
-    <Position X="5.75" Y="4.5" Width="1.5" />
+    <Position X="9.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>iv9xbfbzI1rWmtgC3YUk9lZ6Chh6NfxGM3O0rBUA3b0=</HashCode>
+      <HashCode>AEVQAIAOAABAiIoAQCMhwEAAhAAIJAQABCiASAACCNA=</HashCode>
       <FileName>Countries.cs</FileName>
     </TypeIdentifier>
   </Enum>
