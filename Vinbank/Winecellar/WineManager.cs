@@ -4,6 +4,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Winecellar
 {
@@ -67,7 +68,8 @@ namespace Winecellar
         /// <summary>
         /// Change an existing wine
         /// </summary>
-        /// <param name="index"></param>
+        /// <param name="wine">Wine to replace the wine at the index</param>
+        /// <param name="index">Index of the wine to be replaced</param>
         public bool ChangeWine(Wine wine, int index)
         {
             if (CheckIndex(index))
@@ -95,7 +97,7 @@ namespace Winecellar
         /// Check if index is valid
         /// </summary>
         /// <param name="index"></param>
-        public bool CheckIndex(int index)
+        private bool CheckIndex(int index)
         {
             if (index > -1 && index < WineCount)
                 return true;
@@ -140,14 +142,33 @@ namespace Winecellar
         }
         #endregion serialize functions
 
-        public void OnWineChangedSender(string message)
+        private void OnWineChangedSender(string message)
         {
             if (WineChanged_handlers != null)
             {
                 WineChanged_handlers(this, new WineEventArgs(){Interesting = message, When = DateTime.Now});                
             }
         }
+
+        private int EmptyBottles() => wines.Count(wine => wine.IsConsumed);
+
+        private int FullBottles() => wines.Count(wine => !wine.IsConsumed);
         
+        private int FullReds()
+        {
+            int count = 0;
+            foreach (var wine in wines)
+            {
+                if (!wine.IsConsumed && (wine is RedWine))
+                {
+                    count++;
+                }
+            }
+            return count;
+        } 
+        
+        private int FullWhites() => wines.Count(wine => !wine.IsConsumed && (wine is WhiteWine));
+
         #endregion Methods
     }
 }
