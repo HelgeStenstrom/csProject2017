@@ -352,8 +352,6 @@ namespace Winecellar
             try
             {
                 wineManagerObj.BinaryDeSerialize(wineFileName);
-                MessageBox.Show("Vinlistan har lästs in."); //write message
-
             }
             catch (Exception e)
             {
