@@ -46,6 +46,26 @@ namespace Winecellar
             lstvWines.Columns.Add("Datum", 150, HorizontalAlignment.Center);
             
             wineManagerObj.WineChanged_handlers += OnWineChanged_handler;
+
+            OpenFileOnStart();
+        }
+
+        private void OpenFileOnStart()
+        {
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show("Vill du läsa in en fil med viner nu?",
+                "Öppna vinfil?", buttons);
+
+            if (result == DialogResult.Yes)
+            {
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    wineFileName = openFileDialog.FileName;
+                    ReadWinesfromFile();
+                    UpdateGui();
+                }
+            }
+            
         }
 
         /// <summary>
