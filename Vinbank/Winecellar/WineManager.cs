@@ -12,6 +12,10 @@ namespace Winecellar
     {
         #region Fields
         private List<Wine> wines; //declare list of wine
+        
+        /// <summary>
+        /// Events that are sent when wines are added, changed or removed from the list.
+        /// </summary>
         public event EventHandler<WineEventArgs> WineChanged_handlers;
         #endregion Fields
 
@@ -131,17 +135,29 @@ namespace Winecellar
         }
 
         #region serialize functions
+        /// <summary>
+        /// Serialize the wine manager into a binary file
+        /// </summary>
+        /// <param name="binFileName">name of the file to save to</param>
         public void BinarySerialize(string binFileName)
         {
             Serializer.Serialize(binFileName, wines);
         }
 
+        /// <summary>
+        /// Read in a previously saved file with wine manager data. Replaces the current content of the wine manager. 
+        /// </summary>
+        /// <param name="binFileName"></param>
         public void BinaryDeSerialize(string binFileName)
         {
             wines = Serializer.DeSerialize<List<Wine>>(binFileName);
         }
         #endregion serialize functions
 
+        /// <summary>
+        /// Called to send an event containing a text message.
+        /// </summary>
+        /// <param name="message">The message to send</param>
         private void OnWineChangedSender(string message)
         {
             if (WineChanged_handlers != null)
@@ -150,24 +166,40 @@ namespace Winecellar
             }
         }
 
-        private int EmptyBottles() => wines.Count(wine => wine.IsConsumed);
+        /// <summary>
+        /// The count of empty bottles in the list (bottles that have been consumed)
+        /// </summary>
+        private int EmptyBottles => wines.Count(wine => wine.IsConsumed);
 
-        private int FullBottles() => wines.Count(wine => !wine.IsConsumed);
-        
-        private int FullReds()
+        /// <summary>
+        /// The count of full bottles in the list.
+        /// </summary>
+        private int FullBottles => wines.Count(wine => !wine.IsConsumed);
+
+        /// <summary>
+        /// The count of full bottles of white wine in the list.
+        /// </summary>
+        private int FullWhites => wines.Count(wine => !wine.IsConsumed && (wine is WhiteWine));
+
+        /// <summary>
+        /// The count of full bottles of red wine in the list. Traditional implementation.
+        /// </summary>
+        private int FullReds
         {
-            int count = 0;
-            foreach (var wine in wines)
+            get
             {
-                if (!wine.IsConsumed && (wine is RedWine))
+                int count = 0;
+                foreach (var wine in wines)
                 {
-                    count++;
+                    if (!wine.IsConsumed && (wine is RedWine))
+                    {
+                        count++;
+                    }
                 }
+
+                return count;
             }
-            return count;
-        } 
-        
-        private int FullWhites() => wines.Count(wine => !wine.IsConsumed && (wine is WhiteWine));
+        }
 
         #endregion Methods
     }
