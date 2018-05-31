@@ -182,7 +182,6 @@
             // 
             // openFileDialog
             // 
-            this.openFileDialog.FileName = "openFileDialog1";
             this.openFileDialog.Filter = "Binary file|*.bin|All files|*.*";
             // 
             // saveFileDialog
