@@ -1,4 +1,7 @@
-﻿using System;
+﻿//SweetWine.cs
+//Helge Stenström ah7875
+//2018
+using System;
 
 namespace Winecellar
 {

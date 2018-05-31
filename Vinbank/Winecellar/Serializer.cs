@@ -1,5 +1,6 @@
 ﻿/// Serializer.cs
-/// Ann-Marie Bergström  ai2436 2018
+/// Ann-Marie Bergström  ai2436 
+/// 2018
  
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;

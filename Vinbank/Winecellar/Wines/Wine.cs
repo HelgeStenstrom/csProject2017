@@ -1,6 +1,6 @@
 ﻿//Wine.cs
 //Helge Stenström ah7875
-//2017-12-29
+//2018
 
 using System;
 

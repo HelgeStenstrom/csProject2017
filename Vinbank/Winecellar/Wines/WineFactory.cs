@@ -1,4 +1,7 @@
-﻿using System;
+﻿//WineFactory.cs
+//Helge Stenström ah7875
+//2018
+using System;
 using Winecellar;
 
 namespace Winecellar
