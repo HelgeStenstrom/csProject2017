@@ -44,6 +44,8 @@ namespace Winecellar
             lstvWines.Columns.Add("Land", 170, HorizontalAlignment.Left);
             lstvWines.Columns.Add("Typ", 50, HorizontalAlignment.Center);
             lstvWines.Columns.Add("Datum", 150, HorizontalAlignment.Center);
+            
+            wineManagerObj.WineChanged_handlers += OnWineChanged_handler;
         }
 
         /// <summary>
