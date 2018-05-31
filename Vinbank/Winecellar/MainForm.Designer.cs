@@ -42,7 +42,6 @@
             this.mnuSaveFile = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuSaveFileAs = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuNewFile = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.lblWineEventInfo = new System.Windows.Forms.Label();
@@ -145,8 +144,7 @@
             this.mnuOpenFile,
             this.mnuSaveFile,
             this.mnuSaveFileAs,
-            this.mnuNewFile,
-            this.mnuExit});
+            this.mnuNewFile});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.fileToolStripMenuItem.Text = "Vinfil";
@@ -181,14 +179,6 @@
             this.mnuNewFile.Size = new System.Drawing.Size(182, 22);
             this.mnuNewFile.Text = "Ny vinfil";
             this.mnuNewFile.Click += new System.EventHandler(this.mnuNewFile_Click);
-            // 
-            // mnuExit
-            // 
-            this.mnuExit.Name = "mnuExit";
-            this.mnuExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.mnuExit.Size = new System.Drawing.Size(182, 22);
-            this.mnuExit.Text = "Stäng";
-            this.mnuExit.Click += new System.EventHandler(this.mnuExit_Click);
             // 
             // openFileDialog
             // 
@@ -249,7 +239,6 @@
         private System.Windows.Forms.ToolStripMenuItem mnuSaveFile;
         private System.Windows.Forms.ToolStripMenuItem mnuSaveFileAs;
         private System.Windows.Forms.ToolStripMenuItem mnuNewFile;
-        private System.Windows.Forms.ToolStripMenuItem mnuExit;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.Label lblWineEventInfo;
