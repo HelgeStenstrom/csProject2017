@@ -70,11 +70,11 @@ namespace Winecellar
         #region Event handlers
 
         #region Own defined event handlers
-        private void OnFlightChanged_handler(object sender, WineEventArgs e)
+        private void OnWineChanged_handler(object sender, WineEventArgs e)
             // TODO: Sätt upp samband mellan en publisher och denna subscriber
         {
             // TODO: Fyll med något vettigt, istället för detta.
-            lblWineEventInfo.Text = e.Interesting;
+            lblWineEventInfo.Text = e.When.ToShortTimeString();
         }
 
         #endregion
