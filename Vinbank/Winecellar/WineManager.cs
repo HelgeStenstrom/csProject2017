@@ -11,6 +11,7 @@ namespace Winecellar
     {
         #region Fields
         private List<Wine> wines; //declare list of wine
+        public event EventHandler<WineEventArgs> WineChanged_handlers;
         #endregion Fields
 
         #region Properties
@@ -43,6 +44,8 @@ namespace Winecellar
         {
             Wine wineObj = wineIn.Clone();  //declare and create wine object
             wines.Add(wineObj);
+            
+            OnWineChangedSender("Adding wine");
         }
         
         /// <summary>
@@ -53,7 +56,8 @@ namespace Winecellar
         {
             if (CheckIndex(index))
             {
-                 wines.RemoveAt(index);
+                wines.RemoveAt(index);
+                OnWineChangedSender("Removing wine");
                 return true;
             }
             else
@@ -69,6 +73,7 @@ namespace Winecellar
             if (CheckIndex(index))
             {
                 wines[index] = wine;
+                OnWineChangedSender("Changing wine");
                 return true;
             }
             else
@@ -134,6 +139,15 @@ namespace Winecellar
             wines = Serializer.DeSerialize<List<Wine>>(binFileName);
         }
         #endregion serialize functions
+
+        public void OnWineChangedSender(string message)
+        {
+            if (WineChanged_handlers != null)
+            {
+                WineChanged_handlers(this, new WineEventArgs(){Interesting = message, When = DateTime.Now});                
+            }
+        }
+        
         #endregion Methods
     }
 }
