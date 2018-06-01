@@ -34,7 +34,7 @@ namespace Winecellar
         /// </summary>
         private void InitializeGui()
         {
-            lblWineEventInfo.Text = "Events appear here";
+            lblWineEventInfo.Text = "Events visas här när du lägger till, ändrar eller tar bort ett vin.";
 
             // Replace the columns drawn in the GUI editor with columns defined here.
             // It's easier to match these columns to the data in Wine.RowStrings method.
