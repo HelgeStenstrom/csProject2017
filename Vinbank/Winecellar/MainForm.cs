@@ -21,6 +21,7 @@ namespace Winecellar
         public MainForm()
         {
             InitializeComponent();
+            OpenFileOnStart();
             InitializeGui();
             UpdateGui();
         }
@@ -47,7 +48,7 @@ namespace Winecellar
             
             wineManagerObj.WineChanged_handlers += OnWineChanged_handler;
 
-            OpenFileOnStart();
+        
         }
 
         private void OpenFileOnStart()
@@ -305,16 +306,8 @@ namespace Winecellar
         /// <param name="e"></param>
         private void mnuNewFile_Click(object sender, EventArgs e)
         {
-            DialogResult result = DialogResult.OK;
-            if (wineListChangedButNotSaved)
-            {
-                //ask if it is ok that unsaved wine list will be lost
-                MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
-                result = MessageBox.Show("Existerande vinlista kommer inte att sparas?",
-                    "OK?", buttons);
-            }
-
-            if (result == DialogResult.OK)
+            // TODO: Se till att listan kan tömmas, även om det inte finns några osparade ändringar.
+            if (!wineListChangedButNotSaved || ConfirmDialog("Vill du radera existerande vinlista?"))
             {
                 InitializeGui();
                 lstvWines.Items.Clear();
