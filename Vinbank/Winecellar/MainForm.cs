@@ -128,7 +128,7 @@ namespace Winecellar
         private void btnAdd_Click(object sender, EventArgs e)
         {
             WineForm wineFormObj = new WineForm("Lägg till vin");
-            // Only one wine may be selected, so we know which wine to act on.
+            // Only one wine may be selected.
             if (lstvWines.SelectedIndices.Count == 1)
             {
                 int selectedIndex = lstvWines.SelectedIndices[0]; // The first and only wine that is selected.
@@ -147,9 +147,9 @@ namespace Winecellar
             {
                 Wine wine = wineFormObj.WineData;
                 wineManagerObj.AddWine(wine);
+                wineListChangedButNotSaved = true;
+                UpdateGui();
             }
-            UpdateGui();
-            wineListChangedButNotSaved = true;
         }
 
         /// <summary>
@@ -175,14 +175,14 @@ namespace Winecellar
                     {
                         Wine wine = wineFormObj.WineData;
                         wineManagerObj.ChangeWine(wine, selectedIndex);
+                        wineListChangedButNotSaved = true;
+                        UpdateGui();
                     }
                 }
                 catch (IndexOutOfRangeException )
                 {
                     MessageProblem(false); // If the selectedIndex was out of range, show a warning message.
                 }
-                UpdateGui();
-                wineListChangedButNotSaved = true;
             }
         }
 
@@ -197,12 +197,11 @@ namespace Winecellar
                 string selectedName = wineManagerObj.GetWine(selectedIndex).WineName;
                 if (ConfirmDialog($"Vill du ta bort {selectedName}?"))
                 {
-                     bool success = wineManagerObj.RemoveWine(selectedIndex);
+                    bool success = wineManagerObj.RemoveWine(selectedIndex);
+                    wineListChangedButNotSaved = true;
+                    UpdateGui();
                     MessageProblem(success); // If the selectedIndex was out of range, show a warning message.
                 }
-
-                UpdateGui();
-                wineListChangedButNotSaved = true;
             }
         }
         
@@ -222,9 +221,9 @@ namespace Winecellar
             {
                 Wine wineOut = consumedFormObj.WineData;
                 wineManagerObj.ChangeWine(wineOut, selectedIndex);
+                wineListChangedButNotSaved = true;
+                UpdateGui();
             }
-            UpdateGui();
-            wineListChangedButNotSaved = true;
         }
 
         /// <summary>
