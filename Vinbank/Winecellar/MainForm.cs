@@ -45,7 +45,8 @@ namespace Winecellar
             lstvWines.Columns.Add("Land", 170, HorizontalAlignment.Left);
             lstvWines.Columns.Add("Typ", 50, HorizontalAlignment.Center);
             lstvWines.Columns.Add("Datum", 150, HorizontalAlignment.Center);
-            
+            lstvWines.Items.Clear();
+
             wineManagerObj.WineChanged_handlers += OnWineChanged_handler;      
         }
 
@@ -134,7 +135,7 @@ namespace Winecellar
                 int selectedIndex = lstvWines.SelectedIndices[0]; // The first and only wine that is selected.
                 try
                 {
-                    wineFormObj.WineData = wineManagerObj.GetWine(selectedIndex);
+                    wineFormObj.WineData = wineManagerObj.GetWine(selectedIndex); // get wine to copy
                 }
                 catch (IndexOutOfRangeException)
                 {
@@ -278,6 +279,7 @@ namespace Winecellar
                 {
                     wineFileName = openFileDialog.FileName;
                     ReadWinesfromFile();
+                    wineListChangedButNotSaved = false;
                     UpdateGui();
                 }
             }
@@ -293,8 +295,8 @@ namespace Winecellar
             if (!wineListChangedButNotSaved || ConfirmDialog("Vill du radera existerande vinlista?"))
             {
                 InitializeGui();
-                lstvWines.Items.Clear();
-                wineManagerObj.ClearList(); 
+                wineManagerObj.ClearList();
+                wineListChangedButNotSaved = false;
             }
         }
         #endregion Menu event handlers
