@@ -46,29 +46,10 @@ namespace Winecellar
             lstvWines.Columns.Add("Typ", 50, HorizontalAlignment.Center);
             lstvWines.Columns.Add("Datum", 150, HorizontalAlignment.Center);
             
-            wineManagerObj.WineChanged_handlers += OnWineChanged_handler;
-
-        
+            wineManagerObj.WineChanged_handlers += OnWineChanged_handler;      
         }
 
-        private void OpenFileOnStart()
-        {
-            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-            DialogResult result = MessageBox.Show("Vill du läsa in en fil med viner nu?",
-                "Öppna vinfil?", buttons);
-
-            if (result == DialogResult.Yes)
-            {
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    wineFileName = openFileDialog.FileName;
-                    ReadWinesfromFile();
-                    UpdateGui();
-                }
-            }
-            
-        }
-
+ 
         /// <summary>
         /// Update the GUI using available information.
         /// Add wines to the list.
@@ -85,9 +66,6 @@ namespace Winecellar
                 lstvWines.Items.Add(tableRow);
             }
             EnableButtonsIfOneWineSelected();
-
-            wineListChangedButNotSaved = true;
-
         }
 
         /// <summary>
@@ -171,6 +149,7 @@ namespace Winecellar
                 wineManagerObj.AddWine(wine);
             }
             UpdateGui();
+            wineListChangedButNotSaved = true;
         }
 
         /// <summary>
@@ -203,6 +182,7 @@ namespace Winecellar
                     MessageProblem(false); // If the selectedIndex was out of range, show a warning message.
                 }
                 UpdateGui();
+                wineListChangedButNotSaved = true;
             }
         }
 
@@ -222,6 +202,7 @@ namespace Winecellar
                 }
 
                 UpdateGui();
+                wineListChangedButNotSaved = true;
             }
         }
         
@@ -243,6 +224,7 @@ namespace Winecellar
                 wineManagerObj.ChangeWine(wineOut, selectedIndex);
             }
             UpdateGui();
+            wineListChangedButNotSaved = true;
         }
 
         /// <summary>
@@ -298,7 +280,6 @@ namespace Winecellar
                     wineFileName = openFileDialog.FileName;
                     ReadWinesfromFile();
                     UpdateGui();
-                    wineListChangedButNotSaved = false;
                 }
             }
         }
@@ -315,7 +296,6 @@ namespace Winecellar
                 InitializeGui();
                 lstvWines.Items.Clear();
                 wineManagerObj.ClearList(); 
-                wineListChangedButNotSaved = false;
             }
         }
         #endregion Menu event handlers
@@ -354,6 +334,27 @@ namespace Winecellar
         #endregion Event handlers
 
         #region Wine file methods
+
+        /// <summary>
+        /// Ask if file should be opened
+        /// </summary>
+        private void OpenFileOnStart()
+        {
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show("Vill du läsa in en fil med viner nu?",
+                "Öppna vinfil?", buttons);
+
+            if (result == DialogResult.Yes)
+            {
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    wineFileName = openFileDialog.FileName;
+                    ReadWinesfromFile();
+                    UpdateGui();
+                }
+            }
+        }
+
         /// <summary>
         /// Save wine list to file
         /// </summary>
