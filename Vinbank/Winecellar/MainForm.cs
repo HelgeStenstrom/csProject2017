@@ -291,11 +291,15 @@ namespace Winecellar
         /// <param name="e"></param>
         private void mnuOpenFile_Click(object sender, EventArgs e)
         {
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            if (!wineListChangedButNotSaved || ConfirmDialog("Vill du radera existerande vinlista?"))
             {
-                wineFileName = openFileDialog.FileName;
-                ReadWinesfromFile();
-                UpdateGui();
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    wineFileName = openFileDialog.FileName;
+                    ReadWinesfromFile();
+                    UpdateGui();
+                    wineListChangedButNotSaved = false;
+                }
             }
         }
 
@@ -306,7 +310,6 @@ namespace Winecellar
         /// <param name="e"></param>
         private void mnuNewFile_Click(object sender, EventArgs e)
         {
-            // TODO: Se till att listan kan tömmas, även om det inte finns några osparade ändringar.
             if (!wineListChangedButNotSaved || ConfirmDialog("Vill du radera existerande vinlista?"))
             {
                 InitializeGui();
@@ -324,24 +327,29 @@ namespace Winecellar
         /// <param name="e"></param>
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            MessageBoxButtons okButton = MessageBoxButtons.YesNoCancel;
-            DialogResult result = MessageBox.Show("Vill du spara alla ändringar innan stängning?",
-                "Bekräfta!", okButton);
+            if (wineListChangedButNotSaved)
+            {
+                MessageBoxButtons okButton = MessageBoxButtons.YesNoCancel;
+                DialogResult result = MessageBox.Show("Vill du spara alla ändringar innan stängning?",
+                    "Bekräfta!", okButton);
 
-            if (result == DialogResult.Yes)
-            {
-                SaveWinesToFile();
-                e.Cancel = false;
-            }
-                          
-            else if (result == DialogResult.No)
-            {
-                e.Cancel = false;
+                if (result == DialogResult.Yes)
+                {
+                    SaveWinesToFile();
+                    e.Cancel = false;
+                }
+
+                else if (result == DialogResult.No)
+                {
+                    e.Cancel = false;
+                }
+                else
+                {
+                    e.Cancel = true;
+                }
             }
             else
-            {
-                e.Cancel = true;
-            }
+                e.Cancel = false;
         }
         #endregion Event handlers
 

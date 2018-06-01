@@ -57,7 +57,7 @@ namespace Winecellar
             WineName = other.WineName;
             Vintage = other.Vintage;
             Country = other.Country;
-            WineType = other.WineType; // TODO: ta bort WineTYpe som fält.
+            WineType = other.WineType;
             DateAdded = other.DateAdded;
             DateConsumed = other.DateConsumed;
             IsConsumed = other.IsConsumed;
